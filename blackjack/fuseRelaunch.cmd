@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/emha/blackjack/tb_shuffle_isim_beh.exe" -prj "D:/emha/blackjack/tb_shuffle_beh.prj" "work.tb_shuffle" 

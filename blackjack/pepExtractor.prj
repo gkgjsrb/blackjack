@@ -1,0 +1,6 @@
+work	"LFSR.vhd"
+work	"bcd_counter.vhd"
+work	"card_reg.vhd"
+work	"dff.vhd"
+work	"shuffle.vhd"
+work	"status_reg.vhd"

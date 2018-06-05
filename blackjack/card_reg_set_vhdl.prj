@@ -1,0 +1,3 @@
+vhdl work "D:\emha\blackjack\dff.vhd"
+vhdl work "D:\emha\blackjack\card_reg.vhd"
+vhdl work "D:\emha\blackjack\card_reg_set.vhd"
