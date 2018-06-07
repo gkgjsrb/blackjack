@@ -140,7 +140,7 @@ begin
 	P2C : bcd_counter2 port map(rst=>rst,clk=>clk,en=>en2,cnt=>p2_cnt);
 	DC : bcd_counter2 port map(rst=>rst,clk=>clk,en=>en3,cnt=>d_cnt);
 	
-	--Ä«µå¸¦ ºĞ¹èÇÏ°í ÇÕ °áÁ¤
+	--ì¹´ë“œë¥¼ ë¶„ë°°í•˜ê³  í•© ê²°ì •
 	process(state,hit,stand,en,en1,en2,en3,p1_cnt,p2_cnt,d_cnt,p1_input,p2_input,d_input,sel_card)
 		variable status_tmp : integer range 0 to 63;
 		variable cnt_tmp : integer range 0 to 26;
@@ -297,7 +297,7 @@ begin
 					else 
 						d_tmp:=d_tmp+10;					
 					end if;
-					if p2_tmp=21 then
+					if d_tmp=21 then
 					d_input_sum<=conv_std_logic_vector(21,6);
 					elsif d_tmp<21 then
 						if d_input="000000" or d_input="001101" or d_input="011010" or d_input="100111" then
@@ -320,24 +320,24 @@ begin
 		end if;
 	end process;
 	
-	-- ½ÂÆĞ °áÁ¤
+	-- ìŠ¹íŒ¨ ê²°ì •
 --	process(p1_result,p2_result)
 --	begin
 --		
 --	end process;
 
-	--±İ¾×À» °á°ú¿¡ µû¶ó Áõ°¨
+	--ê¸ˆì•¡ì„ ê²°ê³¼ì— ë”°ë¼ ì¦ê°
 --	process(p1_result,p2_result)
 --	begin
 --		if p1_result='1' then
---			--±İ¾×À» ´õÇÔ
+--			--ê¸ˆì•¡ì„ ë”í•¨
 --		elsif p1_result='0' then
---			--±İ¾×À» »­
+--			--ê¸ˆì•¡ì„ ëºŒ
 --		end if;
 --		if p2_result='1' then
---			--±İ¾×À» ´õÇÔ
+--			--ê¸ˆì•¡ì„ ë”í•¨
 --		elsif p2_result='0' then
---			--±İ¾×À» »­
+--			--ê¸ˆì•¡ì„ ëºŒ
 --		end if;	
 --	end process;
 
