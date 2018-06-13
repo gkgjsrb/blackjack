@@ -605,30 +605,771 @@ end process;
 				addrcnt(29)<= (others => '0');
 			elsif ( ( vsync_cnt >= (tVW + tVBP-1 ) ) and ( vsync_cnt <= (tVW + tVBP + 51) ) )then 
 				rgb_data <= "00000" & "001110" & "00000";
-			elsif ( ( vsync_cnt >= (tVW + tVBP +52 ) ) and ( vsync_cnt <= (tVW + tVBP + 66) ) )then 
-				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +110)) ) then
+			elsif ( ( vsync_cnt >= (tVW + tVBP +52 ) ) and ( vsync_cnt <= (tVW + tVBP + 66) ) )then -- 딜러 문양
+				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +110)) ) then -- 
 					if (d_c1 >= "000000" )and (d_c1 <= "001100") then --spade
 						addrcnt(26) <= addrcnt(26) + '1';
 						rgb_data <= b_data(26) & g_data(26) & r_data(26);
-						if addrcnt(26) = x"a4" then
-							addrcnt(26) <= (others => '0');
+						if(((d_c2 >= "000000" )and (d_c2 <= "001100")) or ((d_c3 >= "000000" )and (d_c3 <= "001100")) or ((d_c4 >= "000000" )and (d_c4 <= "001100"))
+						or ((d_c5 >= "000000" )and (d_c5 <= "001100"))or ((d_c6 >= "000000" )and (d_c6 <= "001100"))) then
+							if addrcnt(26) = x"0a" then
+								addrcnt(26) <= (others => '0');
+							elsif addrcnt(26) = x"15" then
+								addrcnt(26) <= x"0b";
+							elsif addrcnt(26) = x"20" then
+								addrcnt(26) <= x"16";
+							elsif addrcnt(26) = x"2b" then
+								addrcnt(26) <= x"21";
+							elsif addrcnt(26) = x"36" then
+								addrcnt(26) <= x"2c";
+							elsif addrcnt(26) = x"41" then
+								addrcnt(26) <= x"37";
+							elsif addrcnt(26) = x"4c" then
+								addrcnt(26) <= x"42";
+							elsif addrcnt(26) = x"57" then
+								addrcnt(26) <= x"4d";
+							elsif addrcnt(26) = x"62" then
+								addrcnt(26) <= x"58";
+							elsif addrcnt(26) = x"6d" then
+								addrcnt(26) <= x"63";
+							elsif addrcnt(26) = x"78" then
+								addrcnt(26) <= x"6e";
+							elsif addrcnt(26) = x"83" then
+								addrcnt(26) <= x"79";
+							elsif addrcnt(26) = x"8e" then
+								addrcnt(26) <= x"84";
+							elsif addrcnt(26) = x"99" then
+								addrcnt(26) <= x"8f";
+							end if;
 						end if;
 					elsif (d_c1 >= "001101" )and (d_c1 <= "011001") then --clover
 						addrcnt(27) <= addrcnt(27) + '1';
 						rgb_data <= b_data(27) & g_data(27) & r_data(27);
+						if(((d_c2 >= "001101" )and (d_c2 <= "011001")) or ((d_c3 >= "001101" )and (d_c3 <= "011001")) or ((d_c4 >= "001101" )and (d_c4 <= "011001"))
+						or ((d_c5 >= "001101" )and (d_c5 <= "011001"))or ((d_c6 >= "001101" )and (d_c6 <= "011001"))) then
+							if addrcnt(27) = x"0a" then
+								addrcnt(27) <= (others => '0');
+							elsif addrcnt(27) = x"15" then
+								addrcnt(27) <= x"0b";
+							elsif addrcnt(27) = x"20" then
+								addrcnt(27) <= x"16";
+							elsif addrcnt(27) = x"2b" then
+								addrcnt(27) <= x"21";
+							elsif addrcnt(27) = x"36" then
+								addrcnt(27) <= x"2c";
+							elsif addrcnt(27) = x"41" then
+								addrcnt(27) <= x"37";
+							elsif addrcnt(27) = x"4c" then
+								addrcnt(27) <= x"42";
+							elsif addrcnt(27) = x"57" then
+								addrcnt(27) <= x"4d";
+							elsif addrcnt(27) = x"62" then
+								addrcnt(27) <= x"58";
+							elsif addrcnt(27) = x"6d" then
+								addrcnt(27) <= x"63";
+							elsif addrcnt(27) = x"78" then
+								addrcnt(27) <= x"6e";
+							elsif addrcnt(27) = x"83" then
+								addrcnt(27) <= x"79";
+							elsif addrcnt(27) = x"8e" then
+								addrcnt(27) <= x"84";
+							elsif addrcnt(27) = x"99" then
+								addrcnt(27) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 >= "011010" )and (d_c1 <= "100110") then --heart
 						addrcnt(28) <= addrcnt(28) + '1';
 						rgb_data <= b_data(28) & g_data(28) & r_data(28);
+						if(((d_c2 >= "011010" )and (d_c2 <= "100110")) or ((d_c3 >= "011010" )and (d_c3 <= "100110")) or ((d_c4 >= "011010" )and (d_c4 <= "100110"))
+						or ((d_c5 >= "011010" )and (d_c5 <= "100110"))or ((d_c6 >= "011010" )and (d_c6 <= "100110"))) then
+							if addrcnt(28) = x"0a" then
+								addrcnt(28) <= (others => '0');
+							elsif addrcnt(28) = x"15" then
+								addrcnt(28) <= x"0b";
+							elsif addrcnt(28) = x"20" then
+								addrcnt(28) <= x"16";
+							elsif addrcnt(28) = x"2b" then
+								addrcnt(28) <= x"21";
+							elsif addrcnt(28) = x"36" then
+								addrcnt(28) <= x"2c";
+							elsif addrcnt(28) = x"41" then
+								addrcnt(28) <= x"37";
+							elsif addrcnt(28) = x"4c" then
+								addrcnt(28) <= x"42";
+							elsif addrcnt(28) = x"57" then
+								addrcnt(28) <= x"4d";
+							elsif addrcnt(28) = x"62" then
+								addrcnt(28) <= x"58";
+							elsif addrcnt(28) = x"6d" then
+								addrcnt(28) <= x"63";
+							elsif addrcnt(28) = x"78" then
+								addrcnt(28) <= x"6e";
+							elsif addrcnt(28) = x"83" then
+								addrcnt(28) <= x"79";
+							elsif addrcnt(28) = x"8e" then
+								addrcnt(28) <= x"84";
+							elsif addrcnt(28) = x"99" then
+								addrcnt(28) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 >= "100111" )and (d_c1 <= "110011") then --dia
 						addrcnt(29) <= addrcnt(29) + '1';
 						rgb_data <= b_data(29) & g_data(29) & r_data(29);
+						if(((d_c2 >= "100111" )and (d_c2 <= "110011")) or ((d_c3 >= "100111" )and (d_c3 <= "110011")) or ((d_c4 >= "100111" )and (d_c4 <= "110011"))
+						or ((d_c5 >= "100111" )and (d_c5 <= "110011"))or ((d_c6 >= "100111" )and (d_c6 <= "110011"))) then
+							if addrcnt(29) = x"0a" then
+								addrcnt(29) <= (others => '0');
+							elsif addrcnt(29) = x"15" then
+								addrcnt(29) <= x"0b";
+							elsif addrcnt(29) = x"20" then
+								addrcnt(29) <= x"16";
+							elsif addrcnt(29) = x"2b" then
+								addrcnt(29) <= x"21";
+							elsif addrcnt(29) = x"36" then
+								addrcnt(29) <= x"2c";
+							elsif addrcnt(29) = x"41" then
+								addrcnt(29) <= x"37";
+							elsif addrcnt(29) = x"4c" then
+								addrcnt(29) <= x"42";
+							elsif addrcnt(29) = x"57" then
+								addrcnt(29) <= x"4d";
+							elsif addrcnt(29) = x"62" then
+								addrcnt(29) <= x"58";
+							elsif addrcnt(29) = x"6d" then
+								addrcnt(29) <= x"63";
+							elsif addrcnt(29) = x"78" then
+								addrcnt(29) <= x"6e";
+							elsif addrcnt(29) = x"83" then
+								addrcnt(29) <= x"79";
+							elsif addrcnt(29) = x"8e" then
+								addrcnt(29) <= x"84";
+							elsif addrcnt(29) = x"99" then
+								addrcnt(29) <= x"8f";
+							end if;
+						end if;
 					else
 						rgb_data <= (others => '1');
 					end if;
-				elsif ((hsync_cnt >= (tHW + tHBP +111 ) ) and ( hsync_cnt <= (tHW + tHBP +160)) ) then
+				elsif ((hsync_cnt >= (tHW + tHBP +111 ) ) and ( hsync_cnt <= (tHW + tHBP +121)) ) then
+					if (d_c2 >= "000000" )and (d_c2 <= "001100") then --spade
+						addrcnt(26) <= addrcnt(26) + '1';
+						rgb_data <= b_data(26) & g_data(26) & r_data(26);
+						if(((d_c3 >= "000000" )and (d_c3 <= "001100")) or ((d_c4 >= "000000" )and (d_c4 <= "001100"))
+						or ((d_c5 >= "000000" )and (d_c5 <= "001100"))or ((d_c6 >= "000000" )and (d_c6 <= "001100"))) then
+							if addrcnt(26) = x"0a" then
+								addrcnt(26) <= (others => '0');
+							elsif addrcnt(26) = x"15" then
+								addrcnt(26) <= x"0b";
+							elsif addrcnt(26) = x"20" then
+								addrcnt(26) <= x"16";
+							elsif addrcnt(26) = x"2b" then
+								addrcnt(26) <= x"21";
+							elsif addrcnt(26) = x"36" then
+								addrcnt(26) <= x"2c";
+							elsif addrcnt(26) = x"41" then
+								addrcnt(26) <= x"37";
+							elsif addrcnt(26) = x"4c" then
+								addrcnt(26) <= x"42";
+							elsif addrcnt(26) = x"57" then
+								addrcnt(26) <= x"4d";
+							elsif addrcnt(26) = x"62" then
+								addrcnt(26) <= x"58";
+							elsif addrcnt(26) = x"6d" then
+								addrcnt(26) <= x"63";
+							elsif addrcnt(26) = x"78" then
+								addrcnt(26) <= x"6e";
+							elsif addrcnt(26) = x"83" then
+								addrcnt(26) <= x"79";
+							elsif addrcnt(26) = x"8e" then
+								addrcnt(26) <= x"84";
+							elsif addrcnt(26) = x"99" then
+								addrcnt(26) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 >= "001101" )and (d_c2 <= "011001") then --clover
+						addrcnt(27) <= addrcnt(27) + '1';
+						rgb_data <= b_data(27) & g_data(27) & r_data(27);
+						if(((d_c3 >= "001101" )and (d_c3 <= "011001")) or ((d_c4 >= "001101" )and (d_c4 <= "011001"))
+						or ((d_c5 >= "001101" )and (d_c5 <= "011001"))or ((d_c6 >= "001101" )and (d_c6 <= "011001"))) then
+							if addrcnt(27) = x"0a" then
+								addrcnt(27) <= (others => '0');
+							elsif addrcnt(27) = x"15" then
+								addrcnt(27) <= x"0b";
+							elsif addrcnt(27) = x"20" then
+								addrcnt(27) <= x"16";
+							elsif addrcnt(27) = x"2b" then
+								addrcnt(27) <= x"21";
+							elsif addrcnt(27) = x"36" then
+								addrcnt(27) <= x"2c";
+							elsif addrcnt(27) = x"41" then
+								addrcnt(27) <= x"37";
+							elsif addrcnt(27) = x"4c" then
+								addrcnt(27) <= x"42";
+							elsif addrcnt(27) = x"57" then
+								addrcnt(27) <= x"4d";
+							elsif addrcnt(27) = x"62" then
+								addrcnt(27) <= x"58";
+							elsif addrcnt(27) = x"6d" then
+								addrcnt(27) <= x"63";
+							elsif addrcnt(27) = x"78" then
+								addrcnt(27) <= x"6e";
+							elsif addrcnt(27) = x"83" then
+								addrcnt(27) <= x"79";
+							elsif addrcnt(27) = x"8e" then
+								addrcnt(27) <= x"84";
+							elsif addrcnt(27) = x"99" then
+								addrcnt(27) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 >= "011010" )and (d_c2 <= "100110") then --heart
+						addrcnt(28) <= addrcnt(28) + '1';
+						rgb_data <= b_data(28) & g_data(28) & r_data(28);
+						if(((d_c3 >= "011010" )and (d_c3 <= "100110")) or ((d_c4 >= "011010" )and (d_c4 <= "100110"))
+						or ((d_c5 >= "011010" )and (d_c5 <= "100110"))or ((d_c6 >= "011010" )and (d_c6 <= "100110"))) then
+							if addrcnt(28) = x"0a" then
+								addrcnt(28) <= (others => '0');
+							elsif addrcnt(28) = x"15" then
+								addrcnt(28) <= x"0b";
+							elsif addrcnt(28) = x"20" then
+								addrcnt(28) <= x"16";
+							elsif addrcnt(28) = x"2b" then
+								addrcnt(28) <= x"21";
+							elsif addrcnt(28) = x"36" then
+								addrcnt(28) <= x"2c";
+							elsif addrcnt(28) = x"41" then
+								addrcnt(28) <= x"37";
+							elsif addrcnt(28) = x"4c" then
+								addrcnt(28) <= x"42";
+							elsif addrcnt(28) = x"57" then
+								addrcnt(28) <= x"4d";
+							elsif addrcnt(28) = x"62" then
+								addrcnt(28) <= x"58";
+							elsif addrcnt(28) = x"6d" then
+								addrcnt(28) <= x"63";
+							elsif addrcnt(28) = x"78" then
+								addrcnt(28) <= x"6e";
+							elsif addrcnt(28) = x"83" then
+								addrcnt(28) <= x"79";
+							elsif addrcnt(28) = x"8e" then
+								addrcnt(28) <= x"84";
+							elsif addrcnt(28) = x"99" then
+								addrcnt(28) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 >= "100111" )and (d_c2 <= "110011") then --dia
+						addrcnt(29) <= addrcnt(29) + '1';
+						rgb_data <= b_data(29) & g_data(29) & r_data(29);
+						if(((d_c3 >= "100111" )and (d_c3 <= "110011")) or ((d_c4 >= "100111" )and (d_c4 <= "110011"))
+						or ((d_c5 >= "100111" )and (d_c5 <= "110011"))or ((d_c6 >= "100111" )and (d_c6 <= "110011"))) then
+							if addrcnt(29) = x"0a" then
+								addrcnt(29) <= (others => '0');
+							elsif addrcnt(29) = x"15" then
+								addrcnt(29) <= x"0b";
+							elsif addrcnt(29) = x"20" then
+								addrcnt(29) <= x"16";
+							elsif addrcnt(29) = x"2b" then
+								addrcnt(29) <= x"21";
+							elsif addrcnt(29) = x"36" then
+								addrcnt(29) <= x"2c";
+							elsif addrcnt(29) = x"41" then
+								addrcnt(29) <= x"37";
+							elsif addrcnt(29) = x"4c" then
+								addrcnt(29) <= x"42";
+							elsif addrcnt(29) = x"57" then
+								addrcnt(29) <= x"4d";
+							elsif addrcnt(29) = x"62" then
+								addrcnt(29) <= x"58";
+							elsif addrcnt(29) = x"6d" then
+								addrcnt(29) <= x"63";
+							elsif addrcnt(29) = x"78" then
+								addrcnt(29) <= x"6e";
+							elsif addrcnt(29) = x"83" then
+								addrcnt(29) <= x"79";
+							elsif addrcnt(29) = x"8e" then
+								addrcnt(29) <= x"84";
+							elsif addrcnt(29) = x"99" then
+								addrcnt(29) <= x"8f";
+							end if;
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +122 ) ) and ( hsync_cnt <= (tHW + tHBP +132)) ) then
+					if (d_c3 >= "000000" )and (d_c3 <= "001100") then --spade
+						addrcnt(26) <= addrcnt(26) + '1';
+						rgb_data <= b_data(26) & g_data(26) & r_data(26);
+						if(((d_c4 >= "000000" )and (d_c4 <= "001100"))
+						or ((d_c5 >= "000000" )and (d_c5 <= "001100"))or ((d_c6 >= "000000" )and (d_c6 <= "001100"))) then
+							if addrcnt(26) = x"0a" then
+								addrcnt(26) <= (others => '0');
+							elsif addrcnt(26) = x"15" then
+								addrcnt(26) <= x"0b";
+							elsif addrcnt(26) = x"20" then
+								addrcnt(26) <= x"16";
+							elsif addrcnt(26) = x"2b" then
+								addrcnt(26) <= x"21";
+							elsif addrcnt(26) = x"36" then
+								addrcnt(26) <= x"2c";
+							elsif addrcnt(26) = x"41" then
+								addrcnt(26) <= x"37";
+							elsif addrcnt(26) = x"4c" then
+								addrcnt(26) <= x"42";
+							elsif addrcnt(26) = x"57" then
+								addrcnt(26) <= x"4d";
+							elsif addrcnt(26) = x"62" then
+								addrcnt(26) <= x"58";
+							elsif addrcnt(26) = x"6d" then
+								addrcnt(26) <= x"63";
+							elsif addrcnt(26) = x"78" then
+								addrcnt(26) <= x"6e";
+							elsif addrcnt(26) = x"83" then
+								addrcnt(26) <= x"79";
+							elsif addrcnt(26) = x"8e" then
+								addrcnt(26) <= x"84";
+							elsif addrcnt(26) = x"99" then
+								addrcnt(26) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 >= "001101" )and (d_c3 <= "011001") then --clover
+						addrcnt(27) <= addrcnt(27) + '1';
+						rgb_data <= b_data(27) & g_data(27) & r_data(27);
+						if(((d_c4 >= "001101" )and (d_c4 <= "011001"))
+						or ((d_c5 >= "001101" )and (d_c5 <= "011001"))or ((d_c6 >= "001101" )and (d_c6 <= "011001")))then
+							if addrcnt(27) = x"0a" then
+								addrcnt(27) <= (others => '0');
+							elsif addrcnt(27) = x"15" then
+								addrcnt(27) <= x"0b";
+							elsif addrcnt(27) = x"20" then
+								addrcnt(27) <= x"16";
+							elsif addrcnt(27) = x"2b" then
+								addrcnt(27) <= x"21";
+							elsif addrcnt(27) = x"36" then
+								addrcnt(27) <= x"2c";
+							elsif addrcnt(27) = x"41" then
+								addrcnt(27) <= x"37";
+							elsif addrcnt(27) = x"4c" then
+								addrcnt(27) <= x"42";
+							elsif addrcnt(27) = x"57" then
+								addrcnt(27) <= x"4d";
+							elsif addrcnt(27) = x"62" then
+								addrcnt(27) <= x"58";
+							elsif addrcnt(27) = x"6d" then
+								addrcnt(27) <= x"63";
+							elsif addrcnt(27) = x"78" then
+								addrcnt(27) <= x"6e";
+							elsif addrcnt(27) = x"83" then
+								addrcnt(27) <= x"79";
+							elsif addrcnt(27) = x"8e" then
+								addrcnt(27) <= x"84";
+							elsif addrcnt(27) = x"99" then
+								addrcnt(27) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 >= "011010" )and (d_c3 <= "100110") then --heart
+						addrcnt(28) <= addrcnt(28) + '1';
+						rgb_data <= b_data(28) & g_data(28) & r_data(28);
+						if(((d_c4 >= "011010" )and (d_c4 <= "100110"))
+						or ((d_c5 >= "011010" )and (d_c5 <= "100110"))or ((d_c6 >= "011010" )and (d_c6 <= "100110"))) then
+							if addrcnt(28) = x"0a" then
+								addrcnt(28) <= (others => '0');
+							elsif addrcnt(28) = x"15" then
+								addrcnt(28) <= x"0b";
+							elsif addrcnt(28) = x"20" then
+								addrcnt(28) <= x"16";
+							elsif addrcnt(28) = x"2b" then
+								addrcnt(28) <= x"21";
+							elsif addrcnt(28) = x"36" then
+								addrcnt(28) <= x"2c";
+							elsif addrcnt(28) = x"41" then
+								addrcnt(28) <= x"37";
+							elsif addrcnt(28) = x"4c" then
+								addrcnt(28) <= x"42";
+							elsif addrcnt(28) = x"57" then
+								addrcnt(28) <= x"4d";
+							elsif addrcnt(28) = x"62" then
+								addrcnt(28) <= x"58";
+							elsif addrcnt(28) = x"6d" then
+								addrcnt(28) <= x"63";
+							elsif addrcnt(28) = x"78" then
+								addrcnt(28) <= x"6e";
+							elsif addrcnt(28) = x"83" then
+								addrcnt(28) <= x"79";
+							elsif addrcnt(28) = x"8e" then
+								addrcnt(28) <= x"84";
+							elsif addrcnt(28) = x"99" then
+								addrcnt(28) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 >= "100111" )and (d_c3 <= "110011") then --dia
+						addrcnt(29) <= addrcnt(29) + '1';
+						rgb_data <= b_data(29) & g_data(29) & r_data(29);
+						if(((d_c4 >= "100111" )and (d_c4 <= "110011"))	or ((d_c5 >= "100111" )and (d_c5 <= "110011"))or ((d_c6 >= "100111" )and (d_c6 <= "110011"))) then
+							if addrcnt(29) = x"0a" then
+								addrcnt(29) <= (others => '0');
+							elsif addrcnt(29) = x"15" then
+								addrcnt(29) <= x"0b";
+							elsif addrcnt(29) = x"20" then
+								addrcnt(29) <= x"16";
+							elsif addrcnt(29) = x"2b" then
+								addrcnt(29) <= x"21";
+							elsif addrcnt(29) = x"36" then
+								addrcnt(29) <= x"2c";
+							elsif addrcnt(29) = x"41" then
+								addrcnt(29) <= x"37";
+							elsif addrcnt(29) = x"4c" then
+								addrcnt(29) <= x"42";
+							elsif addrcnt(29) = x"57" then
+								addrcnt(29) <= x"4d";
+							elsif addrcnt(29) = x"62" then
+								addrcnt(29) <= x"58";
+							elsif addrcnt(29) = x"6d" then
+								addrcnt(29) <= x"63";
+							elsif addrcnt(29) = x"78" then
+								addrcnt(29) <= x"6e";
+							elsif addrcnt(29) = x"83" then
+								addrcnt(29) <= x"79";
+							elsif addrcnt(29) = x"8e" then
+								addrcnt(29) <= x"84";
+							elsif addrcnt(29) = x"99" then
+								addrcnt(29) <= x"8f";
+							end if;
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +133 ) ) and ( hsync_cnt <= (tHW + tHBP +143)) ) then
+					if (d_c4 >= "000000" )and (d_c4 <= "001100") then --spade
+						addrcnt(26) <= addrcnt(26) + '1';
+						rgb_data <= b_data(26) & g_data(26) & r_data(26);
+						if(((d_c5 >= "000000" )and (d_c5 <= "001100"))or ((d_c6 >= "000000" )and (d_c6 <= "001100"))) then
+							if addrcnt(26) = x"0a" then
+								addrcnt(26) <= (others => '0');
+							elsif addrcnt(26) = x"15" then
+								addrcnt(26) <= x"0b";
+							elsif addrcnt(26) = x"20" then
+								addrcnt(26) <= x"16";
+							elsif addrcnt(26) = x"2b" then
+								addrcnt(26) <= x"21";
+							elsif addrcnt(26) = x"36" then
+								addrcnt(26) <= x"2c";
+							elsif addrcnt(26) = x"41" then
+								addrcnt(26) <= x"37";
+							elsif addrcnt(26) = x"4c" then
+								addrcnt(26) <= x"42";
+							elsif addrcnt(26) = x"57" then
+								addrcnt(26) <= x"4d";
+							elsif addrcnt(26) = x"62" then
+								addrcnt(26) <= x"58";
+							elsif addrcnt(26) = x"6d" then
+								addrcnt(26) <= x"63";
+							elsif addrcnt(26) = x"78" then
+								addrcnt(26) <= x"6e";
+							elsif addrcnt(26) = x"83" then
+								addrcnt(26) <= x"79";
+							elsif addrcnt(26) = x"8e" then
+								addrcnt(26) <= x"84";
+							elsif addrcnt(26) = x"99" then
+								addrcnt(26) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 >= "001101" )and (d_c4 <= "011001") then --clover
+						addrcnt(27) <= addrcnt(27) + '1';
+						rgb_data <= b_data(27) & g_data(27) & r_data(27);
+						if(((d_c5 >= "001101" )and (d_c5 <= "011001"))or ((d_c6 >= "001101" )and (d_c6 <= "011001"))) then
+							if addrcnt(27) = x"0a" then
+								addrcnt(27) <= (others => '0');
+							elsif addrcnt(27) = x"15" then
+								addrcnt(27) <= x"0b";
+							elsif addrcnt(27) = x"20" then
+								addrcnt(27) <= x"16";
+							elsif addrcnt(27) = x"2b" then
+								addrcnt(27) <= x"21";
+							elsif addrcnt(27) = x"36" then
+								addrcnt(27) <= x"2c";
+							elsif addrcnt(27) = x"41" then
+								addrcnt(27) <= x"37";
+							elsif addrcnt(27) = x"4c" then
+								addrcnt(27) <= x"42";
+							elsif addrcnt(27) = x"57" then
+								addrcnt(27) <= x"4d";
+							elsif addrcnt(27) = x"62" then
+								addrcnt(27) <= x"58";
+							elsif addrcnt(27) = x"6d" then
+								addrcnt(27) <= x"63";
+							elsif addrcnt(27) = x"78" then
+								addrcnt(27) <= x"6e";
+							elsif addrcnt(27) = x"83" then
+								addrcnt(27) <= x"79";
+							elsif addrcnt(27) = x"8e" then
+								addrcnt(27) <= x"84";
+							elsif addrcnt(27) = x"99" then
+								addrcnt(27) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 >= "011010" )and (d_c4 <= "100110") then --heart
+						addrcnt(28) <= addrcnt(28) + '1';
+						rgb_data <= b_data(28) & g_data(28) & r_data(28);
+						if(((d_c5 >= "011010" )and (d_c5 <= "100110"))or ((d_c6 >= "011010" )and (d_c6 <= "100110"))) then
+							if addrcnt(28) = x"0a" then
+								addrcnt(28) <= (others => '0');
+							elsif addrcnt(28) = x"15" then
+								addrcnt(28) <= x"0b";
+							elsif addrcnt(28) = x"20" then
+								addrcnt(28) <= x"16";
+							elsif addrcnt(28) = x"2b" then
+								addrcnt(28) <= x"21";
+							elsif addrcnt(28) = x"36" then
+								addrcnt(28) <= x"2c";
+							elsif addrcnt(28) = x"41" then
+								addrcnt(28) <= x"37";
+							elsif addrcnt(28) = x"4c" then
+								addrcnt(28) <= x"42";
+							elsif addrcnt(28) = x"57" then
+								addrcnt(28) <= x"4d";
+							elsif addrcnt(28) = x"62" then
+								addrcnt(28) <= x"58";
+							elsif addrcnt(28) = x"6d" then
+								addrcnt(28) <= x"63";
+							elsif addrcnt(28) = x"78" then
+								addrcnt(28) <= x"6e";
+							elsif addrcnt(28) = x"83" then
+								addrcnt(28) <= x"79";
+							elsif addrcnt(28) = x"8e" then
+								addrcnt(28) <= x"84";
+							elsif addrcnt(28) = x"99" then
+								addrcnt(28) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 >= "100111" )and (d_c4 <= "110011") then --dia
+						addrcnt(29) <= addrcnt(29) + '1';
+						rgb_data <= b_data(29) & g_data(29) & r_data(29);
+						if(((d_c5 >= "100111" )and (d_c5 <= "110011"))or ((d_c6 >= "100111" )and (d_c6 <= "110011"))) then
+							if addrcnt(29) = x"0a" then
+								addrcnt(29) <= (others => '0');
+							elsif addrcnt(29) = x"15" then
+								addrcnt(29) <= x"0b";
+							elsif addrcnt(29) = x"20" then
+								addrcnt(29) <= x"16";
+							elsif addrcnt(29) = x"2b" then
+								addrcnt(29) <= x"21";
+							elsif addrcnt(29) = x"36" then
+								addrcnt(29) <= x"2c";
+							elsif addrcnt(29) = x"41" then
+								addrcnt(29) <= x"37";
+							elsif addrcnt(29) = x"4c" then
+								addrcnt(29) <= x"42";
+							elsif addrcnt(29) = x"57" then
+								addrcnt(29) <= x"4d";
+							elsif addrcnt(29) = x"62" then
+								addrcnt(29) <= x"58";
+							elsif addrcnt(29) = x"6d" then
+								addrcnt(29) <= x"63";
+							elsif addrcnt(29) = x"78" then
+								addrcnt(29) <= x"6e";
+							elsif addrcnt(29) = x"83" then
+								addrcnt(29) <= x"79";
+							elsif addrcnt(29) = x"8e" then
+								addrcnt(29) <= x"84";
+							elsif addrcnt(29) = x"99" then
+								addrcnt(29) <= x"8f";
+							end if;
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +144 ) ) and ( hsync_cnt <= (tHW + tHBP +154)) ) then
+					if (d_c5 >= "000000" )and (d_c5 <= "001100") then --spade
+						addrcnt(26) <= addrcnt(26) + '1';
+						rgb_data <= b_data(26) & g_data(26) & r_data(26);
+						if(((d_c6 >= "000000" )and (d_c6 <= "001100"))) then
+							if addrcnt(26) = x"0a" then
+								addrcnt(26) <= (others => '0');
+							elsif addrcnt(26) = x"15" then
+								addrcnt(26) <= x"0b";
+							elsif addrcnt(26) = x"20" then
+								addrcnt(26) <= x"16";
+							elsif addrcnt(26) = x"2b" then
+								addrcnt(26) <= x"21";
+							elsif addrcnt(26) = x"36" then
+								addrcnt(26) <= x"2c";
+							elsif addrcnt(26) = x"41" then
+								addrcnt(26) <= x"37";
+							elsif addrcnt(26) = x"4c" then
+								addrcnt(26) <= x"42";
+							elsif addrcnt(26) = x"57" then
+								addrcnt(26) <= x"4d";
+							elsif addrcnt(26) = x"62" then
+								addrcnt(26) <= x"58";
+							elsif addrcnt(26) = x"6d" then
+								addrcnt(26) <= x"63";
+							elsif addrcnt(26) = x"78" then
+								addrcnt(26) <= x"6e";
+							elsif addrcnt(26) = x"83" then
+								addrcnt(26) <= x"79";
+							elsif addrcnt(26) = x"8e" then
+								addrcnt(26) <= x"84";
+							elsif addrcnt(26) = x"99" then
+								addrcnt(26) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 >= "001101" )and (d_c5 <= "011001") then --clover
+						addrcnt(27) <= addrcnt(27) + '1';
+						rgb_data <= b_data(27) & g_data(27) & r_data(27);
+						if(((d_c6 >= "001101" )and (d_c6 <= "011001"))) then
+							if addrcnt(27) = x"0a" then
+								addrcnt(27) <= (others => '0');
+							elsif addrcnt(27) = x"15" then
+								addrcnt(27) <= x"0b";
+							elsif addrcnt(27) = x"20" then
+								addrcnt(27) <= x"16";
+							elsif addrcnt(27) = x"2b" then
+								addrcnt(27) <= x"21";
+							elsif addrcnt(27) = x"36" then
+								addrcnt(27) <= x"2c";
+							elsif addrcnt(27) = x"41" then
+								addrcnt(27) <= x"37";
+							elsif addrcnt(27) = x"4c" then
+								addrcnt(27) <= x"42";
+							elsif addrcnt(27) = x"57" then
+								addrcnt(27) <= x"4d";
+							elsif addrcnt(27) = x"62" then
+								addrcnt(27) <= x"58";
+							elsif addrcnt(27) = x"6d" then
+								addrcnt(27) <= x"63";
+							elsif addrcnt(27) = x"78" then
+								addrcnt(27) <= x"6e";
+							elsif addrcnt(27) = x"83" then
+								addrcnt(27) <= x"79";
+							elsif addrcnt(27) = x"8e" then
+								addrcnt(27) <= x"84";
+							elsif addrcnt(27) = x"99" then
+								addrcnt(27) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 >= "011010" )and (d_c5 <= "100110") then --heart
+						addrcnt(28) <= addrcnt(28) + '1';
+						rgb_data <= b_data(28) & g_data(28) & r_data(28);
+						if(((d_c6 >= "011010" )and (d_c6 <= "100110"))) then
+							if addrcnt(28) = x"0a" then
+								addrcnt(28) <= (others => '0');
+							elsif addrcnt(28) = x"15" then
+								addrcnt(28) <= x"0b";
+							elsif addrcnt(28) = x"20" then
+								addrcnt(28) <= x"16";
+							elsif addrcnt(28) = x"2b" then
+								addrcnt(28) <= x"21";
+							elsif addrcnt(28) = x"36" then
+								addrcnt(28) <= x"2c";
+							elsif addrcnt(28) = x"41" then
+								addrcnt(28) <= x"37";
+							elsif addrcnt(28) = x"4c" then
+								addrcnt(28) <= x"42";
+							elsif addrcnt(28) = x"57" then
+								addrcnt(28) <= x"4d";
+							elsif addrcnt(28) = x"62" then
+								addrcnt(28) <= x"58";
+							elsif addrcnt(28) = x"6d" then
+								addrcnt(28) <= x"63";
+							elsif addrcnt(28) = x"78" then
+								addrcnt(28) <= x"6e";
+							elsif addrcnt(28) = x"83" then
+								addrcnt(28) <= x"79";
+							elsif addrcnt(28) = x"8e" then
+								addrcnt(28) <= x"84";
+							elsif addrcnt(28) = x"99" then
+								addrcnt(28) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 >= "100111" )and (d_c5 <= "110011") then --dia
+						addrcnt(29) <= addrcnt(29) + '1';
+						rgb_data <= b_data(29) & g_data(29) & r_data(29);
+						if(((d_c6 >= "100111" )and (d_c6 <= "110011"))) then
+							if addrcnt(29) = x"0a" then
+								addrcnt(29) <= (others => '0');
+							elsif addrcnt(29) = x"15" then
+								addrcnt(29) <= x"0b";
+							elsif addrcnt(29) = x"20" then
+								addrcnt(29) <= x"16";
+							elsif addrcnt(29) = x"2b" then
+								addrcnt(29) <= x"21";
+							elsif addrcnt(29) = x"36" then
+								addrcnt(29) <= x"2c";
+							elsif addrcnt(29) = x"41" then
+								addrcnt(29) <= x"37";
+							elsif addrcnt(29) = x"4c" then
+								addrcnt(29) <= x"42";
+							elsif addrcnt(29) = x"57" then
+								addrcnt(29) <= x"4d";
+							elsif addrcnt(29) = x"62" then
+								addrcnt(29) <= x"58";
+							elsif addrcnt(29) = x"6d" then
+								addrcnt(29) <= x"63";
+							elsif addrcnt(29) = x"78" then
+								addrcnt(29) <= x"6e";
+							elsif addrcnt(29) = x"83" then
+								addrcnt(29) <= x"79";
+							elsif addrcnt(29) = x"8e" then
+								addrcnt(29) <= x"84";
+							elsif addrcnt(29) = x"99" then
+								addrcnt(29) <= x"8f";
+							end if;
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +155 ) ) and ( hsync_cnt <= (tHW + tHBP +165)) ) then
+					if (d_c6 >= "000000" )and (d_c6 <= "001100") then --spade
+						addrcnt(26) <= addrcnt(26) + '1';
+						rgb_data <= b_data(26) & g_data(26) & r_data(26);
+					elsif (d_c6 >= "001101" )and (d_c6 <= "011001") then --clover
+						addrcnt(27) <= addrcnt(27) + '1';
+						rgb_data <= b_data(27) & g_data(27) & r_data(27);
+					elsif (d_c6 >= "011010" )and (d_c6 <= "100110") then --heart
+						addrcnt(28) <= addrcnt(28) + '1';
+						rgb_data <= b_data(28) & g_data(28) & r_data(28);
+					elsif (d_c6 >= "100111" )and (d_c6 <= "110011") then --dia
+						addrcnt(29) <= addrcnt(29) + '1';
+						rgb_data <= b_data(29) & g_data(29) & r_data(29);
+					elsif (d_c3 = "111111") then
+						if ((hsync_cnt >= (tHW + tHBP +155 ) ) and ( hsync_cnt <= (tHW + tHBP +161)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
+					if (d_c3 /= "111111") then
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +172)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					end if;
+					if (d_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +173 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					end if;
+					if (d_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +184 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					end if;
+					if (d_c6 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +195 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					end if;
+				else 
 					rgb_data <= (others => '1');
-				else
-					rgb_data <= "00000" & "001110" & "00000";
 				end if;
 			elsif ( ( vsync_cnt >= (tVW + tVBP +67 ) ) and ( vsync_cnt <= (tVW + tVBP + 68) ) )then 
 				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +110)) ) then
@@ -638,6 +1379,36 @@ end process;
 				else
 					rgb_data <= "00000" & "001110" & "00000";
 				end if;
+				addrcnt(0)<= (others => '0');
+				addrcnt(1)<= (others => '0');
+				addrcnt(2)<= (others => '0');
+				addrcnt(3)<= (others => '0');
+				addrcnt(4)<= (others => '0');
+				addrcnt(5)<= (others => '0');
+				addrcnt(6)<= (others => '0');
+				addrcnt(7)<= (others => '0');
+				addrcnt(8)<= (others => '0');
+				addrcnt(9)<= (others => '0');
+				addrcnt(10)<= (others => '0');
+				addrcnt(11)<= (others => '0');
+				addrcnt(12)<= (others => '0');
+				addrcnt(13)<= (others => '0');
+				addrcnt(14)<= (others => '0');
+				addrcnt(15)<= (others => '0');
+				addrcnt(16)<= (others => '0');
+				addrcnt(17)<= (others => '0');
+				addrcnt(18)<= (others => '0');
+				addrcnt(19)<= (others => '0');
+				addrcnt(20)<= (others => '0');
+				addrcnt(21)<= (others => '0');
+				addrcnt(22)<= (others => '0');
+				addrcnt(23)<= (others => '0');
+				addrcnt(24)<= (others => '0');
+				addrcnt(25)<= (others => '0');
+				addrcnt(26)<= (others => '0');
+				addrcnt(27)<= (others => '0');
+				addrcnt(28)<= (others => '0');
+				addrcnt(29)<= (others => '0');
 			elsif ( ( vsync_cnt >= (tVW + tVBP +69 ) ) and ( vsync_cnt <= (tVW + tVBP + 83) ) )then 
 				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +110)) ) then
 					if (d_c1 = "000000" )or (d_c1 = "001101") then --a
@@ -739,6 +1510,36 @@ end process;
 				rgb_data <= "00000" & "001110" & "00000";
 			elsif ( ( vsync_cnt >= (tVW + tVBP+239 ) ) and ( vsync_cnt <= (tVW + tVBP + 240) ) )then --가운데 가로 줄
 				rgb_data <= (others => '1');
+				addrcnt(0)<= (others => '0');
+				addrcnt(1)<= (others => '0');
+				addrcnt(2)<= (others => '0');
+				addrcnt(3)<= (others => '0');
+				addrcnt(4)<= (others => '0');
+				addrcnt(5)<= (others => '0');
+				addrcnt(6)<= (others => '0');
+				addrcnt(7)<= (others => '0');
+				addrcnt(8)<= (others => '0');
+				addrcnt(9)<= (others => '0');
+				addrcnt(10)<= (others => '0');
+				addrcnt(11)<= (others => '0');
+				addrcnt(12)<= (others => '0');
+				addrcnt(13)<= (others => '0');
+				addrcnt(14)<= (others => '0');
+				addrcnt(15)<= (others => '0');
+				addrcnt(16)<= (others => '0');
+				addrcnt(17)<= (others => '0');
+				addrcnt(18)<= (others => '0');
+				addrcnt(19)<= (others => '0');
+				addrcnt(20)<= (others => '0');
+				addrcnt(21)<= (others => '0');
+				addrcnt(22)<= (others => '0');
+				addrcnt(23)<= (others => '0');
+				addrcnt(24)<= (others => '0');
+				addrcnt(25)<= (others => '0');
+				addrcnt(26)<= (others => '0');
+				addrcnt(27)<= (others => '0');
+				addrcnt(28)<= (others => '0');
+				addrcnt(29)<= (others => '0');
 			elsif ( ( vsync_cnt >= (tVW + tVBP+241 ) ) and ( vsync_cnt <= (tVW + tVBP + 289) ) )then 
 				if( (hsync_cnt >= (tHW + tHBP +399 ) ) and ( hsync_cnt <= (tHW + tHBP +400)) ) then --가운데 세로줄
 					rgb_data <= (others => '1');
@@ -752,7 +1553,8 @@ end process;
 						rgb_data <= b_data(26) & g_data(26) & r_data(26);
 						if(((p1_c2 >= "000000" )and (p1_c2 <= "001100")) or ((p1_c3 >= "000000" )and (p1_c3 <= "001100")) or ((p1_c4 >= "000000" )and (p1_c4 <= "001100"))
 						or ((p1_c5 >= "000000" )and (p1_c5 <= "001100"))or ((p1_c6 >= "000000" )and (p1_c6 <= "001100"))or ((p2_c1 >= "000000" )and (p2_c1 <= "001100"))
-						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100"))) then
+						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100"))or ((p2_c3 >= "000000" )and (p2_c3 <= "001100"))or ((p2_c4 >= "000000" )and (p2_c4 <= "001100"))
+						or ((p2_c5 >= "000000" )and (p2_c5 <= "001100"))or ((p2_c6 >= "000000" )and (p2_c6 <= "001100"))) then
 							if addrcnt(26) = x"0a" then
 								addrcnt(26) <= (others => '0');
 							elsif addrcnt(26) = x"15" then
@@ -788,7 +1590,8 @@ end process;
 						rgb_data <= b_data(27) & g_data(27) & r_data(27);
 						if(((p1_c2 >= "001101" )and (p1_c2 <= "011001")) or ((p1_c3 >= "001101" )and (p1_c3 <= "011001")) or ((p1_c4 >= "001101" )and (p1_c4 <= "011001"))
 						or ((p1_c5 >= "001101" )and (p1_c5 <= "011001"))or ((p1_c6 >= "001101" )and (p1_c6 <= "011001"))or ((p2_c1 >= "001101" )and (p2_c1 <= "011001"))
-						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))) then
+						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))or ((p2_c3 >= "001101" )and (p2_c3 <= "011001"))or ((p2_c4 >= "001101" )and (p2_c4 <= "011001"))
+						or ((p2_c5 >= "001101" )and (p2_c5 <= "011001"))or ((p2_c6 >= "001101" )and (p2_c6 <= "011001"))) then
 							if addrcnt(27) = x"0a" then
 								addrcnt(27) <= (others => '0');
 							elsif addrcnt(27) = x"15" then
@@ -824,7 +1627,8 @@ end process;
 						rgb_data <= b_data(28) & g_data(28) & r_data(28);
 						if(((p1_c2 >= "011010" )and (p1_c2 <= "100110")) or ((p1_c3 >= "011010" )and (p1_c3 <= "100110")) or ((p1_c4 >= "011010" )and (p1_c4 <= "100110"))
 						or ((p1_c5 >= "011010" )and (p1_c5 <= "100110"))or ((p1_c6 >= "011010" )and (p1_c6 <= "100110"))or ((p2_c1 >= "011010" )and (p2_c1 <= "100110"))
-						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))) then
+						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))or ((p2_c3 >= "011010" )and (p2_c3 <= "100110"))or ((p2_c4 >= "011010" )and (p2_c4 <= "100110"))
+						or ((p2_c5 >= "011010" )and (p2_c5 <= "100110"))or ((p2_c6 >= "011010" )and (p2_c6 <= "100110"))) then
 							if addrcnt(28) = x"0a" then
 								addrcnt(28) <= (others => '0');
 							elsif addrcnt(28) = x"15" then
@@ -860,7 +1664,8 @@ end process;
 						rgb_data <= b_data(29) & g_data(29) & r_data(29);
 						if(((p1_c2 >= "100111" )and (p1_c2 <= "110011")) or ((p1_c3 >= "100111" )and (p1_c3 <= "110011")) or ((p1_c4 >= "100111" )and (p1_c4 <= "110011"))
 						or ((p1_c5 >= "100111" )and (p1_c5 <= "110011"))or ((p1_c6 >= "100111" )and (p1_c6 <= "110011"))or ((p2_c1 >= "100111" )and (p2_c1 <= "110011"))
-						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))) then
+						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))or ((p2_c3 >= "100111" )and (p2_c3 <= "110011"))or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))
+						or ((p2_c5 >= "100111" )and (p2_c5 <= "110011"))or ((p2_c6 >= "100111" )and (p2_c6 <= "110011"))) then
 							if addrcnt(29) = x"0a" then
 								addrcnt(29) <= (others => '0');
 							elsif addrcnt(29) = x"15" then
@@ -900,7 +1705,8 @@ end process;
 						rgb_data <= b_data(26) & g_data(26) & r_data(26);
 						if(((p1_c3 >= "000000" )and (p1_c3 <= "001100")) or ((p1_c4 >= "000000" )and (p1_c4 <= "001100"))
 						or ((p1_c5 >= "000000" )and (p1_c5 <= "001100"))or ((p1_c6 >= "000000" )and (p1_c6 <= "001100"))or ((p2_c1 >= "000000" )and (p2_c1 <= "001100"))
-						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100"))) then
+						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100")) or ((p2_c3 >= "000000" )and (p2_c3 <= "001100")) or ((p2_c4 >= "000000" )and (p2_c4 <= "001100"))
+						or ((p2_c5 >= "000000" )and (p2_c5 <= "001100")) or ((p2_c6 >= "000000" )and (p2_c6 <= "001100"))) then
 							if addrcnt(26) = x"0a" then
 								addrcnt(26) <= (others => '0');
 							elsif addrcnt(26) = x"15" then
@@ -936,7 +1742,8 @@ end process;
 						rgb_data <= b_data(27) & g_data(27) & r_data(27);
 						if(((p1_c3 >= "001101" )and (p1_c3 <= "011001")) or ((p1_c4 >= "001101" )and (p1_c4 <= "011001"))
 						or ((p1_c5 >= "001101" )and (p1_c5 <= "011001"))or ((p1_c6 >= "001101" )and (p1_c6 <= "011001"))or ((p2_c1 >= "001101" )and (p2_c1 <= "011001"))
-						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))) then
+						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))or ((p2_c3 >= "001101" )and (p2_c3 <= "011001"))or ((p2_c4 >= "001101" )and (p2_c4 <= "011001"))
+						or ((p2_c5 >= "001101" )and (p2_c5 <= "011001"))or ((p2_c6 >= "001101" )and (p2_c6 <= "011001"))) then
 							if addrcnt(27) = x"0a" then
 								addrcnt(27) <= (others => '0');
 							elsif addrcnt(27) = x"15" then
@@ -972,7 +1779,8 @@ end process;
 						rgb_data <= b_data(28) & g_data(28) & r_data(28);
 						if(((p1_c3 >= "011010" )and (p1_c3 <= "100110")) or ((p1_c4 >= "011010" )and (p1_c4 <= "100110"))
 						or ((p1_c5 >= "011010" )and (p1_c5 <= "100110"))or ((p1_c6 >= "011010" )and (p1_c6 <= "100110"))or ((p2_c1 >= "011010" )and (p2_c1 <= "100110"))
-						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))) then
+						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))or ((p2_c3 >= "011010" )and (p2_c3 <= "100110"))or ((p2_c4 >= "011010" )and (p2_c4 <= "100110"))
+						or ((p2_c5 >= "011010" )and (p2_c5 <= "100110"))or ((p2_c6 >= "011010" )and (p2_c6 <= "100110"))) then
 							if addrcnt(28) = x"0a" then
 								addrcnt(28) <= (others => '0');
 							elsif addrcnt(28) = x"15" then
@@ -1008,7 +1816,8 @@ end process;
 						rgb_data <= b_data(29) & g_data(29) & r_data(29);
 						if(((p1_c3 >= "100111" )and (p1_c3 <= "110011")) or ((p1_c4 >= "100111" )and (p1_c4 <= "110011"))
 						or ((p1_c5 >= "100111" )and (p1_c5 <= "110011"))or ((p1_c6 >= "100111" )and (p1_c6 <= "110011"))or ((p2_c1 >= "100111" )and (p2_c1 <= "110011"))
-						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))) then
+						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))or ((p2_c3 >= "100111" )and (p2_c3 <= "110011"))or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))
+						or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))or ((p2_c6 >= "100111" )and (p2_c6 <= "110011"))) then
 							if addrcnt(29) = x"0a" then
 								addrcnt(29) <= (others => '0');
 							elsif addrcnt(29) = x"15" then
@@ -1048,7 +1857,8 @@ end process;
 						rgb_data <= b_data(26) & g_data(26) & r_data(26);
 						if(((p1_c4 >= "000000" )and (p1_c4 <= "001100"))
 						or ((p1_c5 >= "000000" )and (p1_c5 <= "001100"))or ((p1_c6 >= "000000" )and (p1_c6 <= "001100"))or ((p2_c1 >= "000000" )and (p2_c1 <= "001100"))
-						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100"))) then
+						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100")) or ((p2_c3 >= "000000" )and (p2_c3 <= "001100")) or ((p2_c4 >= "000000" )and (p2_c4 <= "001100"))
+						or ((p2_c5 >= "000000" )and (p2_c5 <= "001100")) or ((p2_c6 >= "000000" )and (p2_c6 <= "001100"))) then
 							if addrcnt(26) = x"0a" then
 								addrcnt(26) <= (others => '0');
 							elsif addrcnt(26) = x"15" then
@@ -1084,7 +1894,8 @@ end process;
 						rgb_data <= b_data(27) & g_data(27) & r_data(27);
 						if(((p1_c4 >= "001101" )and (p1_c4 <= "011001"))
 						or ((p1_c5 >= "001101" )and (p1_c5 <= "011001"))or ((p1_c6 >= "001101" )and (p1_c6 <= "011001"))or ((p2_c1 >= "001101" )and (p2_c1 <= "011001"))
-						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))) then
+						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))or ((p2_c3 >= "001101" )and (p2_c3 <= "011001"))or ((p2_c4 >= "001101" )and (p2_c4 <= "011001"))
+						or ((p2_c5 >= "001101" )and (p2_c5 <= "011001"))or ((p2_c6 >= "001101" )and (p2_c6 <= "011001")) )then
 							if addrcnt(27) = x"0a" then
 								addrcnt(27) <= (others => '0');
 							elsif addrcnt(27) = x"15" then
@@ -1120,7 +1931,8 @@ end process;
 						rgb_data <= b_data(28) & g_data(28) & r_data(28);
 						if(((p1_c4 >= "011010" )and (p1_c4 <= "100110"))
 						or ((p1_c5 >= "011010" )and (p1_c5 <= "100110"))or ((p1_c6 >= "011010" )and (p1_c6 <= "100110"))or ((p2_c1 >= "011010" )and (p2_c1 <= "100110"))
-						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))) then
+						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))or ((p2_c3 >= "011010" )and (p2_c3 <= "100110"))or ((p2_c4 >= "011010" )and (p2_c4 <= "100110"))
+						or ((p2_c5 >= "011010" )and (p2_c5 <= "100110"))or ((p2_c6 >= "011010" )and (p2_c6 <= "100110"))) then
 							if addrcnt(28) = x"0a" then
 								addrcnt(28) <= (others => '0');
 							elsif addrcnt(28) = x"15" then
@@ -1156,7 +1968,8 @@ end process;
 						rgb_data <= b_data(29) & g_data(29) & r_data(29);
 						if(((p1_c4 >= "100111" )and (p1_c4 <= "110011"))
 						or ((p1_c5 >= "100111" )and (p1_c5 <= "110011"))or ((p1_c6 >= "100111" )and (p1_c6 <= "110011"))or ((p2_c1 >= "100111" )and (p2_c1 <= "110011"))
-						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))) then
+						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))or ((p2_c3 >= "100111" )and (p2_c3 <= "110011"))or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))
+						or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))or ((p2_c6 >= "100111" )and (p2_c6 <= "110011"))) then
 							if addrcnt(29) = x"0a" then
 								addrcnt(29) <= (others => '0');
 							elsif addrcnt(29) = x"15" then
@@ -1195,7 +2008,8 @@ end process;
 						addrcnt(26) <= addrcnt(26) + '1';
 						rgb_data <= b_data(26) & g_data(26) & r_data(26);
 						if(((p1_c5 >= "000000" )and (p1_c5 <= "001100"))or ((p1_c6 >= "000000" )and (p1_c6 <= "001100"))or ((p2_c1 >= "000000" )and (p2_c1 <= "001100"))
-						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100"))) then
+						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100")) or ((p2_c3 >= "000000" )and (p2_c3 <= "001100")) or ((p2_c4 >= "000000" )and (p2_c4 <= "001100"))
+						or ((p2_c5 >= "000000" )and (p2_c5 <= "001100")) or ((p2_c6 >= "000000" )and (p2_c6 <= "001100"))) then
 							if addrcnt(26) = x"0a" then
 								addrcnt(26) <= (others => '0');
 							elsif addrcnt(26) = x"15" then
@@ -1230,7 +2044,8 @@ end process;
 						addrcnt(27) <= addrcnt(27) + '1';
 						rgb_data <= b_data(27) & g_data(27) & r_data(27);
 						if(((p1_c5 >= "001101" )and (p1_c5 <= "011001"))or ((p1_c6 >= "001101" )and (p1_c6 <= "011001"))or ((p2_c1 >= "001101" )and (p2_c1 <= "011001"))
-						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))) then
+						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))or ((p2_c3 >= "001101" )and (p2_c3 <= "011001"))or ((p2_c4 >= "001101" )and (p2_c4 <= "011001"))
+						or ((p2_c5 >= "001101" )and (p2_c5 <= "011001"))or ((p2_c6 >= "001101" )and (p2_c6 <= "011001"))) then
 							if addrcnt(27) = x"0a" then
 								addrcnt(27) <= (others => '0');
 							elsif addrcnt(27) = x"15" then
@@ -1265,7 +2080,8 @@ end process;
 						addrcnt(28) <= addrcnt(28) + '1';
 						rgb_data <= b_data(28) & g_data(28) & r_data(28);
 						if(((p1_c5 >= "011010" )and (p1_c5 <= "100110"))or ((p1_c6 >= "011010" )and (p1_c6 <= "100110"))or ((p2_c1 >= "011010" )and (p2_c1 <= "100110"))
-						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))) then
+						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))or ((p2_c3 >= "011010" )and (p2_c3 <= "100110"))or ((p2_c4 >= "011010" )and (p2_c4 <= "100110"))
+						or ((p2_c5 >= "011010" )and (p2_c5 <= "100110"))or ((p2_c6 >= "011010" )and (p2_c6 <= "100110"))) then
 							if addrcnt(28) = x"0a" then
 								addrcnt(28) <= (others => '0');
 							elsif addrcnt(28) = x"15" then
@@ -1300,7 +2116,8 @@ end process;
 						addrcnt(29) <= addrcnt(29) + '1';
 						rgb_data <= b_data(29) & g_data(29) & r_data(29);
 						if(((p1_c5 >= "100111" )and (p1_c5 <= "110011"))or ((p1_c6 >= "100111" )and (p1_c6 <= "110011"))or ((p2_c1 >= "100111" )and (p2_c1 <= "110011"))
-						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))) then
+						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))or ((p2_c3 >= "100111" )and (p2_c3 <= "110011"))or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))
+						or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))or ((p2_c6 >= "100111" )and (p2_c6 <= "110011"))) then
 							if addrcnt(29) = x"0a" then
 								addrcnt(29) <= (others => '0');
 							elsif addrcnt(29) = x"15" then
@@ -1339,7 +2156,8 @@ end process;
 						addrcnt(26) <= addrcnt(26) + '1';
 						rgb_data <= b_data(26) & g_data(26) & r_data(26);
 						if(((p1_c6 >= "000000" )and (p1_c6 <= "001100"))or ((p2_c1 >= "000000" )and (p2_c1 <= "001100"))
-						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100"))) then
+						or ((p2_c2 >= "000000" )and (p2_c2 <= "001100")) or ((p2_c3 >= "000000" )and (p2_c3 <= "001100")) or ((p2_c4 >= "000000" )and (p2_c4 <= "001100"))
+						or ((p2_c5 >= "000000" )and (p2_c5 <= "001100")) or ((p2_c6 >= "000000" )and (p2_c6 <= "001100"))) then
 							if addrcnt(26) = x"0a" then
 								addrcnt(26) <= (others => '0');
 							elsif addrcnt(26) = x"15" then
@@ -1374,7 +2192,8 @@ end process;
 						addrcnt(27) <= addrcnt(27) + '1';
 						rgb_data <= b_data(27) & g_data(27) & r_data(27);
 						if(((p1_c6 >= "001101" )and (p1_c6 <= "011001"))or ((p2_c1 >= "001101" )and (p2_c1 <= "011001"))
-						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))) then
+						or ((p2_c2 >= "001101" )and (p2_c2 <= "011001")) or ((p2_c3 >= "001101" )and (p2_c3 <= "011001"))or ((p2_c4 >= "001101" )and (p2_c4 <= "011001"))
+						or ((p2_c5 >= "001101" )and (p2_c5 <= "011001"))or ((p2_c6 >= "001101" )and (p2_c6 <= "011001"))) then
 							if addrcnt(27) = x"0a" then
 								addrcnt(27) <= (others => '0');
 							elsif addrcnt(27) = x"15" then
@@ -1409,7 +2228,8 @@ end process;
 						addrcnt(28) <= addrcnt(28) + '1';
 						rgb_data <= b_data(28) & g_data(28) & r_data(28);
 						if(((p1_c6 >= "011010" )and (p1_c6 <= "100110"))or ((p2_c1 >= "011010" )and (p2_c1 <= "100110"))
-						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))) then
+						or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))or ((p2_c3 >= "011010" )and (p2_c3 <= "100110"))or ((p2_c4 >= "011010" )and (p2_c4 <= "100110"))
+						or ((p2_c5 >= "011010" )and (p2_c5 <= "100110"))or ((p2_c6 >= "011010" )and (p2_c6 <= "100110"))) then
 							if addrcnt(28) = x"0a" then
 								addrcnt(28) <= (others => '0');
 							elsif addrcnt(28) = x"15" then
@@ -1444,7 +2264,8 @@ end process;
 						addrcnt(29) <= addrcnt(29) + '1';
 						rgb_data <= b_data(29) & g_data(29) & r_data(29);
 						if(((p1_c6 >= "100111" )and (p1_c6 <= "110011"))or ((p2_c1 >= "100111" )and (p2_c1 <= "110011"))
-						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))) then
+						or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))or ((p2_c3 >= "100111" )and (p2_c3 <= "110011"))or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))
+						or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))or ((p2_c6 >= "100111" )and (p2_c6 <= "110011"))) then
 							if addrcnt(29) = x"0a" then
 								addrcnt(29) <= (others => '0');
 							elsif addrcnt(29) = x"15" then
@@ -1482,7 +2303,9 @@ end process;
 					if (p1_c6 >= "000000" )and (p1_c6 <= "001100") then --spade
 						addrcnt(26) <= addrcnt(26) + '1';
 						rgb_data <= b_data(26) & g_data(26) & r_data(26);
-						if(((p2_c1 >= "000000" )and (p2_c1 <= "001100")) or ((p2_c2 >= "000000" )and (p2_c2 <= "001100"))) then
+						if(((p2_c1 >= "000000" )and (p2_c1 <= "001100")) or ((p2_c2 >= "000000" )and (p2_c2 <= "001100")) or ((p2_c3 >= "000000" )and (p2_c3 <= "001100"))
+						or ((p2_c4 >= "000000" )and (p2_c4 <= "001100"))
+						or ((p2_c5 >= "000000" )and (p2_c5 <= "001100")) or ((p2_c6 >= "000000" )and (p2_c6 <= "001100"))) then
 							if addrcnt(26) = x"0a" then
 								addrcnt(26) <= (others => '0');
 							elsif addrcnt(26) = x"15" then
@@ -1516,7 +2339,8 @@ end process;
 					elsif (p1_c6 >= "001101" )and (p1_c6 <= "011001") then --clover
 						addrcnt(27) <= addrcnt(27) + '1';
 						rgb_data <= b_data(27) & g_data(27) & r_data(27);
-						if(((p2_c1 >= "001101" )and (p2_c1 <= "011001")) or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))) then
+						if(((p2_c1 >= "001101" )and (p2_c1 <= "011001")) or ((p2_c2 >= "001101" )and (p2_c2 <= "011001"))or ((p2_c3 >= "001101" )and (p2_c3 <= "011001"))or ((p2_c4 >= "001101" )and (p2_c4 <= "011001"))
+						or ((p2_c5 >= "001101" )and (p2_c5 <= "011001"))or ((p2_c6 >= "001101" )and (p2_c6 <= "011001"))) then
 							if addrcnt(27) = x"0a" then
 								addrcnt(27) <= (others => '0');
 							elsif addrcnt(27) = x"15" then
@@ -1550,7 +2374,9 @@ end process;
 					elsif (p1_c6 >= "011010" )and (p1_c6 <= "100110") then --heart
 						addrcnt(28) <= addrcnt(28) + '1';
 						rgb_data <= b_data(28) & g_data(28) & r_data(28);
-						if(((p2_c1 >= "011010" )and (p2_c1 <= "100110")) or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))) then
+						if(((p2_c1 >= "011010" )and (p2_c1 <= "100110")) or ((p2_c2 >= "011010" )and (p2_c2 <= "100110"))or 
+						((p2_c3 >= "011010" )and (p2_c3 <= "100110"))or ((p2_c4 >= "011010" )and (p2_c4 <= "100110"))
+						or ((p2_c5 >= "011010" )and (p2_c5 <= "100110"))or ((p2_c6 >= "011010" )and (p2_c6 <= "100110"))) then
 							if addrcnt(28) = x"0a" then
 								addrcnt(28) <= (others => '0');
 							elsif addrcnt(28) = x"15" then
@@ -1584,7 +2410,9 @@ end process;
 					elsif (p1_c6 >= "100111" )and (p1_c6 <= "110011") then --dia
 						addrcnt(29) <= addrcnt(29) + '1';
 						rgb_data <= b_data(29) & g_data(29) & r_data(29);
-						if(((p2_c1 >= "100111" )and (p2_c1 <= "110011")) or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))) then
+						if(((p2_c1 >= "100111" )and (p2_c1 <= "110011")) or ((p2_c2 >= "100111" )and (p2_c2 <= "110011"))
+						or ((p2_c3 >= "100111" )and (p2_c3 <= "110011"))or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))
+						or ((p2_c4 >= "100111" )and (p2_c4 <= "110011"))or ((p2_c6 >= "100111" )and (p2_c6 <= "110011"))) then
 							if addrcnt(29) = x"0a" then
 								addrcnt(29) <= (others => '0');
 							elsif addrcnt(29) = x"15" then
@@ -12616,11 +13444,11 @@ end process;
 					rgb_data <= "00000" & "001110" & "00000";
 				end if;
 			elsif ( ( vsync_cnt >= (tVW + tVBP +322 ) ) and ( vsync_cnt <= (tVW + tVBP + 391) ) )then 
-				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +160)) ) then
+				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
 					rgb_data <= (others => '1');
 				elsif( (hsync_cnt >= (tHW + tHBP +399 ) ) and ( hsync_cnt <= (tHW + tHBP +400)) ) then --가운데 세로줄
 					rgb_data <= (others => '1');
-				elsif((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +469)) ) then
+				elsif((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
 					rgb_data <= (others => '1');
 				else
 					rgb_data <= "00000" & "001110" & "00000";
