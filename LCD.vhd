@@ -1378,124 +1378,4641 @@ end process;
 				else
 					rgb_data <= "00000" & "001110" & "00000";
 				end if;
-				addrcnt(0)<= (others => '0');
-				addrcnt(1)<= (others => '0');
-				addrcnt(2)<= (others => '0');
-				addrcnt(3)<= (others => '0');
-				addrcnt(4)<= (others => '0');
-				addrcnt(5)<= (others => '0');
-				addrcnt(6)<= (others => '0');
-				addrcnt(7)<= (others => '0');
-				addrcnt(8)<= (others => '0');
-				addrcnt(9)<= (others => '0');
-				addrcnt(10)<= (others => '0');
-				addrcnt(11)<= (others => '0');
-				addrcnt(12)<= (others => '0');
-				addrcnt(13)<= (others => '0');
-				addrcnt(14)<= (others => '0');
-				addrcnt(15)<= (others => '0');
-				addrcnt(16)<= (others => '0');
-				addrcnt(17)<= (others => '0');
-				addrcnt(18)<= (others => '0');
-				addrcnt(19)<= (others => '0');
-				addrcnt(20)<= (others => '0');
-				addrcnt(21)<= (others => '0');
-				addrcnt(22)<= (others => '0');
-				addrcnt(23)<= (others => '0');
-				addrcnt(24)<= (others => '0');
-				addrcnt(25)<= (others => '0');
-				addrcnt(26)<= (others => '0');
-				addrcnt(27)<= (others => '0');
-				addrcnt(28)<= (others => '0');
-				addrcnt(29)<= (others => '0');
-			elsif ( ( vsync_cnt >= (tVW + tVBP +69 ) ) and ( vsync_cnt <= (tVW + tVBP + 83) ) )then 
+			elsif ( ( vsync_cnt >= (tVW + tVBP +69 ) ) and ( vsync_cnt <= (tVW + tVBP + 83) ) )then -- 딜러 숫자 
 				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +110)) ) then
 					if (d_c1 = "000000" )or (d_c1 = "001101") then --a
 						addrcnt(0) <= addrcnt(0) + '1';
 						rgb_data <= b_data(0) & g_data(0) & r_data(0);
-						if addrcnt(0) = x"a4" then
-							addrcnt(0) <= (others => '0');
+						if(((d_c2 = "000000" ) or (d_c2 = "001101")) or ((d_c3 = "000000" )or (d_c3 = "001101")) or ((d_c4 = "000000" )or (d_c4 = "001101"))
+						or ((d_c5 = "000000" )or (d_c5 = "001101"))or ((d_c6 = "000000" )or (d_c6 = "001101"))) then
+							if addrcnt(0) = x"0a" then
+								addrcnt(0) <= (others => '0');
+							elsif addrcnt(0) = x"15" then
+								addrcnt(0) <= x"0b";
+							elsif addrcnt(0) = x"20" then
+								addrcnt(0) <= x"16";
+							elsif addrcnt(0) = x"2b" then
+								addrcnt(0) <= x"21";
+							elsif addrcnt(0) = x"36" then
+								addrcnt(0) <= x"2c";
+							elsif addrcnt(0) = x"41" then
+								addrcnt(0) <= x"37";
+							elsif addrcnt(0) = x"4c" then
+								addrcnt(0) <= x"42";
+							elsif addrcnt(0) = x"57" then
+								addrcnt(0) <= x"4d";
+							elsif addrcnt(0) = x"62" then
+								addrcnt(0) <= x"58";
+							elsif addrcnt(0) = x"6d" then
+								addrcnt(0) <= x"63";
+							elsif addrcnt(0) = x"78" then
+								addrcnt(0) <= x"6e";
+							elsif addrcnt(0) = x"83" then
+								addrcnt(0) <= x"79";
+							elsif addrcnt(0) = x"8e" then
+								addrcnt(0) <= x"84";
+							elsif addrcnt(0) = x"99" then
+								addrcnt(0) <= x"8f";
+							end if;
 						end if;
 					elsif (d_c1 = "000001" )or (d_c1 = "001110") then --2
 						addrcnt(1) <= addrcnt(1) + '1';
 						rgb_data <= b_data(1) & g_data(1) & r_data(1);
+						if(((d_c2 = "000001" ) or (d_c2 = "001110")) or ((d_c3 = "000001" )or (d_c3 = "001110")) or ((d_c4 = "000001" )or (d_c4 = "001110"))
+						or ((d_c5 = "000001" )or (d_c5 = "001110"))or ((d_c6 = "000001" )or (d_c6 = "001110"))) then
+							if addrcnt(1) = x"0a" then
+								addrcnt(1) <= (others => '0');
+							elsif addrcnt(1) = x"15" then
+								addrcnt(1) <= x"0b";
+							elsif addrcnt(1) = x"20" then
+								addrcnt(1) <= x"16";
+							elsif addrcnt(1) = x"2b" then
+								addrcnt(1) <= x"21";
+							elsif addrcnt(1) = x"36" then
+								addrcnt(1) <= x"2c";
+							elsif addrcnt(1) = x"41" then
+								addrcnt(1) <= x"37";
+							elsif addrcnt(1) = x"4c" then
+								addrcnt(1) <= x"42";
+							elsif addrcnt(1) = x"57" then
+								addrcnt(1) <= x"4d";
+							elsif addrcnt(1) = x"62" then
+								addrcnt(1) <= x"58";
+							elsif addrcnt(1) = x"6d" then
+								addrcnt(1) <= x"63";
+							elsif addrcnt(1) = x"78" then
+								addrcnt(1) <= x"6e";
+							elsif addrcnt(1) = x"83" then
+								addrcnt(1) <= x"79";
+							elsif addrcnt(1) = x"8e" then
+								addrcnt(1) <= x"84";
+							elsif addrcnt(1) = x"99" then
+								addrcnt(1) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "000010" )or (d_c1 = "001111") then --3
 						addrcnt(2) <= addrcnt(2) + '1';
 						rgb_data <= b_data(2) & g_data(2) & r_data(2);
+						if(((d_c2 = "000010" ) or (d_c2 = "001111")) or ((d_c3 = "000010" )or (d_c3 = "001111")) or ((d_c4 = "000010" )or (d_c4 = "001111"))
+						or ((d_c5 = "000010" )or (d_c5 = "001111"))or ((d_c6 = "000010" )or (d_c6 = "001111"))) then
+							if addrcnt(2) = x"0a" then
+								addrcnt(2) <= (others => '0');
+							elsif addrcnt(2) = x"15" then
+								addrcnt(2) <= x"0b";
+							elsif addrcnt(2) = x"20" then
+								addrcnt(2) <= x"16";
+							elsif addrcnt(2) = x"2b" then
+								addrcnt(2) <= x"21";
+							elsif addrcnt(2) = x"36" then
+								addrcnt(2) <= x"2c";
+							elsif addrcnt(2) = x"41" then
+								addrcnt(2) <= x"37";
+							elsif addrcnt(2) = x"4c" then
+								addrcnt(2) <= x"42";
+							elsif addrcnt(2) = x"57" then
+								addrcnt(2) <= x"4d";
+							elsif addrcnt(2) = x"62" then
+								addrcnt(2) <= x"58";
+							elsif addrcnt(2) = x"6d" then
+								addrcnt(2) <= x"63";
+							elsif addrcnt(2) = x"78" then
+								addrcnt(2) <= x"6e";
+							elsif addrcnt(2) = x"83" then
+								addrcnt(2) <= x"79";
+							elsif addrcnt(2) = x"8e" then
+								addrcnt(2) <= x"84";
+							elsif addrcnt(2) = x"99" then
+								addrcnt(2) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "000011" )or (d_c1 = "010000") then --4
 						addrcnt(3) <= addrcnt(3) + '1';
 						rgb_data <= b_data(3) & g_data(3) & r_data(3);
+					if(((d_c2 = "000011" ) or (d_c2 = "010000")) or ((d_c3 = "000011" )or (d_c3 = "010000")) or ((d_c4 = "000011" )or (d_c4 = "010000"))
+						or ((d_c5 = "000011" )or (d_c5 = "010000"))or ((d_c6 = "000011" )or (d_c6 = "010000"))) then
+							if addrcnt(3) = x"0a" then
+								addrcnt(3) <= (others => '0');
+							elsif addrcnt(3) = x"15" then
+								addrcnt(3) <= x"0b";
+							elsif addrcnt(3) = x"20" then
+								addrcnt(3) <= x"16";
+							elsif addrcnt(3) = x"2b" then
+								addrcnt(3) <= x"21";
+							elsif addrcnt(3) = x"36" then
+								addrcnt(3) <= x"2c";
+							elsif addrcnt(3) = x"41" then
+								addrcnt(3) <= x"37";
+							elsif addrcnt(3) = x"4c" then
+								addrcnt(3) <= x"42";
+							elsif addrcnt(3) = x"57" then
+								addrcnt(3) <= x"4d";
+							elsif addrcnt(3) = x"62" then
+								addrcnt(3) <= x"58";
+							elsif addrcnt(3) = x"6d" then
+								addrcnt(3) <= x"63";
+							elsif addrcnt(3) = x"78" then
+								addrcnt(3) <= x"6e";
+							elsif addrcnt(3) = x"83" then
+								addrcnt(3) <= x"79";
+							elsif addrcnt(3) = x"8e" then
+								addrcnt(3) <= x"84";
+							elsif addrcnt(3) = x"99" then
+								addrcnt(3) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "000100" )or (d_c1 = "010001") then --5
 						addrcnt(4) <= addrcnt(4) + '1';
 						rgb_data <= b_data(4) & g_data(4) & r_data(4);
+						if(((d_c2 = "000100" ) or (d_c2 = "010001")) or ((d_c3 = "000100" )or (d_c3 = "010001")) or ((d_c4 = "000100" )or (d_c4 = "010001"))
+						or ((d_c5 = "000100" )or (d_c5 = "010001"))or ((d_c6 = "000100" )or (d_c6 = "010001"))) then
+							if addrcnt(4) = x"0a" then
+								addrcnt(4) <= (others => '0');
+							elsif addrcnt(4) = x"15" then
+								addrcnt(4) <= x"0b";
+							elsif addrcnt(4) = x"20" then
+								addrcnt(4) <= x"16";
+							elsif addrcnt(4) = x"2b" then
+								addrcnt(4) <= x"21";
+							elsif addrcnt(4) = x"36" then
+								addrcnt(4) <= x"2c";
+							elsif addrcnt(4) = x"41" then
+								addrcnt(4) <= x"37";
+							elsif addrcnt(4) = x"4c" then
+								addrcnt(4) <= x"42";
+							elsif addrcnt(4) = x"57" then
+								addrcnt(4) <= x"4d";
+							elsif addrcnt(4) = x"62" then
+								addrcnt(4) <= x"58";
+							elsif addrcnt(4) = x"6d" then
+								addrcnt(4) <= x"63";
+							elsif addrcnt(4) = x"78" then
+								addrcnt(4) <= x"6e";
+							elsif addrcnt(4) = x"83" then
+								addrcnt(4) <= x"79";
+							elsif addrcnt(4) = x"8e" then
+								addrcnt(4) <= x"84";
+							elsif addrcnt(4) = x"99" then
+								addrcnt(4) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "000101" )or (d_c1 = "010010") then --6
 						addrcnt(5) <= addrcnt(5) + '1';
 						rgb_data <= b_data(5) & g_data(5) & r_data(5);
+						if(((d_c2 = "000101" ) or (d_c2 = "010010")) or ((d_c3 = "000101" )or (d_c3 = "010010")) or ((d_c4 = "000101" )or (d_c4 = "010010"))
+						or ((d_c5 = "000101" )or (d_c5 = "010010"))or ((d_c6 = "000101" )or (d_c6 = "010010"))) then
+							if addrcnt(5) = x"0a" then
+								addrcnt(5) <= (others => '0');
+							elsif addrcnt(5) = x"15" then
+								addrcnt(5) <= x"0b";
+							elsif addrcnt(5) = x"20" then
+								addrcnt(5) <= x"16";
+							elsif addrcnt(5) = x"2b" then
+								addrcnt(5) <= x"21";
+							elsif addrcnt(5) = x"36" then
+								addrcnt(5) <= x"2c";
+							elsif addrcnt(5) = x"41" then
+								addrcnt(5) <= x"37";
+							elsif addrcnt(5) = x"4c" then
+								addrcnt(5) <= x"42";
+							elsif addrcnt(5) = x"57" then
+								addrcnt(5) <= x"4d";
+							elsif addrcnt(5) = x"62" then
+								addrcnt(5) <= x"58";
+							elsif addrcnt(5) = x"6d" then
+								addrcnt(5) <= x"63";
+							elsif addrcnt(5) = x"78" then
+								addrcnt(5) <= x"6e";
+							elsif addrcnt(5) = x"83" then
+								addrcnt(5) <= x"79";
+							elsif addrcnt(5) = x"8e" then
+								addrcnt(5) <= x"84";
+							elsif addrcnt(5) = x"99" then
+								addrcnt(5) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "000110" )or (d_c1 = "010011") then --7
 						addrcnt(6) <= addrcnt(6) + '1';
 						rgb_data <= b_data(6) & g_data(6) & r_data(6);
+						if(((d_c2 = "000110" ) or (d_c2 = "010011")) or ((d_c3 = "000110" )or (d_c3 = "010011")) or ((d_c4 = "000110" )or (d_c4 = "010011"))
+						or ((d_c5 = "000110" )or (d_c5 = "010011"))or ((d_c6 = "000110" )or (d_c6 = "010011"))) then
+							if addrcnt(6) = x"0a" then
+								addrcnt(6) <= (others => '0');
+							elsif addrcnt(6) = x"15" then
+								addrcnt(6) <= x"0b";
+							elsif addrcnt(6) = x"20" then
+								addrcnt(6) <= x"16";
+							elsif addrcnt(6) = x"2b" then
+								addrcnt(6) <= x"21";
+							elsif addrcnt(6) = x"36" then
+								addrcnt(6) <= x"2c";
+							elsif addrcnt(6) = x"41" then
+								addrcnt(6) <= x"37";
+							elsif addrcnt(6) = x"4c" then
+								addrcnt(6) <= x"42";
+							elsif addrcnt(6) = x"57" then
+								addrcnt(6) <= x"4d";
+							elsif addrcnt(6) = x"62" then
+								addrcnt(6) <= x"58";
+							elsif addrcnt(6) = x"6d" then
+								addrcnt(6) <= x"63";
+							elsif addrcnt(6) = x"78" then
+								addrcnt(6) <= x"6e";
+							elsif addrcnt(6) = x"83" then
+								addrcnt(6) <= x"79";
+							elsif addrcnt(6) = x"8e" then
+								addrcnt(6) <= x"84";
+							elsif addrcnt(6) = x"99" then
+								addrcnt(6) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "000111" )or (d_c1 = "010100") then --8
 						addrcnt(7) <= addrcnt(7) + '1';
 						rgb_data <= b_data(7) & g_data(7) & r_data(7);
+						if(((d_c2 = "000111" ) or (d_c2 = "010100")) or ((d_c3 = "000111" )or (d_c3 = "010100")) or ((d_c4 = "000111" )or (d_c4 = "010100"))
+						or ((d_c5 = "000111" )or (d_c5 = "010100"))or ((d_c6 = "000111" )or (d_c6 = "010100"))) then
+							if addrcnt(7) = x"0a" then
+								addrcnt(7) <= (others => '0');
+							elsif addrcnt(7) = x"15" then
+								addrcnt(7) <= x"0b";
+							elsif addrcnt(7) = x"20" then
+								addrcnt(7) <= x"16";
+							elsif addrcnt(7) = x"2b" then
+								addrcnt(7) <= x"21";
+							elsif addrcnt(7) = x"36" then
+								addrcnt(7) <= x"2c";
+							elsif addrcnt(7) = x"41" then
+								addrcnt(7) <= x"37";
+							elsif addrcnt(7) = x"4c" then
+								addrcnt(7) <= x"42";
+							elsif addrcnt(7) = x"57" then
+								addrcnt(7) <= x"4d";
+							elsif addrcnt(7) = x"62" then
+								addrcnt(7) <= x"58";
+							elsif addrcnt(7) = x"6d" then
+								addrcnt(7) <= x"63";
+							elsif addrcnt(7) = x"78" then
+								addrcnt(7) <= x"6e";
+							elsif addrcnt(7) = x"83" then
+								addrcnt(7) <= x"79";
+							elsif addrcnt(7) = x"8e" then
+								addrcnt(7) <= x"84";
+							elsif addrcnt(7) = x"99" then
+								addrcnt(7) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "001000" )or (d_c1 = "010101") then --9
 						addrcnt(8) <= addrcnt(8) + '1';
 						rgb_data <= b_data(8) & g_data(8) & r_data(8);
+						if(((d_c2 = "001000" ) or (d_c2 = "010101")) or ((d_c3 = "001000" )or (d_c3 = "010101")) or ((d_c4 = "001000" )or (d_c4 = "010101"))
+						or ((d_c5 = "001000" )or (d_c5 = "010101"))or ((d_c6 = "001000" )or (d_c6 = "010101"))) then
+							if addrcnt(8) = x"0a" then
+								addrcnt(8) <= (others => '0');
+							elsif addrcnt(8) = x"15" then
+								addrcnt(8) <= x"0b";
+							elsif addrcnt(8) = x"20" then
+								addrcnt(8) <= x"16";
+							elsif addrcnt(8) = x"2b" then
+								addrcnt(8) <= x"21";
+							elsif addrcnt(8) = x"36" then
+								addrcnt(8) <= x"2c";
+							elsif addrcnt(8) = x"41" then
+								addrcnt(8) <= x"37";
+							elsif addrcnt(8) = x"4c" then
+								addrcnt(8) <= x"42";
+							elsif addrcnt(8) = x"57" then
+								addrcnt(8) <= x"4d";
+							elsif addrcnt(8) = x"62" then
+								addrcnt(8) <= x"58";
+							elsif addrcnt(8) = x"6d" then
+								addrcnt(8) <= x"63";
+							elsif addrcnt(8) = x"78" then
+								addrcnt(8) <= x"6e";
+							elsif addrcnt(8) = x"83" then
+								addrcnt(8) <= x"79";
+							elsif addrcnt(8) = x"8e" then
+								addrcnt(8) <= x"84";
+							elsif addrcnt(8) = x"99" then
+								addrcnt(8) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "001001" )or (d_c1 = "010110") then --10
 						addrcnt(9) <= addrcnt(9) + '1';
 						rgb_data <= b_data(9) & g_data(9) & r_data(9);
+						if(((d_c2 = "001001" ) or (d_c2 = "010110")) or ((d_c3 = "001001" )or (d_c3 = "010110")) or ((d_c4 = "001001" )or (d_c4 = "010110"))
+						or ((d_c5 = "001001" )or (d_c5 = "010110"))or ((d_c6 = "001001" )or (d_c6 = "010110"))) then
+							if addrcnt(9) = x"0a" then
+								addrcnt(9) <= (others => '0');
+							elsif addrcnt(9) = x"15" then
+								addrcnt(9) <= x"0b";
+							elsif addrcnt(9) = x"20" then
+								addrcnt(9) <= x"16";
+							elsif addrcnt(9) = x"2b" then
+								addrcnt(9) <= x"21";
+							elsif addrcnt(9) = x"36" then
+								addrcnt(9) <= x"2c";
+							elsif addrcnt(9) = x"41" then
+								addrcnt(9) <= x"37";
+							elsif addrcnt(9) = x"4c" then
+								addrcnt(9) <= x"42";
+							elsif addrcnt(9) = x"57" then
+								addrcnt(9) <= x"4d";
+							elsif addrcnt(9) = x"62" then
+								addrcnt(9) <= x"58";
+							elsif addrcnt(9) = x"6d" then
+								addrcnt(9) <= x"63";
+							elsif addrcnt(9) = x"78" then
+								addrcnt(9) <= x"6e";
+							elsif addrcnt(9) = x"83" then
+								addrcnt(9) <= x"79";
+							elsif addrcnt(9) = x"8e" then
+								addrcnt(9) <= x"84";
+							elsif addrcnt(9) = x"99" then
+								addrcnt(9) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "001010" )or (d_c1 = "010111") then --j
 						addrcnt(10) <= addrcnt(10) + '1';
 						rgb_data <= b_data(10) & g_data(10) & r_data(10);
+						if(((d_c2 = "001010" ) or (d_c2 = "010111")) or ((d_c3 = "001010" )or (d_c3 = "010111")) or ((d_c4 = "001010" )or (d_c4 = "010111"))
+						or ((d_c5 = "001010" )or (d_c5 = "010111"))or ((d_c6 = "001010" )or (d_c6 = "010111"))) then
+							if addrcnt(10) = x"0a" then
+								addrcnt(10) <= (others => '0');
+							elsif addrcnt(10) = x"15" then
+								addrcnt(10) <= x"0b";
+							elsif addrcnt(10) = x"20" then
+								addrcnt(10) <= x"16";
+							elsif addrcnt(10) = x"2b" then
+								addrcnt(10) <= x"21";
+							elsif addrcnt(10) = x"36" then
+								addrcnt(10) <= x"2c";
+							elsif addrcnt(10) = x"41" then
+								addrcnt(10) <= x"37";
+							elsif addrcnt(10) = x"4c" then
+								addrcnt(10) <= x"42";
+							elsif addrcnt(10) = x"57" then
+								addrcnt(10) <= x"4d";
+							elsif addrcnt(10) = x"62" then
+								addrcnt(10) <= x"58";
+							elsif addrcnt(10) = x"6d" then
+								addrcnt(10) <= x"63";
+							elsif addrcnt(10) = x"78" then
+								addrcnt(10) <= x"6e";
+							elsif addrcnt(10) = x"83" then
+								addrcnt(10) <= x"79";
+							elsif addrcnt(10) = x"8e" then
+								addrcnt(10) <= x"84";
+							elsif addrcnt(10) = x"99" then
+								addrcnt(10) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "001011" )or (d_c1 = "011000") then --q
 						addrcnt(11) <= addrcnt(11) + '1';
 						rgb_data <= b_data(11) & g_data(11) & r_data(11);
+						if(((d_c2 = "001011" ) or (d_c2 = "011000")) or ((d_c3 = "001011" )or (d_c3 = "011000")) or ((d_c4 = "001011" )or (d_c4 = "011000"))
+						or ((d_c5 = "001011" )or (d_c5 = "011000"))or ((d_c6 = "001011" )or (d_c6 = "011000"))) then
+							if addrcnt(11) = x"0a" then
+								addrcnt(11) <= (others => '0');
+							elsif addrcnt(11) = x"15" then
+								addrcnt(11) <= x"0b";
+							elsif addrcnt(11) = x"20" then
+								addrcnt(11) <= x"16";
+							elsif addrcnt(11) = x"2b" then
+								addrcnt(11) <= x"21";
+							elsif addrcnt(11) = x"36" then
+								addrcnt(11) <= x"2c";
+							elsif addrcnt(11) = x"41" then
+								addrcnt(11) <= x"37";
+							elsif addrcnt(11) = x"4c" then
+								addrcnt(11) <= x"42";
+							elsif addrcnt(11) = x"57" then
+								addrcnt(11) <= x"4d";
+							elsif addrcnt(11) = x"62" then
+								addrcnt(11) <= x"58";
+							elsif addrcnt(11) = x"6d" then
+								addrcnt(11) <= x"63";
+							elsif addrcnt(11) = x"78" then
+								addrcnt(11) <= x"6e";
+							elsif addrcnt(11) = x"83" then
+								addrcnt(11) <= x"79";
+							elsif addrcnt(11) = x"8e" then
+								addrcnt(11) <= x"84";
+							elsif addrcnt(11) = x"99" then
+								addrcnt(11) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "001100" )or (d_c1 = "011001") then --k
 						addrcnt(12) <= addrcnt(12) + '1';
 						rgb_data <= b_data(12) & g_data(12) & r_data(12);
+						if(((d_c2 = "001100" ) or (d_c2 = "011001")) or ((d_c3 = "001100" )or (d_c3 = "011001")) or ((d_c4 = "001100" )or (d_c4 = "011001"))
+						or ((d_c5 = "001100" )or (d_c5 = "011001"))or ((d_c6 = "001100" )or (d_c6 = "011001"))) then
+							if addrcnt(12) = x"0a" then
+								addrcnt(12) <= (others => '0');
+							elsif addrcnt(12) = x"15" then
+								addrcnt(12) <= x"0b";
+							elsif addrcnt(12) = x"20" then
+								addrcnt(12) <= x"16";
+							elsif addrcnt(12) = x"2b" then
+								addrcnt(12) <= x"21";
+							elsif addrcnt(12) = x"36" then
+								addrcnt(12) <= x"2c";
+							elsif addrcnt(12) = x"41" then
+								addrcnt(12) <= x"37";
+							elsif addrcnt(12) = x"4c" then
+								addrcnt(12) <= x"42";
+							elsif addrcnt(12) = x"57" then
+								addrcnt(12) <= x"4d";
+							elsif addrcnt(12) = x"62" then
+								addrcnt(12) <= x"58";
+							elsif addrcnt(12) = x"6d" then
+								addrcnt(12) <= x"63";
+							elsif addrcnt(12) = x"78" then
+								addrcnt(12) <= x"6e";
+							elsif addrcnt(12) = x"83" then
+								addrcnt(12) <= x"79";
+							elsif addrcnt(12) = x"8e" then
+								addrcnt(12) <= x"84";
+							elsif addrcnt(12) = x"99" then
+								addrcnt(12) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "011010" )or (d_c1 = "100111")  then --a(red)
 						addrcnt(13) <= addrcnt(13) + '1';
 						rgb_data <= b_data(13) & g_data(13) & r_data(13);
+						if(((d_c2 = "011010" ) or (d_c2 = "100111")) or ((d_c3 = "011010" )or (d_c3 = "100111")) or ((d_c4 = "011010" )or (d_c4 = "100111"))
+						or ((d_c5 = "011010" )or (d_c5 = "100111"))or ((d_c6 = "011010" )or (d_c6 = "100111"))) then
+							if addrcnt(13) = x"0a" then
+								addrcnt(13) <= (others => '0');
+							elsif addrcnt(13) = x"15" then
+								addrcnt(13) <= x"0b";
+							elsif addrcnt(13) = x"20" then
+								addrcnt(13) <= x"16";
+							elsif addrcnt(13) = x"2b" then
+								addrcnt(13) <= x"21";
+							elsif addrcnt(13) = x"36" then
+								addrcnt(13) <= x"2c";
+							elsif addrcnt(13) = x"41" then
+								addrcnt(13) <= x"37";
+							elsif addrcnt(13) = x"4c" then
+								addrcnt(13) <= x"42";
+							elsif addrcnt(13) = x"57" then
+								addrcnt(13) <= x"4d";
+							elsif addrcnt(13) = x"62" then
+								addrcnt(13) <= x"58";
+							elsif addrcnt(13) = x"6d" then
+								addrcnt(13) <= x"63";
+							elsif addrcnt(13) = x"78" then
+								addrcnt(13) <= x"6e";
+							elsif addrcnt(13) = x"83" then
+								addrcnt(13) <= x"79";
+							elsif addrcnt(13) = x"8e" then
+								addrcnt(13) <= x"84";
+							elsif addrcnt(13) = x"99" then
+								addrcnt(13) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "011011" )or (d_c1 = "101000") then --2(red)
 						addrcnt(14) <= addrcnt(14) + '1';
 						rgb_data <= b_data(14) & g_data(14) & r_data(14);
+						if(((d_c2 = "011011" ) or (d_c2 = "101000")) or ((d_c3 = "011011" )or (d_c3 = "101000")) or ((d_c4 = "011011" )or (d_c4 = "101000"))
+						or ((d_c5 = "011011" )or (d_c5 = "101000"))or ((d_c6 = "011011" )or (d_c6 = "101000"))) then
+							if addrcnt(14) = x"0a" then
+								addrcnt(14) <= (others => '0');
+							elsif addrcnt(14) = x"15" then
+								addrcnt(14) <= x"0b";
+							elsif addrcnt(14) = x"20" then
+								addrcnt(14) <= x"16";
+							elsif addrcnt(14) = x"2b" then
+								addrcnt(14) <= x"21";
+							elsif addrcnt(14) = x"36" then
+								addrcnt(14) <= x"2c";
+							elsif addrcnt(14) = x"41" then
+								addrcnt(14) <= x"37";
+							elsif addrcnt(14) = x"4c" then
+								addrcnt(14) <= x"42";
+							elsif addrcnt(14) = x"57" then
+								addrcnt(14) <= x"4d";
+							elsif addrcnt(14) = x"62" then
+								addrcnt(14) <= x"58";
+							elsif addrcnt(14) = x"6d" then
+								addrcnt(14) <= x"63";
+							elsif addrcnt(14) = x"78" then
+								addrcnt(14) <= x"6e";
+							elsif addrcnt(14) = x"83" then
+								addrcnt(14) <= x"79";
+							elsif addrcnt(14) = x"8e" then
+								addrcnt(14) <= x"84";
+							elsif addrcnt(14) = x"99" then
+								addrcnt(14) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "011100" )or (d_c1 = "101001") then --3(red)
 						addrcnt(15) <= addrcnt(15) + '1';
 						rgb_data <= b_data(15) & g_data(15) & r_data(15);
+						if(((d_c2 = "011100" ) or (d_c2 = "101001")) or ((d_c3 = "011100" )or (d_c3 = "101001")) or ((d_c4 = "011100" )or (d_c4 = "101001"))
+						or ((d_c5 = "011100" )or (d_c5 = "101001"))or ((d_c6 = "011100" )or (d_c6 = "101001"))) then
+							if addrcnt(15) = x"0a" then
+								addrcnt(15) <= (others => '0');
+							elsif addrcnt(15) = x"15" then
+								addrcnt(15) <= x"0b";
+							elsif addrcnt(15) = x"20" then
+								addrcnt(15) <= x"16";
+							elsif addrcnt(15) = x"2b" then
+								addrcnt(15) <= x"21";
+							elsif addrcnt(15) = x"36" then
+								addrcnt(15) <= x"2c";
+							elsif addrcnt(15) = x"41" then
+								addrcnt(15) <= x"37";
+							elsif addrcnt(15) = x"4c" then
+								addrcnt(15) <= x"42";
+							elsif addrcnt(15) = x"57" then
+								addrcnt(15) <= x"4d";
+							elsif addrcnt(15) = x"62" then
+								addrcnt(15) <= x"58";
+							elsif addrcnt(15) = x"6d" then
+								addrcnt(15) <= x"63";
+							elsif addrcnt(15) = x"78" then
+								addrcnt(15) <= x"6e";
+							elsif addrcnt(15) = x"83" then
+								addrcnt(15) <= x"79";
+							elsif addrcnt(15) = x"8e" then
+								addrcnt(15) <= x"84";
+							elsif addrcnt(15) = x"99" then
+								addrcnt(15) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "011101" )or (d_c1 = "101010") then --4(red)
 						addrcnt(16) <= addrcnt(16) + '1';
 						rgb_data <= b_data(16) & g_data(16) & r_data(16);
+						if(((d_c2 = "011101" ) or (d_c2 = "101010")) or ((d_c3 = "011101" )or (d_c3 = "101010")) or ((d_c4 = "011101" )or (d_c4 = "101010"))
+						or ((d_c5 = "011101" )or (d_c5 = "101010"))or ((d_c6 = "011101" )or (d_c6 = "101010"))) then
+							if addrcnt(16) = x"0a" then
+								addrcnt(16) <= (others => '0');
+							elsif addrcnt(16) = x"15" then
+								addrcnt(16) <= x"0b";
+							elsif addrcnt(16) = x"20" then
+								addrcnt(16) <= x"16";
+							elsif addrcnt(16) = x"2b" then
+								addrcnt(16) <= x"21";
+							elsif addrcnt(16) = x"36" then
+								addrcnt(16) <= x"2c";
+							elsif addrcnt(16) = x"41" then
+								addrcnt(16) <= x"37";
+							elsif addrcnt(16) = x"4c" then
+								addrcnt(16) <= x"42";
+							elsif addrcnt(16) = x"57" then
+								addrcnt(16) <= x"4d";
+							elsif addrcnt(16) = x"62" then
+								addrcnt(16) <= x"58";
+							elsif addrcnt(16) = x"6d" then
+								addrcnt(16) <= x"63";
+							elsif addrcnt(16) = x"78" then
+								addrcnt(16) <= x"6e";
+							elsif addrcnt(16) = x"83" then
+								addrcnt(16) <= x"79";
+							elsif addrcnt(16) = x"8e" then
+								addrcnt(16) <= x"84";
+							elsif addrcnt(16) = x"99" then
+								addrcnt(16) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "011110" )or (d_c1 = "101011") then --5(red)
 						addrcnt(17) <= addrcnt(17) + '1';
 						rgb_data <= b_data(17) & g_data(17) & r_data(17);
+						if(((d_c2 = "011110" ) or (d_c2 = "101011")) or ((d_c3 = "011110" )or (d_c3 = "101011")) or ((d_c4 = "011110" )or (d_c4 = "101011"))
+						or ((d_c5 = "011110" )or (d_c5 = "101011"))or ((d_c6 = "011110" )or (d_c6 = "101011"))) then
+							if addrcnt(17) = x"0a" then
+								addrcnt(17) <= (others => '0');
+							elsif addrcnt(17) = x"15" then
+								addrcnt(17) <= x"0b";
+							elsif addrcnt(17) = x"20" then
+								addrcnt(17) <= x"16";
+							elsif addrcnt(17) = x"2b" then
+								addrcnt(17) <= x"21";
+							elsif addrcnt(17) = x"36" then
+								addrcnt(17) <= x"2c";
+							elsif addrcnt(17) = x"41" then
+								addrcnt(17) <= x"37";
+							elsif addrcnt(17) = x"4c" then
+								addrcnt(17) <= x"42";
+							elsif addrcnt(17) = x"57" then
+								addrcnt(17) <= x"4d";
+							elsif addrcnt(17) = x"62" then
+								addrcnt(17) <= x"58";
+							elsif addrcnt(17) = x"6d" then
+								addrcnt(17) <= x"63";
+							elsif addrcnt(17) = x"78" then
+								addrcnt(17) <= x"6e";
+							elsif addrcnt(17) = x"83" then
+								addrcnt(17) <= x"79";
+							elsif addrcnt(17) = x"8e" then
+								addrcnt(17) <= x"84";
+							elsif addrcnt(17) = x"99" then
+								addrcnt(17) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "011111" )or (d_c1 = "101100") then --6(red)
 						addrcnt(18) <= addrcnt(18) + '1';
 						rgb_data <= b_data(18) & g_data(18) & r_data(18);
+						if(((d_c2 = "011111" ) or (d_c2 = "101100")) or ((d_c3 = "011111" )or (d_c3 = "101100")) or ((d_c4 = "011111" )or (d_c4 = "101100"))
+						or ((d_c5 = "011111" )or (d_c5 = "101100"))or ((d_c6 = "011111" )or (d_c6 = "101100"))) then
+							if addrcnt(18) = x"0a" then
+								addrcnt(18) <= (others => '0');
+							elsif addrcnt(18) = x"15" then
+								addrcnt(18) <= x"0b";
+							elsif addrcnt(18) = x"20" then
+								addrcnt(18) <= x"16";
+							elsif addrcnt(18) = x"2b" then
+								addrcnt(18) <= x"21";
+							elsif addrcnt(18) = x"36" then
+								addrcnt(18) <= x"2c";
+							elsif addrcnt(18) = x"41" then
+								addrcnt(18) <= x"37";
+							elsif addrcnt(18) = x"4c" then
+								addrcnt(18) <= x"42";
+							elsif addrcnt(18) = x"57" then
+								addrcnt(18) <= x"4d";
+							elsif addrcnt(18) = x"62" then
+								addrcnt(18) <= x"58";
+							elsif addrcnt(18) = x"6d" then
+								addrcnt(18) <= x"63";
+							elsif addrcnt(18) = x"78" then
+								addrcnt(18) <= x"6e";
+							elsif addrcnt(18) = x"83" then
+								addrcnt(18) <= x"79";
+							elsif addrcnt(18) = x"8e" then
+								addrcnt(18) <= x"84";
+							elsif addrcnt(18) = x"99" then
+								addrcnt(18) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "100000" )or (d_c1 = "101101") then --7(red)
 						addrcnt(19) <= addrcnt(19) + '1';
 						rgb_data <= b_data(19) & g_data(19) & r_data(19);
+						if(((d_c2 = "100000" ) or (d_c2 = "101101")) or ((d_c3 = "100000" )or (d_c3 = "101101")) or ((d_c4 = "100000" )or (d_c4 = "101101"))
+						or ((d_c5 = "100000" )or (d_c5 = "101101"))or ((d_c6 = "100000" )or (d_c6 = "101101"))) then
+							if addrcnt(19) = x"0a" then
+								addrcnt(19) <= (others => '0');
+							elsif addrcnt(19) = x"15" then
+								addrcnt(19) <= x"0b";
+							elsif addrcnt(19) = x"20" then
+								addrcnt(19) <= x"16";
+							elsif addrcnt(19) = x"2b" then
+								addrcnt(19) <= x"21";
+							elsif addrcnt(19) = x"36" then
+								addrcnt(19) <= x"2c";
+							elsif addrcnt(19) = x"41" then
+								addrcnt(19) <= x"37";
+							elsif addrcnt(19) = x"4c" then
+								addrcnt(19) <= x"42";
+							elsif addrcnt(19) = x"57" then
+								addrcnt(19) <= x"4d";
+							elsif addrcnt(19) = x"62" then
+								addrcnt(19) <= x"58";
+							elsif addrcnt(19) = x"6d" then
+								addrcnt(19) <= x"63";
+							elsif addrcnt(19) = x"78" then
+								addrcnt(19) <= x"6e";
+							elsif addrcnt(19) = x"83" then
+								addrcnt(19) <= x"79";
+							elsif addrcnt(19) = x"8e" then
+								addrcnt(19) <= x"84";
+							elsif addrcnt(19) = x"99" then
+								addrcnt(19) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "100001" )or (d_c1 = "101110") then --8(red)
 						addrcnt(20) <= addrcnt(20) + '1';
 						rgb_data <= b_data(20) & g_data(20) & r_data(20);
+						if(((d_c2 = "100001" ) or (d_c2 = "101110")) or ((d_c3 = "100001" )or (d_c3 = "101110")) or ((d_c4 = "100001" )or (d_c4 = "101110"))
+						or ((d_c5 = "100001" )or (d_c5 = "101110"))or ((d_c6 = "100001" )or (d_c6 = "101110"))) then
+							if addrcnt(20) = x"0a" then
+								addrcnt(20) <= (others => '0');
+							elsif addrcnt(20) = x"15" then
+								addrcnt(20) <= x"0b";
+							elsif addrcnt(20) = x"20" then
+								addrcnt(20) <= x"16";
+							elsif addrcnt(20) = x"2b" then
+								addrcnt(20) <= x"21";
+							elsif addrcnt(20) = x"36" then
+								addrcnt(20) <= x"2c";
+							elsif addrcnt(20) = x"41" then
+								addrcnt(20) <= x"37";
+							elsif addrcnt(20) = x"4c" then
+								addrcnt(20) <= x"42";
+							elsif addrcnt(20) = x"57" then
+								addrcnt(20) <= x"4d";
+							elsif addrcnt(20) = x"62" then
+								addrcnt(20) <= x"58";
+							elsif addrcnt(20) = x"6d" then
+								addrcnt(20) <= x"63";
+							elsif addrcnt(20) = x"78" then
+								addrcnt(20) <= x"6e";
+							elsif addrcnt(20) = x"83" then
+								addrcnt(20) <= x"79";
+							elsif addrcnt(20) = x"8e" then
+								addrcnt(20) <= x"84";
+							elsif addrcnt(20) = x"99" then
+								addrcnt(20) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "100010" )or (d_c1 = "101111") then --9(red)
 						addrcnt(21) <= addrcnt(21) + '1';
 						rgb_data <= b_data(21) & g_data(21) & r_data(21);
+						if(((d_c2 = "100010" ) or (d_c2 = "101111")) or ((d_c3 = "100010" )or (d_c3 = "101111")) or ((d_c4 = "100010" )or (d_c4 = "101111"))
+						or ((d_c5 = "100010" )or (d_c5 = "101111"))or ((d_c6 = "100010" )or (d_c6 = "101111"))) then
+							if addrcnt(21) = x"0a" then
+								addrcnt(21) <= (others => '0');
+							elsif addrcnt(21) = x"15" then
+								addrcnt(21) <= x"0b";
+							elsif addrcnt(21) = x"20" then
+								addrcnt(21) <= x"16";
+							elsif addrcnt(21) = x"2b" then
+								addrcnt(21) <= x"21";
+							elsif addrcnt(21) = x"36" then
+								addrcnt(21) <= x"2c";
+							elsif addrcnt(21) = x"41" then
+								addrcnt(21) <= x"37";
+							elsif addrcnt(21) = x"4c" then
+								addrcnt(21) <= x"42";
+							elsif addrcnt(21) = x"57" then
+								addrcnt(21) <= x"4d";
+							elsif addrcnt(21) = x"62" then
+								addrcnt(21) <= x"58";
+							elsif addrcnt(21) = x"6d" then
+								addrcnt(21) <= x"63";
+							elsif addrcnt(21) = x"78" then
+								addrcnt(21) <= x"6e";
+							elsif addrcnt(21) = x"83" then
+								addrcnt(21) <= x"79";
+							elsif addrcnt(21) = x"8e" then
+								addrcnt(21) <= x"84";
+							elsif addrcnt(21) = x"99" then
+								addrcnt(21) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "100011" )or (d_c1 = "110000") then --10(red)
 						addrcnt(22) <= addrcnt(22) + '1';
 						rgb_data <= b_data(22) & g_data(22) & r_data(22);
+						if(((d_c2 = "100011" ) or (d_c2 = "110000")) or ((d_c3 = "100011" )or (d_c3 = "110000")) or ((d_c4 = "100011" )or (d_c4 = "110000"))
+						or ((d_c5 = "100011" )or (d_c5 = "110000"))or ((d_c6 = "100011" )or (d_c6 = "110000"))) then
+							if addrcnt(22) = x"0a" then
+								addrcnt(22) <= (others => '0');
+							elsif addrcnt(22) = x"15" then
+								addrcnt(22) <= x"0b";
+							elsif addrcnt(22) = x"20" then
+								addrcnt(22) <= x"16";
+							elsif addrcnt(22) = x"2b" then
+								addrcnt(22) <= x"21";
+							elsif addrcnt(22) = x"36" then
+								addrcnt(22) <= x"2c";
+							elsif addrcnt(22) = x"41" then
+								addrcnt(22) <= x"37";
+							elsif addrcnt(22) = x"4c" then
+								addrcnt(22) <= x"42";
+							elsif addrcnt(22) = x"57" then
+								addrcnt(22) <= x"4d";
+							elsif addrcnt(22) = x"62" then
+								addrcnt(22) <= x"58";
+							elsif addrcnt(22) = x"6d" then
+								addrcnt(22) <= x"63";
+							elsif addrcnt(22) = x"78" then
+								addrcnt(22) <= x"6e";
+							elsif addrcnt(22) = x"83" then
+								addrcnt(22) <= x"79";
+							elsif addrcnt(22) = x"8e" then
+								addrcnt(22) <= x"84";
+							elsif addrcnt(22) = x"99" then
+								addrcnt(22) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "100100" )or (d_c1 = "110001") then --j(red)
 						addrcnt(23) <= addrcnt(23) + '1';
 						rgb_data <= b_data(23) & g_data(23) & r_data(23);
+						if(((d_c2 = "100100" ) or (d_c2 = "110001")) or ((d_c3 = "100100" )or (d_c3 = "110001")) or ((d_c4 = "100100" )or (d_c4 = "110001"))
+						or ((d_c5 = "100100" )or (d_c5 = "110001"))or ((d_c6 = "100100" )or (d_c6 = "110001"))) then
+							if addrcnt(23) = x"0a" then
+								addrcnt(23) <= (others => '0');
+							elsif addrcnt(23) = x"15" then
+								addrcnt(23) <= x"0b";
+							elsif addrcnt(23) = x"20" then
+								addrcnt(23) <= x"16";
+							elsif addrcnt(23) = x"2b" then
+								addrcnt(23) <= x"21";
+							elsif addrcnt(23) = x"36" then
+								addrcnt(23) <= x"2c";
+							elsif addrcnt(23) = x"41" then
+								addrcnt(23) <= x"37";
+							elsif addrcnt(23) = x"4c" then
+								addrcnt(23) <= x"42";
+							elsif addrcnt(23) = x"57" then
+								addrcnt(23) <= x"4d";
+							elsif addrcnt(23) = x"62" then
+								addrcnt(23) <= x"58";
+							elsif addrcnt(23) = x"6d" then
+								addrcnt(23) <= x"63";
+							elsif addrcnt(23) = x"78" then
+								addrcnt(23) <= x"6e";
+							elsif addrcnt(23) = x"83" then
+								addrcnt(23) <= x"79";
+							elsif addrcnt(23) = x"8e" then
+								addrcnt(23) <= x"84";
+							elsif addrcnt(23) = x"99" then
+								addrcnt(23) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "100101" )or (d_c1 = "110010") then --q(red)
 						addrcnt(24) <= addrcnt(24) + '1';
 						rgb_data <= b_data(24) & g_data(24) & r_data(24);
+						if(((d_c2 = "100101" ) or (d_c2 = "110010")) or ((d_c3 = "100101" )or (d_c3 = "110010")) or ((d_c4 = "100101" )or (d_c4 = "110010"))
+						or ((d_c5 = "100101" )or (d_c5 = "110010"))or ((d_c6 = "100101" )or (d_c6 = "110010"))) then
+							if addrcnt(24) = x"0a" then
+								addrcnt(24) <= (others => '0');
+							elsif addrcnt(24) = x"15" then
+								addrcnt(24) <= x"0b";
+							elsif addrcnt(24) = x"20" then
+								addrcnt(24) <= x"16";
+							elsif addrcnt(24) = x"2b" then
+								addrcnt(24) <= x"21";
+							elsif addrcnt(24) = x"36" then
+								addrcnt(24) <= x"2c";
+							elsif addrcnt(24) = x"41" then
+								addrcnt(24) <= x"37";
+							elsif addrcnt(24) = x"4c" then
+								addrcnt(24) <= x"42";
+							elsif addrcnt(24) = x"57" then
+								addrcnt(24) <= x"4d";
+							elsif addrcnt(24) = x"62" then
+								addrcnt(24) <= x"58";
+							elsif addrcnt(24) = x"6d" then
+								addrcnt(24) <= x"63";
+							elsif addrcnt(24) = x"78" then
+								addrcnt(24) <= x"6e";
+							elsif addrcnt(24) = x"83" then
+								addrcnt(24) <= x"79";
+							elsif addrcnt(24) = x"8e" then
+								addrcnt(24) <= x"84";
+							elsif addrcnt(24) = x"99" then
+								addrcnt(24) <= x"8f";
+							end if;
+						end if;
 					elsif (d_c1 = "100110" )or (d_c1 = "110011") then --k(red)
 						addrcnt(25) <= addrcnt(25) + '1';
 						rgb_data <= b_data(25) & g_data(25) & r_data(25);
+						if(((d_c2 = "100110" ) or (d_c2 = "110011")) or ((d_c3 = "100110" )or (d_c3 = "110011")) or ((d_c4 = "100110" )or (d_c4 = "110011"))
+						or ((d_c5 = "100110" )or (d_c5 = "110011"))or ((d_c6 = "100110" )or (d_c6 = "110011"))) then
+							if addrcnt(25) = x"0a" then
+								addrcnt(25) <= (others => '0');
+							elsif addrcnt(25) = x"15" then
+								addrcnt(25) <= x"0b";
+							elsif addrcnt(25) = x"20" then
+								addrcnt(25) <= x"16";
+							elsif addrcnt(25) = x"2b" then
+								addrcnt(25) <= x"21";
+							elsif addrcnt(25) = x"36" then
+								addrcnt(25) <= x"2c";
+							elsif addrcnt(25) = x"41" then
+								addrcnt(25) <= x"37";
+							elsif addrcnt(25) = x"4c" then
+								addrcnt(25) <= x"42";
+							elsif addrcnt(25) = x"57" then
+								addrcnt(25) <= x"4d";
+							elsif addrcnt(25) = x"62" then
+								addrcnt(25) <= x"58";
+							elsif addrcnt(25) = x"6d" then
+								addrcnt(25) <= x"63";
+							elsif addrcnt(25) = x"78" then
+								addrcnt(25) <= x"6e";
+							elsif addrcnt(25) = x"83" then
+								addrcnt(25) <= x"79";
+							elsif addrcnt(25) = x"8e" then
+								addrcnt(25) <= x"84";
+							elsif addrcnt(25) = x"99" then
+								addrcnt(25) <= x"8f";
+							end if;
+						end if;
 					else
 						rgb_data <= (others => '1');
 					end if;
-				elsif ((hsync_cnt >= (tHW + tHBP +111 ) ) and ( hsync_cnt <= (tHW + tHBP +160)) ) then
-					rgb_data <= (others => '1');
+				elsif ((hsync_cnt >= (tHW + tHBP +111 ) ) and ( hsync_cnt <= (tHW + tHBP +121)) ) then
+					if (d_c2 = "000000" )or (d_c2 = "001101") then --a
+						addrcnt(0) <= addrcnt(0) + '1';
+						rgb_data <= b_data(0) & g_data(0) & r_data(0);
+						if(((d_c3 = "000000" )or (d_c3 = "001101")) or ((d_c4 = "000000" )or (d_c4 = "001101"))
+						or ((d_c5 = "000000" )or (d_c5 = "001101"))or ((d_c6 = "000000" )or (d_c6 = "001101"))) then
+							if addrcnt(0) = x"0a" then
+								addrcnt(0) <= (others => '0');
+							elsif addrcnt(0) = x"15" then
+								addrcnt(0) <= x"0b";
+							elsif addrcnt(0) = x"20" then
+								addrcnt(0) <= x"16";
+							elsif addrcnt(0) = x"2b" then
+								addrcnt(0) <= x"21";
+							elsif addrcnt(0) = x"36" then
+								addrcnt(0) <= x"2c";
+							elsif addrcnt(0) = x"41" then
+								addrcnt(0) <= x"37";
+							elsif addrcnt(0) = x"4c" then
+								addrcnt(0) <= x"42";
+							elsif addrcnt(0) = x"57" then
+								addrcnt(0) <= x"4d";
+							elsif addrcnt(0) = x"62" then
+								addrcnt(0) <= x"58";
+							elsif addrcnt(0) = x"6d" then
+								addrcnt(0) <= x"63";
+							elsif addrcnt(0) = x"78" then
+								addrcnt(0) <= x"6e";
+							elsif addrcnt(0) = x"83" then
+								addrcnt(0) <= x"79";
+							elsif addrcnt(0) = x"8e" then
+								addrcnt(0) <= x"84";
+							elsif addrcnt(0) = x"99" then
+								addrcnt(0) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "000001" )or (d_c2 = "001110") then --2
+						addrcnt(1) <= addrcnt(1) + '1';
+						rgb_data <= b_data(1) & g_data(1) & r_data(1);
+						if( ((d_c3 = "000001" )or (d_c3 = "001110")) or ((d_c4 = "000001" )or (d_c4 = "001110"))
+						or ((d_c5 = "000001" )or (d_c5 = "001110"))or ((d_c6 = "000001" )or (d_c6 = "001110"))) then
+							if addrcnt(1) = x"0a" then
+								addrcnt(1) <= (others => '0');
+							elsif addrcnt(1) = x"15" then
+								addrcnt(1) <= x"0b";
+							elsif addrcnt(1) = x"20" then
+								addrcnt(1) <= x"16";
+							elsif addrcnt(1) = x"2b" then
+								addrcnt(1) <= x"21";
+							elsif addrcnt(1) = x"36" then
+								addrcnt(1) <= x"2c";
+							elsif addrcnt(1) = x"41" then
+								addrcnt(1) <= x"37";
+							elsif addrcnt(1) = x"4c" then
+								addrcnt(1) <= x"42";
+							elsif addrcnt(1) = x"57" then
+								addrcnt(1) <= x"4d";
+							elsif addrcnt(1) = x"62" then
+								addrcnt(1) <= x"58";
+							elsif addrcnt(1) = x"6d" then
+								addrcnt(1) <= x"63";
+							elsif addrcnt(1) = x"78" then
+								addrcnt(1) <= x"6e";
+							elsif addrcnt(1) = x"83" then
+								addrcnt(1) <= x"79";
+							elsif addrcnt(1) = x"8e" then
+								addrcnt(1) <= x"84";
+							elsif addrcnt(1) = x"99" then
+								addrcnt(1) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "000010" )or (d_c2 = "001111") then --3
+						addrcnt(2) <= addrcnt(2) + '1';
+						rgb_data <= b_data(2) & g_data(2) & r_data(2);
+						if( ((d_c3 = "000010" )or (d_c3 = "001111")) or ((d_c4 = "000010" )or (d_c4 = "001111"))
+						or ((d_c5 = "000010" )or (d_c5 = "001111"))or ((d_c6 = "000010" )or (d_c6 = "001111"))) then
+							if addrcnt(2) = x"0a" then
+								addrcnt(2) <= (others => '0');
+							elsif addrcnt(2) = x"15" then
+								addrcnt(2) <= x"0b";
+							elsif addrcnt(2) = x"20" then
+								addrcnt(2) <= x"16";
+							elsif addrcnt(2) = x"2b" then
+								addrcnt(2) <= x"21";
+							elsif addrcnt(2) = x"36" then
+								addrcnt(2) <= x"2c";
+							elsif addrcnt(2) = x"41" then
+								addrcnt(2) <= x"37";
+							elsif addrcnt(2) = x"4c" then
+								addrcnt(2) <= x"42";
+							elsif addrcnt(2) = x"57" then
+								addrcnt(2) <= x"4d";
+							elsif addrcnt(2) = x"62" then
+								addrcnt(2) <= x"58";
+							elsif addrcnt(2) = x"6d" then
+								addrcnt(2) <= x"63";
+							elsif addrcnt(2) = x"78" then
+								addrcnt(2) <= x"6e";
+							elsif addrcnt(2) = x"83" then
+								addrcnt(2) <= x"79";
+							elsif addrcnt(2) = x"8e" then
+								addrcnt(2) <= x"84";
+							elsif addrcnt(2) = x"99" then
+								addrcnt(2) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "000011" )or (d_c2 = "010000") then --4
+						addrcnt(3) <= addrcnt(3) + '1';
+						rgb_data <= b_data(3) & g_data(3) & r_data(3);
+					if( ((d_c3 = "000011" )or (d_c3 = "010000")) or ((d_c4 = "000011" )or (d_c4 = "010000"))
+						or ((d_c5 = "000011" )or (d_c5 = "010000"))or ((d_c6 = "000011" )or (d_c6 = "010000"))) then
+							if addrcnt(3) = x"0a" then
+								addrcnt(3) <= (others => '0');
+							elsif addrcnt(3) = x"15" then
+								addrcnt(3) <= x"0b";
+							elsif addrcnt(3) = x"20" then
+								addrcnt(3) <= x"16";
+							elsif addrcnt(3) = x"2b" then
+								addrcnt(3) <= x"21";
+							elsif addrcnt(3) = x"36" then
+								addrcnt(3) <= x"2c";
+							elsif addrcnt(3) = x"41" then
+								addrcnt(3) <= x"37";
+							elsif addrcnt(3) = x"4c" then
+								addrcnt(3) <= x"42";
+							elsif addrcnt(3) = x"57" then
+								addrcnt(3) <= x"4d";
+							elsif addrcnt(3) = x"62" then
+								addrcnt(3) <= x"58";
+							elsif addrcnt(3) = x"6d" then
+								addrcnt(3) <= x"63";
+							elsif addrcnt(3) = x"78" then
+								addrcnt(3) <= x"6e";
+							elsif addrcnt(3) = x"83" then
+								addrcnt(3) <= x"79";
+							elsif addrcnt(3) = x"8e" then
+								addrcnt(3) <= x"84";
+							elsif addrcnt(3) = x"99" then
+								addrcnt(3) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "000100" )or (d_c2 = "010001") then --5
+						addrcnt(4) <= addrcnt(4) + '1';
+						rgb_data <= b_data(4) & g_data(4) & r_data(4);
+						if( ((d_c3 = "000100" )or (d_c3 = "010001")) or ((d_c4 = "000100" )or (d_c4 = "010001"))
+						or ((d_c5 = "000100" )or (d_c5 = "010001"))or ((d_c6 = "000100" )or (d_c6 = "010001"))) then
+							if addrcnt(4) = x"0a" then
+								addrcnt(4) <= (others => '0');
+							elsif addrcnt(4) = x"15" then
+								addrcnt(4) <= x"0b";
+							elsif addrcnt(4) = x"20" then
+								addrcnt(4) <= x"16";
+							elsif addrcnt(4) = x"2b" then
+								addrcnt(4) <= x"21";
+							elsif addrcnt(4) = x"36" then
+								addrcnt(4) <= x"2c";
+							elsif addrcnt(4) = x"41" then
+								addrcnt(4) <= x"37";
+							elsif addrcnt(4) = x"4c" then
+								addrcnt(4) <= x"42";
+							elsif addrcnt(4) = x"57" then
+								addrcnt(4) <= x"4d";
+							elsif addrcnt(4) = x"62" then
+								addrcnt(4) <= x"58";
+							elsif addrcnt(4) = x"6d" then
+								addrcnt(4) <= x"63";
+							elsif addrcnt(4) = x"78" then
+								addrcnt(4) <= x"6e";
+							elsif addrcnt(4) = x"83" then
+								addrcnt(4) <= x"79";
+							elsif addrcnt(4) = x"8e" then
+								addrcnt(4) <= x"84";
+							elsif addrcnt(4) = x"99" then
+								addrcnt(4) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "000101" )or (d_c2 = "010010") then --6
+						addrcnt(5) <= addrcnt(5) + '1';
+						rgb_data <= b_data(5) & g_data(5) & r_data(5);
+						if(((d_c3 = "000101" )or (d_c3 = "010010")) or ((d_c4 = "000101" )or (d_c4 = "010010"))
+						or ((d_c5 = "000101" )or (d_c5 = "010010"))or ((d_c6 = "000101" )or (d_c6 = "010010"))) then
+							if addrcnt(5) = x"0a" then
+								addrcnt(5) <= (others => '0');
+							elsif addrcnt(5) = x"15" then
+								addrcnt(5) <= x"0b";
+							elsif addrcnt(5) = x"20" then
+								addrcnt(5) <= x"16";
+							elsif addrcnt(5) = x"2b" then
+								addrcnt(5) <= x"21";
+							elsif addrcnt(5) = x"36" then
+								addrcnt(5) <= x"2c";
+							elsif addrcnt(5) = x"41" then
+								addrcnt(5) <= x"37";
+							elsif addrcnt(5) = x"4c" then
+								addrcnt(5) <= x"42";
+							elsif addrcnt(5) = x"57" then
+								addrcnt(5) <= x"4d";
+							elsif addrcnt(5) = x"62" then
+								addrcnt(5) <= x"58";
+							elsif addrcnt(5) = x"6d" then
+								addrcnt(5) <= x"63";
+							elsif addrcnt(5) = x"78" then
+								addrcnt(5) <= x"6e";
+							elsif addrcnt(5) = x"83" then
+								addrcnt(5) <= x"79";
+							elsif addrcnt(5) = x"8e" then
+								addrcnt(5) <= x"84";
+							elsif addrcnt(5) = x"99" then
+								addrcnt(5) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "000110" )or (d_c2 = "010011") then --7
+						addrcnt(6) <= addrcnt(6) + '1';
+						rgb_data <= b_data(6) & g_data(6) & r_data(6);
+						if(((d_c3 = "000110" )or (d_c3 = "010011")) or ((d_c4 = "000110" )or (d_c4 = "010011"))
+						or ((d_c5 = "000110" )or (d_c5 = "010011"))or ((d_c6 = "000110" )or (d_c6 = "010011"))) then
+							if addrcnt(6) = x"0a" then
+								addrcnt(6) <= (others => '0');
+							elsif addrcnt(6) = x"15" then
+								addrcnt(6) <= x"0b";
+							elsif addrcnt(6) = x"20" then
+								addrcnt(6) <= x"16";
+							elsif addrcnt(6) = x"2b" then
+								addrcnt(6) <= x"21";
+							elsif addrcnt(6) = x"36" then
+								addrcnt(6) <= x"2c";
+							elsif addrcnt(6) = x"41" then
+								addrcnt(6) <= x"37";
+							elsif addrcnt(6) = x"4c" then
+								addrcnt(6) <= x"42";
+							elsif addrcnt(6) = x"57" then
+								addrcnt(6) <= x"4d";
+							elsif addrcnt(6) = x"62" then
+								addrcnt(6) <= x"58";
+							elsif addrcnt(6) = x"6d" then
+								addrcnt(6) <= x"63";
+							elsif addrcnt(6) = x"78" then
+								addrcnt(6) <= x"6e";
+							elsif addrcnt(6) = x"83" then
+								addrcnt(6) <= x"79";
+							elsif addrcnt(6) = x"8e" then
+								addrcnt(6) <= x"84";
+							elsif addrcnt(6) = x"99" then
+								addrcnt(6) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "000111" )or (d_c2 = "010100") then --8
+						addrcnt(7) <= addrcnt(7) + '1';
+						rgb_data <= b_data(7) & g_data(7) & r_data(7);
+						if(((d_c3 = "000111" )or (d_c3 = "010100")) or ((d_c4 = "000111" )or (d_c4 = "010100"))
+						or ((d_c5 = "000111" )or (d_c5 = "010100"))or ((d_c6 = "000111" )or (d_c6 = "010100"))) then
+							if addrcnt(7) = x"0a" then
+								addrcnt(7) <= (others => '0');
+							elsif addrcnt(7) = x"15" then
+								addrcnt(7) <= x"0b";
+							elsif addrcnt(7) = x"20" then
+								addrcnt(7) <= x"16";
+							elsif addrcnt(7) = x"2b" then
+								addrcnt(7) <= x"21";
+							elsif addrcnt(7) = x"36" then
+								addrcnt(7) <= x"2c";
+							elsif addrcnt(7) = x"41" then
+								addrcnt(7) <= x"37";
+							elsif addrcnt(7) = x"4c" then
+								addrcnt(7) <= x"42";
+							elsif addrcnt(7) = x"57" then
+								addrcnt(7) <= x"4d";
+							elsif addrcnt(7) = x"62" then
+								addrcnt(7) <= x"58";
+							elsif addrcnt(7) = x"6d" then
+								addrcnt(7) <= x"63";
+							elsif addrcnt(7) = x"78" then
+								addrcnt(7) <= x"6e";
+							elsif addrcnt(7) = x"83" then
+								addrcnt(7) <= x"79";
+							elsif addrcnt(7) = x"8e" then
+								addrcnt(7) <= x"84";
+							elsif addrcnt(7) = x"99" then
+								addrcnt(7) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "001000" )or (d_c2 = "010101") then --9
+						addrcnt(8) <= addrcnt(8) + '1';
+						rgb_data <= b_data(8) & g_data(8) & r_data(8);
+						if( ((d_c3 = "001000" )or (d_c3 = "010101")) or ((d_c4 = "001000" )or (d_c4 = "010101"))
+						or ((d_c5 = "001000" )or (d_c5 = "010101"))or ((d_c6 = "001000" )or (d_c6 = "010101"))) then
+							if addrcnt(8) = x"0a" then
+								addrcnt(8) <= (others => '0');
+							elsif addrcnt(8) = x"15" then
+								addrcnt(8) <= x"0b";
+							elsif addrcnt(8) = x"20" then
+								addrcnt(8) <= x"16";
+							elsif addrcnt(8) = x"2b" then
+								addrcnt(8) <= x"21";
+							elsif addrcnt(8) = x"36" then
+								addrcnt(8) <= x"2c";
+							elsif addrcnt(8) = x"41" then
+								addrcnt(8) <= x"37";
+							elsif addrcnt(8) = x"4c" then
+								addrcnt(8) <= x"42";
+							elsif addrcnt(8) = x"57" then
+								addrcnt(8) <= x"4d";
+							elsif addrcnt(8) = x"62" then
+								addrcnt(8) <= x"58";
+							elsif addrcnt(8) = x"6d" then
+								addrcnt(8) <= x"63";
+							elsif addrcnt(8) = x"78" then
+								addrcnt(8) <= x"6e";
+							elsif addrcnt(8) = x"83" then
+								addrcnt(8) <= x"79";
+							elsif addrcnt(8) = x"8e" then
+								addrcnt(8) <= x"84";
+							elsif addrcnt(8) = x"99" then
+								addrcnt(8) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "001001" )or (d_c2 = "010110") then --10
+						addrcnt(9) <= addrcnt(9) + '1';
+						rgb_data <= b_data(9) & g_data(9) & r_data(9);
+						if(((d_c3 = "001001" )or (d_c3 = "010110")) or ((d_c4 = "001001" )or (d_c4 = "010110"))
+						or ((d_c5 = "001001" )or (d_c5 = "010110"))or ((d_c6 = "001001" )or (d_c6 = "010110"))) then
+							if addrcnt(9) = x"0a" then
+								addrcnt(9) <= (others => '0');
+							elsif addrcnt(9) = x"15" then
+								addrcnt(9) <= x"0b";
+							elsif addrcnt(9) = x"20" then
+								addrcnt(9) <= x"16";
+							elsif addrcnt(9) = x"2b" then
+								addrcnt(9) <= x"21";
+							elsif addrcnt(9) = x"36" then
+								addrcnt(9) <= x"2c";
+							elsif addrcnt(9) = x"41" then
+								addrcnt(9) <= x"37";
+							elsif addrcnt(9) = x"4c" then
+								addrcnt(9) <= x"42";
+							elsif addrcnt(9) = x"57" then
+								addrcnt(9) <= x"4d";
+							elsif addrcnt(9) = x"62" then
+								addrcnt(9) <= x"58";
+							elsif addrcnt(9) = x"6d" then
+								addrcnt(9) <= x"63";
+							elsif addrcnt(9) = x"78" then
+								addrcnt(9) <= x"6e";
+							elsif addrcnt(9) = x"83" then
+								addrcnt(9) <= x"79";
+							elsif addrcnt(9) = x"8e" then
+								addrcnt(9) <= x"84";
+							elsif addrcnt(9) = x"99" then
+								addrcnt(9) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "001010" )or (d_c2 = "010111") then --j
+						addrcnt(10) <= addrcnt(10) + '1';
+						rgb_data <= b_data(10) & g_data(10) & r_data(10);
+						if( ((d_c3 = "001010" )or (d_c3 = "010111")) or ((d_c4 = "001010" )or (d_c4 = "010111"))
+						or ((d_c5 = "001010" )or (d_c5 = "010111"))or ((d_c6 = "001010" )or (d_c6 = "010111"))) then
+							if addrcnt(10) = x"0a" then
+								addrcnt(10) <= (others => '0');
+							elsif addrcnt(10) = x"15" then
+								addrcnt(10) <= x"0b";
+							elsif addrcnt(10) = x"20" then
+								addrcnt(10) <= x"16";
+							elsif addrcnt(10) = x"2b" then
+								addrcnt(10) <= x"21";
+							elsif addrcnt(10) = x"36" then
+								addrcnt(10) <= x"2c";
+							elsif addrcnt(10) = x"41" then
+								addrcnt(10) <= x"37";
+							elsif addrcnt(10) = x"4c" then
+								addrcnt(10) <= x"42";
+							elsif addrcnt(10) = x"57" then
+								addrcnt(10) <= x"4d";
+							elsif addrcnt(10) = x"62" then
+								addrcnt(10) <= x"58";
+							elsif addrcnt(10) = x"6d" then
+								addrcnt(10) <= x"63";
+							elsif addrcnt(10) = x"78" then
+								addrcnt(10) <= x"6e";
+							elsif addrcnt(10) = x"83" then
+								addrcnt(10) <= x"79";
+							elsif addrcnt(10) = x"8e" then
+								addrcnt(10) <= x"84";
+							elsif addrcnt(10) = x"99" then
+								addrcnt(10) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "001011" )or (d_c2 = "011000") then --q
+						addrcnt(11) <= addrcnt(11) + '1';
+						rgb_data <= b_data(11) & g_data(11) & r_data(11);
+						if( ((d_c3 = "001011" )or (d_c3 = "011000")) or ((d_c4 = "001011" )or (d_c4 = "011000"))
+						or ((d_c5 = "001011" )or (d_c5 = "011000"))or ((d_c6 = "001011" )or (d_c6 = "011000"))) then
+							if addrcnt(11) = x"0a" then
+								addrcnt(11) <= (others => '0');
+							elsif addrcnt(11) = x"15" then
+								addrcnt(11) <= x"0b";
+							elsif addrcnt(11) = x"20" then
+								addrcnt(11) <= x"16";
+							elsif addrcnt(11) = x"2b" then
+								addrcnt(11) <= x"21";
+							elsif addrcnt(11) = x"36" then
+								addrcnt(11) <= x"2c";
+							elsif addrcnt(11) = x"41" then
+								addrcnt(11) <= x"37";
+							elsif addrcnt(11) = x"4c" then
+								addrcnt(11) <= x"42";
+							elsif addrcnt(11) = x"57" then
+								addrcnt(11) <= x"4d";
+							elsif addrcnt(11) = x"62" then
+								addrcnt(11) <= x"58";
+							elsif addrcnt(11) = x"6d" then
+								addrcnt(11) <= x"63";
+							elsif addrcnt(11) = x"78" then
+								addrcnt(11) <= x"6e";
+							elsif addrcnt(11) = x"83" then
+								addrcnt(11) <= x"79";
+							elsif addrcnt(11) = x"8e" then
+								addrcnt(11) <= x"84";
+							elsif addrcnt(11) = x"99" then
+								addrcnt(11) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "001100" )or (d_c2 = "011001") then --k
+						addrcnt(12) <= addrcnt(12) + '1';
+						rgb_data <= b_data(12) & g_data(12) & r_data(12);
+						if( ((d_c3 = "001100" )or (d_c3 = "011001")) or ((d_c4 = "001100" )or (d_c4 = "011001"))
+						or ((d_c5 = "001100" )or (d_c5 = "011001"))or ((d_c6 = "001100" )or (d_c6 = "011001"))) then
+							if addrcnt(12) = x"0a" then
+								addrcnt(12) <= (others => '0');
+							elsif addrcnt(12) = x"15" then
+								addrcnt(12) <= x"0b";
+							elsif addrcnt(12) = x"20" then
+								addrcnt(12) <= x"16";
+							elsif addrcnt(12) = x"2b" then
+								addrcnt(12) <= x"21";
+							elsif addrcnt(12) = x"36" then
+								addrcnt(12) <= x"2c";
+							elsif addrcnt(12) = x"41" then
+								addrcnt(12) <= x"37";
+							elsif addrcnt(12) = x"4c" then
+								addrcnt(12) <= x"42";
+							elsif addrcnt(12) = x"57" then
+								addrcnt(12) <= x"4d";
+							elsif addrcnt(12) = x"62" then
+								addrcnt(12) <= x"58";
+							elsif addrcnt(12) = x"6d" then
+								addrcnt(12) <= x"63";
+							elsif addrcnt(12) = x"78" then
+								addrcnt(12) <= x"6e";
+							elsif addrcnt(12) = x"83" then
+								addrcnt(12) <= x"79";
+							elsif addrcnt(12) = x"8e" then
+								addrcnt(12) <= x"84";
+							elsif addrcnt(12) = x"99" then
+								addrcnt(12) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "011010" )or (d_c2 = "100111")  then --a(red)
+						addrcnt(13) <= addrcnt(13) + '1';
+						rgb_data <= b_data(13) & g_data(13) & r_data(13);
+						if( ((d_c3 = "011010" )or (d_c3 = "100111")) or ((d_c4 = "011010" )or (d_c4 = "100111"))
+						or ((d_c5 = "011010" )or (d_c5 = "100111"))or ((d_c6 = "011010" )or (d_c6 = "100111"))) then
+							if addrcnt(13) = x"0a" then
+								addrcnt(13) <= (others => '0');
+							elsif addrcnt(13) = x"15" then
+								addrcnt(13) <= x"0b";
+							elsif addrcnt(13) = x"20" then
+								addrcnt(13) <= x"16";
+							elsif addrcnt(13) = x"2b" then
+								addrcnt(13) <= x"21";
+							elsif addrcnt(13) = x"36" then
+								addrcnt(13) <= x"2c";
+							elsif addrcnt(13) = x"41" then
+								addrcnt(13) <= x"37";
+							elsif addrcnt(13) = x"4c" then
+								addrcnt(13) <= x"42";
+							elsif addrcnt(13) = x"57" then
+								addrcnt(13) <= x"4d";
+							elsif addrcnt(13) = x"62" then
+								addrcnt(13) <= x"58";
+							elsif addrcnt(13) = x"6d" then
+								addrcnt(13) <= x"63";
+							elsif addrcnt(13) = x"78" then
+								addrcnt(13) <= x"6e";
+							elsif addrcnt(13) = x"83" then
+								addrcnt(13) <= x"79";
+							elsif addrcnt(13) = x"8e" then
+								addrcnt(13) <= x"84";
+							elsif addrcnt(13) = x"99" then
+								addrcnt(13) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "011011" )or (d_c2 = "101000") then --2(red)
+						addrcnt(14) <= addrcnt(14) + '1';
+						rgb_data <= b_data(14) & g_data(14) & r_data(14);
+						if( ((d_c3 = "011011" )or (d_c3 = "101000")) or ((d_c4 = "011011" )or (d_c4 = "101000"))
+						or ((d_c5 = "011011" )or (d_c5 = "101000"))or ((d_c6 = "011011" )or (d_c6 = "101000"))) then
+							if addrcnt(14) = x"0a" then
+								addrcnt(14) <= (others => '0');
+							elsif addrcnt(14) = x"15" then
+								addrcnt(14) <= x"0b";
+							elsif addrcnt(14) = x"20" then
+								addrcnt(14) <= x"16";
+							elsif addrcnt(14) = x"2b" then
+								addrcnt(14) <= x"21";
+							elsif addrcnt(14) = x"36" then
+								addrcnt(14) <= x"2c";
+							elsif addrcnt(14) = x"41" then
+								addrcnt(14) <= x"37";
+							elsif addrcnt(14) = x"4c" then
+								addrcnt(14) <= x"42";
+							elsif addrcnt(14) = x"57" then
+								addrcnt(14) <= x"4d";
+							elsif addrcnt(14) = x"62" then
+								addrcnt(14) <= x"58";
+							elsif addrcnt(14) = x"6d" then
+								addrcnt(14) <= x"63";
+							elsif addrcnt(14) = x"78" then
+								addrcnt(14) <= x"6e";
+							elsif addrcnt(14) = x"83" then
+								addrcnt(14) <= x"79";
+							elsif addrcnt(14) = x"8e" then
+								addrcnt(14) <= x"84";
+							elsif addrcnt(14) = x"99" then
+								addrcnt(14) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "011100" )or (d_c2 = "101001") then --3(red)
+						addrcnt(15) <= addrcnt(15) + '1';
+						rgb_data <= b_data(15) & g_data(15) & r_data(15);
+						if(((d_c3 = "011100" )or (d_c3 = "101001")) or ((d_c4 = "011100" )or (d_c4 = "101001"))
+						or ((d_c5 = "011100" )or (d_c5 = "101001"))or ((d_c6 = "011100" )or (d_c6 = "101001"))) then
+							if addrcnt(15) = x"0a" then
+								addrcnt(15) <= (others => '0');
+							elsif addrcnt(15) = x"15" then
+								addrcnt(15) <= x"0b";
+							elsif addrcnt(15) = x"20" then
+								addrcnt(15) <= x"16";
+							elsif addrcnt(15) = x"2b" then
+								addrcnt(15) <= x"21";
+							elsif addrcnt(15) = x"36" then
+								addrcnt(15) <= x"2c";
+							elsif addrcnt(15) = x"41" then
+								addrcnt(15) <= x"37";
+							elsif addrcnt(15) = x"4c" then
+								addrcnt(15) <= x"42";
+							elsif addrcnt(15) = x"57" then
+								addrcnt(15) <= x"4d";
+							elsif addrcnt(15) = x"62" then
+								addrcnt(15) <= x"58";
+							elsif addrcnt(15) = x"6d" then
+								addrcnt(15) <= x"63";
+							elsif addrcnt(15) = x"78" then
+								addrcnt(15) <= x"6e";
+							elsif addrcnt(15) = x"83" then
+								addrcnt(15) <= x"79";
+							elsif addrcnt(15) = x"8e" then
+								addrcnt(15) <= x"84";
+							elsif addrcnt(15) = x"99" then
+								addrcnt(15) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "011101" )or (d_c2 = "101010") then --4(red)
+						addrcnt(16) <= addrcnt(16) + '1';
+						rgb_data <= b_data(16) & g_data(16) & r_data(16);
+						if(((d_c3 = "011101" )or (d_c3 = "101010")) or ((d_c4 = "011101" )or (d_c4 = "101010"))
+						or ((d_c5 = "011101" )or (d_c5 = "101010"))or ((d_c6 = "011101" )or (d_c6 = "101010"))) then
+							if addrcnt(16) = x"0a" then
+								addrcnt(16) <= (others => '0');
+							elsif addrcnt(16) = x"15" then
+								addrcnt(16) <= x"0b";
+							elsif addrcnt(16) = x"20" then
+								addrcnt(16) <= x"16";
+							elsif addrcnt(16) = x"2b" then
+								addrcnt(16) <= x"21";
+							elsif addrcnt(16) = x"36" then
+								addrcnt(16) <= x"2c";
+							elsif addrcnt(16) = x"41" then
+								addrcnt(16) <= x"37";
+							elsif addrcnt(16) = x"4c" then
+								addrcnt(16) <= x"42";
+							elsif addrcnt(16) = x"57" then
+								addrcnt(16) <= x"4d";
+							elsif addrcnt(16) = x"62" then
+								addrcnt(16) <= x"58";
+							elsif addrcnt(16) = x"6d" then
+								addrcnt(16) <= x"63";
+							elsif addrcnt(16) = x"78" then
+								addrcnt(16) <= x"6e";
+							elsif addrcnt(16) = x"83" then
+								addrcnt(16) <= x"79";
+							elsif addrcnt(16) = x"8e" then
+								addrcnt(16) <= x"84";
+							elsif addrcnt(16) = x"99" then
+								addrcnt(16) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "011110" )or (d_c2 = "101011") then --5(red)
+						addrcnt(17) <= addrcnt(17) + '1';
+						rgb_data <= b_data(17) & g_data(17) & r_data(17);
+						if( ((d_c3 = "011110" )or (d_c3 = "101011")) or ((d_c4 = "011110" )or (d_c4 = "101011"))
+						or ((d_c5 = "011110" )or (d_c5 = "101011"))or ((d_c6 = "011110" )or (d_c6 = "101011"))) then
+							if addrcnt(17) = x"0a" then
+								addrcnt(17) <= (others => '0');
+							elsif addrcnt(17) = x"15" then
+								addrcnt(17) <= x"0b";
+							elsif addrcnt(17) = x"20" then
+								addrcnt(17) <= x"16";
+							elsif addrcnt(17) = x"2b" then
+								addrcnt(17) <= x"21";
+							elsif addrcnt(17) = x"36" then
+								addrcnt(17) <= x"2c";
+							elsif addrcnt(17) = x"41" then
+								addrcnt(17) <= x"37";
+							elsif addrcnt(17) = x"4c" then
+								addrcnt(17) <= x"42";
+							elsif addrcnt(17) = x"57" then
+								addrcnt(17) <= x"4d";
+							elsif addrcnt(17) = x"62" then
+								addrcnt(17) <= x"58";
+							elsif addrcnt(17) = x"6d" then
+								addrcnt(17) <= x"63";
+							elsif addrcnt(17) = x"78" then
+								addrcnt(17) <= x"6e";
+							elsif addrcnt(17) = x"83" then
+								addrcnt(17) <= x"79";
+							elsif addrcnt(17) = x"8e" then
+								addrcnt(17) <= x"84";
+							elsif addrcnt(17) = x"99" then
+								addrcnt(17) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "011111" )or (d_c2 = "101100") then --6(red)
+						addrcnt(18) <= addrcnt(18) + '1';
+						rgb_data <= b_data(18) & g_data(18) & r_data(18);
+						if( ((d_c3 = "011111" )or (d_c3 = "101100")) or ((d_c4 = "011111" )or (d_c4 = "101100"))
+						or ((d_c5 = "011111" )or (d_c5 = "101100"))or ((d_c6 = "011111" )or (d_c6 = "101100"))) then
+							if addrcnt(18) = x"0a" then
+								addrcnt(18) <= (others => '0');
+							elsif addrcnt(18) = x"15" then
+								addrcnt(18) <= x"0b";
+							elsif addrcnt(18) = x"20" then
+								addrcnt(18) <= x"16";
+							elsif addrcnt(18) = x"2b" then
+								addrcnt(18) <= x"21";
+							elsif addrcnt(18) = x"36" then
+								addrcnt(18) <= x"2c";
+							elsif addrcnt(18) = x"41" then
+								addrcnt(18) <= x"37";
+							elsif addrcnt(18) = x"4c" then
+								addrcnt(18) <= x"42";
+							elsif addrcnt(18) = x"57" then
+								addrcnt(18) <= x"4d";
+							elsif addrcnt(18) = x"62" then
+								addrcnt(18) <= x"58";
+							elsif addrcnt(18) = x"6d" then
+								addrcnt(18) <= x"63";
+							elsif addrcnt(18) = x"78" then
+								addrcnt(18) <= x"6e";
+							elsif addrcnt(18) = x"83" then
+								addrcnt(18) <= x"79";
+							elsif addrcnt(18) = x"8e" then
+								addrcnt(18) <= x"84";
+							elsif addrcnt(18) = x"99" then
+								addrcnt(18) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "100000" )or (d_c2 = "101101") then --7(red)
+						addrcnt(19) <= addrcnt(19) + '1';
+						rgb_data <= b_data(19) & g_data(19) & r_data(19);
+						if(((d_c3 = "100000" )or (d_c3 = "101101")) or ((d_c4 = "100000" )or (d_c4 = "101101"))
+						or ((d_c5 = "100000" )or (d_c5 = "101101"))or ((d_c6 = "100000" )or (d_c6 = "101101"))) then
+							if addrcnt(19) = x"0a" then
+								addrcnt(19) <= (others => '0');
+							elsif addrcnt(19) = x"15" then
+								addrcnt(19) <= x"0b";
+							elsif addrcnt(19) = x"20" then
+								addrcnt(19) <= x"16";
+							elsif addrcnt(19) = x"2b" then
+								addrcnt(19) <= x"21";
+							elsif addrcnt(19) = x"36" then
+								addrcnt(19) <= x"2c";
+							elsif addrcnt(19) = x"41" then
+								addrcnt(19) <= x"37";
+							elsif addrcnt(19) = x"4c" then
+								addrcnt(19) <= x"42";
+							elsif addrcnt(19) = x"57" then
+								addrcnt(19) <= x"4d";
+							elsif addrcnt(19) = x"62" then
+								addrcnt(19) <= x"58";
+							elsif addrcnt(19) = x"6d" then
+								addrcnt(19) <= x"63";
+							elsif addrcnt(19) = x"78" then
+								addrcnt(19) <= x"6e";
+							elsif addrcnt(19) = x"83" then
+								addrcnt(19) <= x"79";
+							elsif addrcnt(19) = x"8e" then
+								addrcnt(19) <= x"84";
+							elsif addrcnt(19) = x"99" then
+								addrcnt(19) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "100001" )or (d_c2 = "101110") then --8(red)
+						addrcnt(20) <= addrcnt(20) + '1';
+						rgb_data <= b_data(20) & g_data(20) & r_data(20);
+						if( ((d_c3 = "100001" )or (d_c3 = "101110")) or ((d_c4 = "100001" )or (d_c4 = "101110"))
+						or ((d_c5 = "100001" )or (d_c5 = "101110"))or ((d_c6 = "100001" )or (d_c6 = "101110"))) then
+							if addrcnt(20) = x"0a" then
+								addrcnt(20) <= (others => '0');
+							elsif addrcnt(20) = x"15" then
+								addrcnt(20) <= x"0b";
+							elsif addrcnt(20) = x"20" then
+								addrcnt(20) <= x"16";
+							elsif addrcnt(20) = x"2b" then
+								addrcnt(20) <= x"21";
+							elsif addrcnt(20) = x"36" then
+								addrcnt(20) <= x"2c";
+							elsif addrcnt(20) = x"41" then
+								addrcnt(20) <= x"37";
+							elsif addrcnt(20) = x"4c" then
+								addrcnt(20) <= x"42";
+							elsif addrcnt(20) = x"57" then
+								addrcnt(20) <= x"4d";
+							elsif addrcnt(20) = x"62" then
+								addrcnt(20) <= x"58";
+							elsif addrcnt(20) = x"6d" then
+								addrcnt(20) <= x"63";
+							elsif addrcnt(20) = x"78" then
+								addrcnt(20) <= x"6e";
+							elsif addrcnt(20) = x"83" then
+								addrcnt(20) <= x"79";
+							elsif addrcnt(20) = x"8e" then
+								addrcnt(20) <= x"84";
+							elsif addrcnt(20) = x"99" then
+								addrcnt(20) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "100010" )or (d_c2 = "101111") then --9(red)
+						addrcnt(21) <= addrcnt(21) + '1';
+						rgb_data <= b_data(21) & g_data(21) & r_data(21);
+						if(((d_c3 = "100010" )or (d_c3 = "101111")) or ((d_c4 = "100010" )or (d_c4 = "101111"))
+						or ((d_c5 = "100010" )or (d_c5 = "101111"))or ((d_c6 = "100010" )or (d_c6 = "101111"))) then
+							if addrcnt(21) = x"0a" then
+								addrcnt(21) <= (others => '0');
+							elsif addrcnt(21) = x"15" then
+								addrcnt(21) <= x"0b";
+							elsif addrcnt(21) = x"20" then
+								addrcnt(21) <= x"16";
+							elsif addrcnt(21) = x"2b" then
+								addrcnt(21) <= x"21";
+							elsif addrcnt(21) = x"36" then
+								addrcnt(21) <= x"2c";
+							elsif addrcnt(21) = x"41" then
+								addrcnt(21) <= x"37";
+							elsif addrcnt(21) = x"4c" then
+								addrcnt(21) <= x"42";
+							elsif addrcnt(21) = x"57" then
+								addrcnt(21) <= x"4d";
+							elsif addrcnt(21) = x"62" then
+								addrcnt(21) <= x"58";
+							elsif addrcnt(21) = x"6d" then
+								addrcnt(21) <= x"63";
+							elsif addrcnt(21) = x"78" then
+								addrcnt(21) <= x"6e";
+							elsif addrcnt(21) = x"83" then
+								addrcnt(21) <= x"79";
+							elsif addrcnt(21) = x"8e" then
+								addrcnt(21) <= x"84";
+							elsif addrcnt(21) = x"99" then
+								addrcnt(21) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "100011" )or (d_c2 = "110000") then --10(red)
+						addrcnt(22) <= addrcnt(22) + '1';
+						rgb_data <= b_data(22) & g_data(22) & r_data(22);
+						if(((d_c3 = "100011" )or (d_c3 = "110000")) or ((d_c4 = "100011" )or (d_c4 = "110000"))
+						or ((d_c5 = "100011" )or (d_c5 = "110000"))or ((d_c6 = "100011" )or (d_c6 = "110000"))) then
+							if addrcnt(22) = x"0a" then
+								addrcnt(22) <= (others => '0');
+							elsif addrcnt(22) = x"15" then
+								addrcnt(22) <= x"0b";
+							elsif addrcnt(22) = x"20" then
+								addrcnt(22) <= x"16";
+							elsif addrcnt(22) = x"2b" then
+								addrcnt(22) <= x"21";
+							elsif addrcnt(22) = x"36" then
+								addrcnt(22) <= x"2c";
+							elsif addrcnt(22) = x"41" then
+								addrcnt(22) <= x"37";
+							elsif addrcnt(22) = x"4c" then
+								addrcnt(22) <= x"42";
+							elsif addrcnt(22) = x"57" then
+								addrcnt(22) <= x"4d";
+							elsif addrcnt(22) = x"62" then
+								addrcnt(22) <= x"58";
+							elsif addrcnt(22) = x"6d" then
+								addrcnt(22) <= x"63";
+							elsif addrcnt(22) = x"78" then
+								addrcnt(22) <= x"6e";
+							elsif addrcnt(22) = x"83" then
+								addrcnt(22) <= x"79";
+							elsif addrcnt(22) = x"8e" then
+								addrcnt(22) <= x"84";
+							elsif addrcnt(22) = x"99" then
+								addrcnt(22) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "100100" )or (d_c2 = "110001") then --j(red)
+						addrcnt(23) <= addrcnt(23) + '1';
+						rgb_data <= b_data(23) & g_data(23) & r_data(23);
+						if(((d_c3 = "100100" )or (d_c3 = "110001")) or ((d_c4 = "100100" )or (d_c4 = "110001"))
+						or ((d_c5 = "100100" )or (d_c5 = "110001"))or ((d_c6 = "100100" )or (d_c6 = "110001"))) then
+							if addrcnt(23) = x"0a" then
+								addrcnt(23) <= (others => '0');
+							elsif addrcnt(23) = x"15" then
+								addrcnt(23) <= x"0b";
+							elsif addrcnt(23) = x"20" then
+								addrcnt(23) <= x"16";
+							elsif addrcnt(23) = x"2b" then
+								addrcnt(23) <= x"21";
+							elsif addrcnt(23) = x"36" then
+								addrcnt(23) <= x"2c";
+							elsif addrcnt(23) = x"41" then
+								addrcnt(23) <= x"37";
+							elsif addrcnt(23) = x"4c" then
+								addrcnt(23) <= x"42";
+							elsif addrcnt(23) = x"57" then
+								addrcnt(23) <= x"4d";
+							elsif addrcnt(23) = x"62" then
+								addrcnt(23) <= x"58";
+							elsif addrcnt(23) = x"6d" then
+								addrcnt(23) <= x"63";
+							elsif addrcnt(23) = x"78" then
+								addrcnt(23) <= x"6e";
+							elsif addrcnt(23) = x"83" then
+								addrcnt(23) <= x"79";
+							elsif addrcnt(23) = x"8e" then
+								addrcnt(23) <= x"84";
+							elsif addrcnt(23) = x"99" then
+								addrcnt(23) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "100101" )or (d_c2 = "110010") then --q(red)
+						addrcnt(24) <= addrcnt(24) + '1';
+						rgb_data <= b_data(24) & g_data(24) & r_data(24);
+						if(((d_c3 = "100101" )or (d_c3 = "110010")) or ((d_c4 = "100101" )or (d_c4 = "110010"))
+						or ((d_c5 = "100101" )or (d_c5 = "110010"))or ((d_c6 = "100101" )or (d_c6 = "110010"))) then
+							if addrcnt(24) = x"0a" then
+								addrcnt(24) <= (others => '0');
+							elsif addrcnt(24) = x"15" then
+								addrcnt(24) <= x"0b";
+							elsif addrcnt(24) = x"20" then
+								addrcnt(24) <= x"16";
+							elsif addrcnt(24) = x"2b" then
+								addrcnt(24) <= x"21";
+							elsif addrcnt(24) = x"36" then
+								addrcnt(24) <= x"2c";
+							elsif addrcnt(24) = x"41" then
+								addrcnt(24) <= x"37";
+							elsif addrcnt(24) = x"4c" then
+								addrcnt(24) <= x"42";
+							elsif addrcnt(24) = x"57" then
+								addrcnt(24) <= x"4d";
+							elsif addrcnt(24) = x"62" then
+								addrcnt(24) <= x"58";
+							elsif addrcnt(24) = x"6d" then
+								addrcnt(24) <= x"63";
+							elsif addrcnt(24) = x"78" then
+								addrcnt(24) <= x"6e";
+							elsif addrcnt(24) = x"83" then
+								addrcnt(24) <= x"79";
+							elsif addrcnt(24) = x"8e" then
+								addrcnt(24) <= x"84";
+							elsif addrcnt(24) = x"99" then
+								addrcnt(24) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c2 = "100110" )or (d_c2 = "110011") then --k(red)
+						addrcnt(25) <= addrcnt(25) + '1';
+						rgb_data <= b_data(25) & g_data(25) & r_data(25);
+						if(((d_c3 = "100110" )or (d_c3 = "110011")) or ((d_c4 = "100110" )or (d_c4 = "110011"))
+						or ((d_c5 = "100110" )or (d_c5 = "110011"))or ((d_c6 = "100110" )or (d_c6 = "110011"))) then
+							if addrcnt(25) = x"0a" then
+								addrcnt(25) <= (others => '0');
+							elsif addrcnt(25) = x"15" then
+								addrcnt(25) <= x"0b";
+							elsif addrcnt(25) = x"20" then
+								addrcnt(25) <= x"16";
+							elsif addrcnt(25) = x"2b" then
+								addrcnt(25) <= x"21";
+							elsif addrcnt(25) = x"36" then
+								addrcnt(25) <= x"2c";
+							elsif addrcnt(25) = x"41" then
+								addrcnt(25) <= x"37";
+							elsif addrcnt(25) = x"4c" then
+								addrcnt(25) <= x"42";
+							elsif addrcnt(25) = x"57" then
+								addrcnt(25) <= x"4d";
+							elsif addrcnt(25) = x"62" then
+								addrcnt(25) <= x"58";
+							elsif addrcnt(25) = x"6d" then
+								addrcnt(25) <= x"63";
+							elsif addrcnt(25) = x"78" then
+								addrcnt(25) <= x"6e";
+							elsif addrcnt(25) = x"83" then
+								addrcnt(25) <= x"79";
+							elsif addrcnt(25) = x"8e" then
+								addrcnt(25) <= x"84";
+							elsif addrcnt(25) = x"99" then
+								addrcnt(25) <= x"8f";
+							end if;
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +122 ) ) and ( hsync_cnt <= (tHW + tHBP +132)) ) then
+					if (d_c3 = "000000" )or (d_c3 = "001101") then --a
+						addrcnt(0) <= addrcnt(0) + '1';
+						rgb_data <= b_data(0) & g_data(0) & r_data(0);
+						if(((d_c4 = "000000" )or (d_c4 = "001101"))
+						or ((d_c5 = "000000" )or (d_c5 = "001101"))or ((d_c6 = "000000" )or (d_c6 = "001101"))) then
+							if addrcnt(0) = x"0a" then
+								addrcnt(0) <= (others => '0');
+							elsif addrcnt(0) = x"15" then
+								addrcnt(0) <= x"0b";
+							elsif addrcnt(0) = x"20" then
+								addrcnt(0) <= x"16";
+							elsif addrcnt(0) = x"2b" then
+								addrcnt(0) <= x"21";
+							elsif addrcnt(0) = x"36" then
+								addrcnt(0) <= x"2c";
+							elsif addrcnt(0) = x"41" then
+								addrcnt(0) <= x"37";
+							elsif addrcnt(0) = x"4c" then
+								addrcnt(0) <= x"42";
+							elsif addrcnt(0) = x"57" then
+								addrcnt(0) <= x"4d";
+							elsif addrcnt(0) = x"62" then
+								addrcnt(0) <= x"58";
+							elsif addrcnt(0) = x"6d" then
+								addrcnt(0) <= x"63";
+							elsif addrcnt(0) = x"78" then
+								addrcnt(0) <= x"6e";
+							elsif addrcnt(0) = x"83" then
+								addrcnt(0) <= x"79";
+							elsif addrcnt(0) = x"8e" then
+								addrcnt(0) <= x"84";
+							elsif addrcnt(0) = x"99" then
+								addrcnt(0) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "000001" )or (d_c3 = "001110") then --2
+						addrcnt(1) <= addrcnt(1) + '1';
+						rgb_data <= b_data(1) & g_data(1) & r_data(1);
+						if(((d_c4 = "000001" )or (d_c4 = "001110"))
+						or ((d_c5 = "000001" )or (d_c5 = "001110"))or ((d_c6 = "000001" )or (d_c6 = "001110"))) then
+							if addrcnt(1) = x"0a" then
+								addrcnt(1) <= (others => '0');
+							elsif addrcnt(1) = x"15" then
+								addrcnt(1) <= x"0b";
+							elsif addrcnt(1) = x"20" then
+								addrcnt(1) <= x"16";
+							elsif addrcnt(1) = x"2b" then
+								addrcnt(1) <= x"21";
+							elsif addrcnt(1) = x"36" then
+								addrcnt(1) <= x"2c";
+							elsif addrcnt(1) = x"41" then
+								addrcnt(1) <= x"37";
+							elsif addrcnt(1) = x"4c" then
+								addrcnt(1) <= x"42";
+							elsif addrcnt(1) = x"57" then
+								addrcnt(1) <= x"4d";
+							elsif addrcnt(1) = x"62" then
+								addrcnt(1) <= x"58";
+							elsif addrcnt(1) = x"6d" then
+								addrcnt(1) <= x"63";
+							elsif addrcnt(1) = x"78" then
+								addrcnt(1) <= x"6e";
+							elsif addrcnt(1) = x"83" then
+								addrcnt(1) <= x"79";
+							elsif addrcnt(1) = x"8e" then
+								addrcnt(1) <= x"84";
+							elsif addrcnt(1) = x"99" then
+								addrcnt(1) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "000010" )or (d_c3 = "001111") then --3
+						addrcnt(2) <= addrcnt(2) + '1';
+						rgb_data <= b_data(2) & g_data(2) & r_data(2);
+						if( ((d_c4 = "000010" )or (d_c4 = "001111"))
+						or ((d_c5 = "000010" )or (d_c5 = "001111"))or ((d_c6 = "000010" )or (d_c6 = "001111"))) then
+							if addrcnt(2) = x"0a" then
+								addrcnt(2) <= (others => '0');
+							elsif addrcnt(2) = x"15" then
+								addrcnt(2) <= x"0b";
+							elsif addrcnt(2) = x"20" then
+								addrcnt(2) <= x"16";
+							elsif addrcnt(2) = x"2b" then
+								addrcnt(2) <= x"21";
+							elsif addrcnt(2) = x"36" then
+								addrcnt(2) <= x"2c";
+							elsif addrcnt(2) = x"41" then
+								addrcnt(2) <= x"37";
+							elsif addrcnt(2) = x"4c" then
+								addrcnt(2) <= x"42";
+							elsif addrcnt(2) = x"57" then
+								addrcnt(2) <= x"4d";
+							elsif addrcnt(2) = x"62" then
+								addrcnt(2) <= x"58";
+							elsif addrcnt(2) = x"6d" then
+								addrcnt(2) <= x"63";
+							elsif addrcnt(2) = x"78" then
+								addrcnt(2) <= x"6e";
+							elsif addrcnt(2) = x"83" then
+								addrcnt(2) <= x"79";
+							elsif addrcnt(2) = x"8e" then
+								addrcnt(2) <= x"84";
+							elsif addrcnt(2) = x"99" then
+								addrcnt(2) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "000011" )or (d_c3 = "010000") then --4
+						addrcnt(3) <= addrcnt(3) + '1';
+						rgb_data <= b_data(3) & g_data(3) & r_data(3);
+					if( ((d_c4 = "000011" )or (d_c4 = "010000"))
+						or ((d_c5 = "000011" )or (d_c5 = "010000"))or ((d_c6 = "000011" )or (d_c6 = "010000"))) then
+							if addrcnt(3) = x"0a" then
+								addrcnt(3) <= (others => '0');
+							elsif addrcnt(3) = x"15" then
+								addrcnt(3) <= x"0b";
+							elsif addrcnt(3) = x"20" then
+								addrcnt(3) <= x"16";
+							elsif addrcnt(3) = x"2b" then
+								addrcnt(3) <= x"21";
+							elsif addrcnt(3) = x"36" then
+								addrcnt(3) <= x"2c";
+							elsif addrcnt(3) = x"41" then
+								addrcnt(3) <= x"37";
+							elsif addrcnt(3) = x"4c" then
+								addrcnt(3) <= x"42";
+							elsif addrcnt(3) = x"57" then
+								addrcnt(3) <= x"4d";
+							elsif addrcnt(3) = x"62" then
+								addrcnt(3) <= x"58";
+							elsif addrcnt(3) = x"6d" then
+								addrcnt(3) <= x"63";
+							elsif addrcnt(3) = x"78" then
+								addrcnt(3) <= x"6e";
+							elsif addrcnt(3) = x"83" then
+								addrcnt(3) <= x"79";
+							elsif addrcnt(3) = x"8e" then
+								addrcnt(3) <= x"84";
+							elsif addrcnt(3) = x"99" then
+								addrcnt(3) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "000100" )or (d_c3 = "010001") then --5
+						addrcnt(4) <= addrcnt(4) + '1';
+						rgb_data <= b_data(4) & g_data(4) & r_data(4);
+						if( ((d_c4 = "000100" )or (d_c4 = "010001"))
+						or ((d_c5 = "000100" )or (d_c5 = "010001"))or ((d_c6 = "000100" )or (d_c6 = "010001"))) then
+							if addrcnt(4) = x"0a" then
+								addrcnt(4) <= (others => '0');
+							elsif addrcnt(4) = x"15" then
+								addrcnt(4) <= x"0b";
+							elsif addrcnt(4) = x"20" then
+								addrcnt(4) <= x"16";
+							elsif addrcnt(4) = x"2b" then
+								addrcnt(4) <= x"21";
+							elsif addrcnt(4) = x"36" then
+								addrcnt(4) <= x"2c";
+							elsif addrcnt(4) = x"41" then
+								addrcnt(4) <= x"37";
+							elsif addrcnt(4) = x"4c" then
+								addrcnt(4) <= x"42";
+							elsif addrcnt(4) = x"57" then
+								addrcnt(4) <= x"4d";
+							elsif addrcnt(4) = x"62" then
+								addrcnt(4) <= x"58";
+							elsif addrcnt(4) = x"6d" then
+								addrcnt(4) <= x"63";
+							elsif addrcnt(4) = x"78" then
+								addrcnt(4) <= x"6e";
+							elsif addrcnt(4) = x"83" then
+								addrcnt(4) <= x"79";
+							elsif addrcnt(4) = x"8e" then
+								addrcnt(4) <= x"84";
+							elsif addrcnt(4) = x"99" then
+								addrcnt(4) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "000101" )or (d_c3 = "010010") then --6
+						addrcnt(5) <= addrcnt(5) + '1';
+						rgb_data <= b_data(5) & g_data(5) & r_data(5);
+						if(((d_c4 = "000101" )or (d_c4 = "010010"))
+						or ((d_c5 = "000101" )or (d_c5 = "010010"))or ((d_c6 = "000101" )or (d_c6 = "010010"))) then
+							if addrcnt(5) = x"0a" then
+								addrcnt(5) <= (others => '0');
+							elsif addrcnt(5) = x"15" then
+								addrcnt(5) <= x"0b";
+							elsif addrcnt(5) = x"20" then
+								addrcnt(5) <= x"16";
+							elsif addrcnt(5) = x"2b" then
+								addrcnt(5) <= x"21";
+							elsif addrcnt(5) = x"36" then
+								addrcnt(5) <= x"2c";
+							elsif addrcnt(5) = x"41" then
+								addrcnt(5) <= x"37";
+							elsif addrcnt(5) = x"4c" then
+								addrcnt(5) <= x"42";
+							elsif addrcnt(5) = x"57" then
+								addrcnt(5) <= x"4d";
+							elsif addrcnt(5) = x"62" then
+								addrcnt(5) <= x"58";
+							elsif addrcnt(5) = x"6d" then
+								addrcnt(5) <= x"63";
+							elsif addrcnt(5) = x"78" then
+								addrcnt(5) <= x"6e";
+							elsif addrcnt(5) = x"83" then
+								addrcnt(5) <= x"79";
+							elsif addrcnt(5) = x"8e" then
+								addrcnt(5) <= x"84";
+							elsif addrcnt(5) = x"99" then
+								addrcnt(5) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "000110" )or (d_c3 = "010011") then --7
+						addrcnt(6) <= addrcnt(6) + '1';
+						rgb_data <= b_data(6) & g_data(6) & r_data(6);
+						if(((d_c4 = "000110" )or (d_c4 = "010011"))
+						or ((d_c5 = "000110" )or (d_c5 = "010011"))or ((d_c6 = "000110" )or (d_c6 = "010011"))) then
+							if addrcnt(6) = x"0a" then
+								addrcnt(6) <= (others => '0');
+							elsif addrcnt(6) = x"15" then
+								addrcnt(6) <= x"0b";
+							elsif addrcnt(6) = x"20" then
+								addrcnt(6) <= x"16";
+							elsif addrcnt(6) = x"2b" then
+								addrcnt(6) <= x"21";
+							elsif addrcnt(6) = x"36" then
+								addrcnt(6) <= x"2c";
+							elsif addrcnt(6) = x"41" then
+								addrcnt(6) <= x"37";
+							elsif addrcnt(6) = x"4c" then
+								addrcnt(6) <= x"42";
+							elsif addrcnt(6) = x"57" then
+								addrcnt(6) <= x"4d";
+							elsif addrcnt(6) = x"62" then
+								addrcnt(6) <= x"58";
+							elsif addrcnt(6) = x"6d" then
+								addrcnt(6) <= x"63";
+							elsif addrcnt(6) = x"78" then
+								addrcnt(6) <= x"6e";
+							elsif addrcnt(6) = x"83" then
+								addrcnt(6) <= x"79";
+							elsif addrcnt(6) = x"8e" then
+								addrcnt(6) <= x"84";
+							elsif addrcnt(6) = x"99" then
+								addrcnt(6) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "000111" )or (d_c3 = "010100") then --8
+						addrcnt(7) <= addrcnt(7) + '1';
+						rgb_data <= b_data(7) & g_data(7) & r_data(7);
+						if(((d_c4 = "000111" )or (d_c4 = "010100"))
+						or ((d_c5 = "000111" )or (d_c5 = "010100"))or ((d_c6 = "000111" )or (d_c6 = "010100"))) then
+							if addrcnt(7) = x"0a" then
+								addrcnt(7) <= (others => '0');
+							elsif addrcnt(7) = x"15" then
+								addrcnt(7) <= x"0b";
+							elsif addrcnt(7) = x"20" then
+								addrcnt(7) <= x"16";
+							elsif addrcnt(7) = x"2b" then
+								addrcnt(7) <= x"21";
+							elsif addrcnt(7) = x"36" then
+								addrcnt(7) <= x"2c";
+							elsif addrcnt(7) = x"41" then
+								addrcnt(7) <= x"37";
+							elsif addrcnt(7) = x"4c" then
+								addrcnt(7) <= x"42";
+							elsif addrcnt(7) = x"57" then
+								addrcnt(7) <= x"4d";
+							elsif addrcnt(7) = x"62" then
+								addrcnt(7) <= x"58";
+							elsif addrcnt(7) = x"6d" then
+								addrcnt(7) <= x"63";
+							elsif addrcnt(7) = x"78" then
+								addrcnt(7) <= x"6e";
+							elsif addrcnt(7) = x"83" then
+								addrcnt(7) <= x"79";
+							elsif addrcnt(7) = x"8e" then
+								addrcnt(7) <= x"84";
+							elsif addrcnt(7) = x"99" then
+								addrcnt(7) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "001000" )or (d_c3 = "010101") then --9
+						addrcnt(8) <= addrcnt(8) + '1';
+						rgb_data <= b_data(8) & g_data(8) & r_data(8);
+						if(((d_c4 = "001000" )or (d_c4 = "010101"))
+						or ((d_c5 = "001000" )or (d_c5 = "010101"))or ((d_c6 = "001000" )or (d_c6 = "010101"))) then
+							if addrcnt(8) = x"0a" then
+								addrcnt(8) <= (others => '0');
+							elsif addrcnt(8) = x"15" then
+								addrcnt(8) <= x"0b";
+							elsif addrcnt(8) = x"20" then
+								addrcnt(8) <= x"16";
+							elsif addrcnt(8) = x"2b" then
+								addrcnt(8) <= x"21";
+							elsif addrcnt(8) = x"36" then
+								addrcnt(8) <= x"2c";
+							elsif addrcnt(8) = x"41" then
+								addrcnt(8) <= x"37";
+							elsif addrcnt(8) = x"4c" then
+								addrcnt(8) <= x"42";
+							elsif addrcnt(8) = x"57" then
+								addrcnt(8) <= x"4d";
+							elsif addrcnt(8) = x"62" then
+								addrcnt(8) <= x"58";
+							elsif addrcnt(8) = x"6d" then
+								addrcnt(8) <= x"63";
+							elsif addrcnt(8) = x"78" then
+								addrcnt(8) <= x"6e";
+							elsif addrcnt(8) = x"83" then
+								addrcnt(8) <= x"79";
+							elsif addrcnt(8) = x"8e" then
+								addrcnt(8) <= x"84";
+							elsif addrcnt(8) = x"99" then
+								addrcnt(8) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "001001" )or (d_c3 = "010110") then --10
+						addrcnt(9) <= addrcnt(9) + '1';
+						rgb_data <= b_data(9) & g_data(9) & r_data(9);
+						if( ((d_c4 = "001001" )or (d_c4 = "010110"))
+						or ((d_c5 = "001001" )or (d_c5 = "010110"))or ((d_c6 = "001001" )or (d_c6 = "010110"))) then
+							if addrcnt(9) = x"0a" then
+								addrcnt(9) <= (others => '0');
+							elsif addrcnt(9) = x"15" then
+								addrcnt(9) <= x"0b";
+							elsif addrcnt(9) = x"20" then
+								addrcnt(9) <= x"16";
+							elsif addrcnt(9) = x"2b" then
+								addrcnt(9) <= x"21";
+							elsif addrcnt(9) = x"36" then
+								addrcnt(9) <= x"2c";
+							elsif addrcnt(9) = x"41" then
+								addrcnt(9) <= x"37";
+							elsif addrcnt(9) = x"4c" then
+								addrcnt(9) <= x"42";
+							elsif addrcnt(9) = x"57" then
+								addrcnt(9) <= x"4d";
+							elsif addrcnt(9) = x"62" then
+								addrcnt(9) <= x"58";
+							elsif addrcnt(9) = x"6d" then
+								addrcnt(9) <= x"63";
+							elsif addrcnt(9) = x"78" then
+								addrcnt(9) <= x"6e";
+							elsif addrcnt(9) = x"83" then
+								addrcnt(9) <= x"79";
+							elsif addrcnt(9) = x"8e" then
+								addrcnt(9) <= x"84";
+							elsif addrcnt(9) = x"99" then
+								addrcnt(9) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "001010" )or (d_c3 = "010111") then --j
+						addrcnt(10) <= addrcnt(10) + '1';
+						rgb_data <= b_data(10) & g_data(10) & r_data(10);
+						if(((d_c4 = "001010" )or (d_c4 = "010111"))
+						or ((d_c5 = "001010" )or (d_c5 = "010111"))or ((d_c6 = "001010" )or (d_c6 = "010111"))) then
+							if addrcnt(10) = x"0a" then
+								addrcnt(10) <= (others => '0');
+							elsif addrcnt(10) = x"15" then
+								addrcnt(10) <= x"0b";
+							elsif addrcnt(10) = x"20" then
+								addrcnt(10) <= x"16";
+							elsif addrcnt(10) = x"2b" then
+								addrcnt(10) <= x"21";
+							elsif addrcnt(10) = x"36" then
+								addrcnt(10) <= x"2c";
+							elsif addrcnt(10) = x"41" then
+								addrcnt(10) <= x"37";
+							elsif addrcnt(10) = x"4c" then
+								addrcnt(10) <= x"42";
+							elsif addrcnt(10) = x"57" then
+								addrcnt(10) <= x"4d";
+							elsif addrcnt(10) = x"62" then
+								addrcnt(10) <= x"58";
+							elsif addrcnt(10) = x"6d" then
+								addrcnt(10) <= x"63";
+							elsif addrcnt(10) = x"78" then
+								addrcnt(10) <= x"6e";
+							elsif addrcnt(10) = x"83" then
+								addrcnt(10) <= x"79";
+							elsif addrcnt(10) = x"8e" then
+								addrcnt(10) <= x"84";
+							elsif addrcnt(10) = x"99" then
+								addrcnt(10) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "001011" )or (d_c3 = "011000") then --q
+						addrcnt(11) <= addrcnt(11) + '1';
+						rgb_data <= b_data(11) & g_data(11) & r_data(11);
+						if(((d_c4 = "001011" )or (d_c4 = "011000"))
+						or ((d_c5 = "001011" )or (d_c5 = "011000"))or ((d_c6 = "001011" )or (d_c6 = "011000"))) then
+							if addrcnt(11) = x"0a" then
+								addrcnt(11) <= (others => '0');
+							elsif addrcnt(11) = x"15" then
+								addrcnt(11) <= x"0b";
+							elsif addrcnt(11) = x"20" then
+								addrcnt(11) <= x"16";
+							elsif addrcnt(11) = x"2b" then
+								addrcnt(11) <= x"21";
+							elsif addrcnt(11) = x"36" then
+								addrcnt(11) <= x"2c";
+							elsif addrcnt(11) = x"41" then
+								addrcnt(11) <= x"37";
+							elsif addrcnt(11) = x"4c" then
+								addrcnt(11) <= x"42";
+							elsif addrcnt(11) = x"57" then
+								addrcnt(11) <= x"4d";
+							elsif addrcnt(11) = x"62" then
+								addrcnt(11) <= x"58";
+							elsif addrcnt(11) = x"6d" then
+								addrcnt(11) <= x"63";
+							elsif addrcnt(11) = x"78" then
+								addrcnt(11) <= x"6e";
+							elsif addrcnt(11) = x"83" then
+								addrcnt(11) <= x"79";
+							elsif addrcnt(11) = x"8e" then
+								addrcnt(11) <= x"84";
+							elsif addrcnt(11) = x"99" then
+								addrcnt(11) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "001100" )or (d_c3 = "011001") then --k
+						addrcnt(12) <= addrcnt(12) + '1';
+						rgb_data <= b_data(12) & g_data(12) & r_data(12);
+						if( ((d_c4 = "001100" )or (d_c4 = "011001"))
+						or ((d_c5 = "001100" )or (d_c5 = "011001"))or ((d_c6 = "001100" )or (d_c6 = "011001"))) then
+							if addrcnt(12) = x"0a" then
+								addrcnt(12) <= (others => '0');
+							elsif addrcnt(12) = x"15" then
+								addrcnt(12) <= x"0b";
+							elsif addrcnt(12) = x"20" then
+								addrcnt(12) <= x"16";
+							elsif addrcnt(12) = x"2b" then
+								addrcnt(12) <= x"21";
+							elsif addrcnt(12) = x"36" then
+								addrcnt(12) <= x"2c";
+							elsif addrcnt(12) = x"41" then
+								addrcnt(12) <= x"37";
+							elsif addrcnt(12) = x"4c" then
+								addrcnt(12) <= x"42";
+							elsif addrcnt(12) = x"57" then
+								addrcnt(12) <= x"4d";
+							elsif addrcnt(12) = x"62" then
+								addrcnt(12) <= x"58";
+							elsif addrcnt(12) = x"6d" then
+								addrcnt(12) <= x"63";
+							elsif addrcnt(12) = x"78" then
+								addrcnt(12) <= x"6e";
+							elsif addrcnt(12) = x"83" then
+								addrcnt(12) <= x"79";
+							elsif addrcnt(12) = x"8e" then
+								addrcnt(12) <= x"84";
+							elsif addrcnt(12) = x"99" then
+								addrcnt(12) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "011010" )or (d_c3 = "100111")  then --a(red)
+						addrcnt(13) <= addrcnt(13) + '1';
+						rgb_data <= b_data(13) & g_data(13) & r_data(13);
+						if(((d_c4 = "011010" )or (d_c4 = "100111"))
+						or ((d_c5 = "011010" )or (d_c5 = "100111"))or ((d_c6 = "011010" )or (d_c6 = "100111"))) then
+							if addrcnt(13) = x"0a" then
+								addrcnt(13) <= (others => '0');
+							elsif addrcnt(13) = x"15" then
+								addrcnt(13) <= x"0b";
+							elsif addrcnt(13) = x"20" then
+								addrcnt(13) <= x"16";
+							elsif addrcnt(13) = x"2b" then
+								addrcnt(13) <= x"21";
+							elsif addrcnt(13) = x"36" then
+								addrcnt(13) <= x"2c";
+							elsif addrcnt(13) = x"41" then
+								addrcnt(13) <= x"37";
+							elsif addrcnt(13) = x"4c" then
+								addrcnt(13) <= x"42";
+							elsif addrcnt(13) = x"57" then
+								addrcnt(13) <= x"4d";
+							elsif addrcnt(13) = x"62" then
+								addrcnt(13) <= x"58";
+							elsif addrcnt(13) = x"6d" then
+								addrcnt(13) <= x"63";
+							elsif addrcnt(13) = x"78" then
+								addrcnt(13) <= x"6e";
+							elsif addrcnt(13) = x"83" then
+								addrcnt(13) <= x"79";
+							elsif addrcnt(13) = x"8e" then
+								addrcnt(13) <= x"84";
+							elsif addrcnt(13) = x"99" then
+								addrcnt(13) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "011011" )or (d_c3 = "101000") then --2(red)
+						addrcnt(14) <= addrcnt(14) + '1';
+						rgb_data <= b_data(14) & g_data(14) & r_data(14);
+						if(((d_c4 = "011011" )or (d_c4 = "101000"))
+						or ((d_c5 = "011011" )or (d_c5 = "101000"))or ((d_c6 = "011011" )or (d_c6 = "101000"))) then
+							if addrcnt(14) = x"0a" then
+								addrcnt(14) <= (others => '0');
+							elsif addrcnt(14) = x"15" then
+								addrcnt(14) <= x"0b";
+							elsif addrcnt(14) = x"20" then
+								addrcnt(14) <= x"16";
+							elsif addrcnt(14) = x"2b" then
+								addrcnt(14) <= x"21";
+							elsif addrcnt(14) = x"36" then
+								addrcnt(14) <= x"2c";
+							elsif addrcnt(14) = x"41" then
+								addrcnt(14) <= x"37";
+							elsif addrcnt(14) = x"4c" then
+								addrcnt(14) <= x"42";
+							elsif addrcnt(14) = x"57" then
+								addrcnt(14) <= x"4d";
+							elsif addrcnt(14) = x"62" then
+								addrcnt(14) <= x"58";
+							elsif addrcnt(14) = x"6d" then
+								addrcnt(14) <= x"63";
+							elsif addrcnt(14) = x"78" then
+								addrcnt(14) <= x"6e";
+							elsif addrcnt(14) = x"83" then
+								addrcnt(14) <= x"79";
+							elsif addrcnt(14) = x"8e" then
+								addrcnt(14) <= x"84";
+							elsif addrcnt(14) = x"99" then
+								addrcnt(14) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "011100" )or (d_c3 = "101001") then --3(red)
+						addrcnt(15) <= addrcnt(15) + '1';
+						rgb_data <= b_data(15) & g_data(15) & r_data(15);
+						if( ((d_c4 = "011100" )or (d_c4 = "101001"))
+						or ((d_c5 = "011100" )or (d_c5 = "101001"))or ((d_c6 = "011100" )or (d_c6 = "101001"))) then
+							if addrcnt(15) = x"0a" then
+								addrcnt(15) <= (others => '0');
+							elsif addrcnt(15) = x"15" then
+								addrcnt(15) <= x"0b";
+							elsif addrcnt(15) = x"20" then
+								addrcnt(15) <= x"16";
+							elsif addrcnt(15) = x"2b" then
+								addrcnt(15) <= x"21";
+							elsif addrcnt(15) = x"36" then
+								addrcnt(15) <= x"2c";
+							elsif addrcnt(15) = x"41" then
+								addrcnt(15) <= x"37";
+							elsif addrcnt(15) = x"4c" then
+								addrcnt(15) <= x"42";
+							elsif addrcnt(15) = x"57" then
+								addrcnt(15) <= x"4d";
+							elsif addrcnt(15) = x"62" then
+								addrcnt(15) <= x"58";
+							elsif addrcnt(15) = x"6d" then
+								addrcnt(15) <= x"63";
+							elsif addrcnt(15) = x"78" then
+								addrcnt(15) <= x"6e";
+							elsif addrcnt(15) = x"83" then
+								addrcnt(15) <= x"79";
+							elsif addrcnt(15) = x"8e" then
+								addrcnt(15) <= x"84";
+							elsif addrcnt(15) = x"99" then
+								addrcnt(15) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "011101" )or (d_c3 = "101010") then --4(red)
+						addrcnt(16) <= addrcnt(16) + '1';
+						rgb_data <= b_data(16) & g_data(16) & r_data(16);
+						if(((d_c4 = "011101" )or (d_c4 = "101010"))
+						or ((d_c5 = "011101" )or (d_c5 = "101010"))or ((d_c6 = "011101" )or (d_c6 = "101010"))) then
+							if addrcnt(16) = x"0a" then
+								addrcnt(16) <= (others => '0');
+							elsif addrcnt(16) = x"15" then
+								addrcnt(16) <= x"0b";
+							elsif addrcnt(16) = x"20" then
+								addrcnt(16) <= x"16";
+							elsif addrcnt(16) = x"2b" then
+								addrcnt(16) <= x"21";
+							elsif addrcnt(16) = x"36" then
+								addrcnt(16) <= x"2c";
+							elsif addrcnt(16) = x"41" then
+								addrcnt(16) <= x"37";
+							elsif addrcnt(16) = x"4c" then
+								addrcnt(16) <= x"42";
+							elsif addrcnt(16) = x"57" then
+								addrcnt(16) <= x"4d";
+							elsif addrcnt(16) = x"62" then
+								addrcnt(16) <= x"58";
+							elsif addrcnt(16) = x"6d" then
+								addrcnt(16) <= x"63";
+							elsif addrcnt(16) = x"78" then
+								addrcnt(16) <= x"6e";
+							elsif addrcnt(16) = x"83" then
+								addrcnt(16) <= x"79";
+							elsif addrcnt(16) = x"8e" then
+								addrcnt(16) <= x"84";
+							elsif addrcnt(16) = x"99" then
+								addrcnt(16) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "011110" )or (d_c3 = "101011") then --5(red)
+						addrcnt(17) <= addrcnt(17) + '1';
+						rgb_data <= b_data(17) & g_data(17) & r_data(17);
+						if( ((d_c4 = "011110" )or (d_c4 = "101011"))
+						or ((d_c5 = "011110" )or (d_c5 = "101011"))or ((d_c6 = "011110" )or (d_c6 = "101011"))) then
+							if addrcnt(17) = x"0a" then
+								addrcnt(17) <= (others => '0');
+							elsif addrcnt(17) = x"15" then
+								addrcnt(17) <= x"0b";
+							elsif addrcnt(17) = x"20" then
+								addrcnt(17) <= x"16";
+							elsif addrcnt(17) = x"2b" then
+								addrcnt(17) <= x"21";
+							elsif addrcnt(17) = x"36" then
+								addrcnt(17) <= x"2c";
+							elsif addrcnt(17) = x"41" then
+								addrcnt(17) <= x"37";
+							elsif addrcnt(17) = x"4c" then
+								addrcnt(17) <= x"42";
+							elsif addrcnt(17) = x"57" then
+								addrcnt(17) <= x"4d";
+							elsif addrcnt(17) = x"62" then
+								addrcnt(17) <= x"58";
+							elsif addrcnt(17) = x"6d" then
+								addrcnt(17) <= x"63";
+							elsif addrcnt(17) = x"78" then
+								addrcnt(17) <= x"6e";
+							elsif addrcnt(17) = x"83" then
+								addrcnt(17) <= x"79";
+							elsif addrcnt(17) = x"8e" then
+								addrcnt(17) <= x"84";
+							elsif addrcnt(17) = x"99" then
+								addrcnt(17) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "011111" )or (d_c3 = "101100") then --6(red)
+						addrcnt(18) <= addrcnt(18) + '1';
+						rgb_data <= b_data(18) & g_data(18) & r_data(18);
+						if(((d_c4 = "011111" )or (d_c4 = "101100"))
+						or ((d_c5 = "011111" )or (d_c5 = "101100"))or ((d_c6 = "011111" )or (d_c6 = "101100"))) then
+							if addrcnt(18) = x"0a" then
+								addrcnt(18) <= (others => '0');
+							elsif addrcnt(18) = x"15" then
+								addrcnt(18) <= x"0b";
+							elsif addrcnt(18) = x"20" then
+								addrcnt(18) <= x"16";
+							elsif addrcnt(18) = x"2b" then
+								addrcnt(18) <= x"21";
+							elsif addrcnt(18) = x"36" then
+								addrcnt(18) <= x"2c";
+							elsif addrcnt(18) = x"41" then
+								addrcnt(18) <= x"37";
+							elsif addrcnt(18) = x"4c" then
+								addrcnt(18) <= x"42";
+							elsif addrcnt(18) = x"57" then
+								addrcnt(18) <= x"4d";
+							elsif addrcnt(18) = x"62" then
+								addrcnt(18) <= x"58";
+							elsif addrcnt(18) = x"6d" then
+								addrcnt(18) <= x"63";
+							elsif addrcnt(18) = x"78" then
+								addrcnt(18) <= x"6e";
+							elsif addrcnt(18) = x"83" then
+								addrcnt(18) <= x"79";
+							elsif addrcnt(18) = x"8e" then
+								addrcnt(18) <= x"84";
+							elsif addrcnt(18) = x"99" then
+								addrcnt(18) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "100000" )or (d_c3 = "101101") then --7(red)
+						addrcnt(19) <= addrcnt(19) + '1';
+						rgb_data <= b_data(19) & g_data(19) & r_data(19);
+						if(((d_c4 = "100000" )or (d_c4 = "101101"))
+						or ((d_c5 = "100000" )or (d_c5 = "101101"))or ((d_c6 = "100000" )or (d_c6 = "101101"))) then
+							if addrcnt(19) = x"0a" then
+								addrcnt(19) <= (others => '0');
+							elsif addrcnt(19) = x"15" then
+								addrcnt(19) <= x"0b";
+							elsif addrcnt(19) = x"20" then
+								addrcnt(19) <= x"16";
+							elsif addrcnt(19) = x"2b" then
+								addrcnt(19) <= x"21";
+							elsif addrcnt(19) = x"36" then
+								addrcnt(19) <= x"2c";
+							elsif addrcnt(19) = x"41" then
+								addrcnt(19) <= x"37";
+							elsif addrcnt(19) = x"4c" then
+								addrcnt(19) <= x"42";
+							elsif addrcnt(19) = x"57" then
+								addrcnt(19) <= x"4d";
+							elsif addrcnt(19) = x"62" then
+								addrcnt(19) <= x"58";
+							elsif addrcnt(19) = x"6d" then
+								addrcnt(19) <= x"63";
+							elsif addrcnt(19) = x"78" then
+								addrcnt(19) <= x"6e";
+							elsif addrcnt(19) = x"83" then
+								addrcnt(19) <= x"79";
+							elsif addrcnt(19) = x"8e" then
+								addrcnt(19) <= x"84";
+							elsif addrcnt(19) = x"99" then
+								addrcnt(19) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "100001" )or (d_c3 = "101110") then --8(red)
+						addrcnt(20) <= addrcnt(20) + '1';
+						rgb_data <= b_data(20) & g_data(20) & r_data(20);
+						if( ((d_c4 = "100001" )or (d_c4 = "101110"))
+						or ((d_c5 = "100001" )or (d_c5 = "101110"))or ((d_c6 = "100001" )or (d_c6 = "101110"))) then
+							if addrcnt(20) = x"0a" then
+								addrcnt(20) <= (others => '0');
+							elsif addrcnt(20) = x"15" then
+								addrcnt(20) <= x"0b";
+							elsif addrcnt(20) = x"20" then
+								addrcnt(20) <= x"16";
+							elsif addrcnt(20) = x"2b" then
+								addrcnt(20) <= x"21";
+							elsif addrcnt(20) = x"36" then
+								addrcnt(20) <= x"2c";
+							elsif addrcnt(20) = x"41" then
+								addrcnt(20) <= x"37";
+							elsif addrcnt(20) = x"4c" then
+								addrcnt(20) <= x"42";
+							elsif addrcnt(20) = x"57" then
+								addrcnt(20) <= x"4d";
+							elsif addrcnt(20) = x"62" then
+								addrcnt(20) <= x"58";
+							elsif addrcnt(20) = x"6d" then
+								addrcnt(20) <= x"63";
+							elsif addrcnt(20) = x"78" then
+								addrcnt(20) <= x"6e";
+							elsif addrcnt(20) = x"83" then
+								addrcnt(20) <= x"79";
+							elsif addrcnt(20) = x"8e" then
+								addrcnt(20) <= x"84";
+							elsif addrcnt(20) = x"99" then
+								addrcnt(20) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "100010" )or (d_c3 = "101111") then --9(red)
+						addrcnt(21) <= addrcnt(21) + '1';
+						rgb_data <= b_data(21) & g_data(21) & r_data(21);
+						if(((d_c4 = "100010" )or (d_c4 = "101111"))
+						or ((d_c5 = "100010" )or (d_c5 = "101111"))or ((d_c6 = "100010" )or (d_c6 = "101111"))) then
+							if addrcnt(21) = x"0a" then
+								addrcnt(21) <= (others => '0');
+							elsif addrcnt(21) = x"15" then
+								addrcnt(21) <= x"0b";
+							elsif addrcnt(21) = x"20" then
+								addrcnt(21) <= x"16";
+							elsif addrcnt(21) = x"2b" then
+								addrcnt(21) <= x"21";
+							elsif addrcnt(21) = x"36" then
+								addrcnt(21) <= x"2c";
+							elsif addrcnt(21) = x"41" then
+								addrcnt(21) <= x"37";
+							elsif addrcnt(21) = x"4c" then
+								addrcnt(21) <= x"42";
+							elsif addrcnt(21) = x"57" then
+								addrcnt(21) <= x"4d";
+							elsif addrcnt(21) = x"62" then
+								addrcnt(21) <= x"58";
+							elsif addrcnt(21) = x"6d" then
+								addrcnt(21) <= x"63";
+							elsif addrcnt(21) = x"78" then
+								addrcnt(21) <= x"6e";
+							elsif addrcnt(21) = x"83" then
+								addrcnt(21) <= x"79";
+							elsif addrcnt(21) = x"8e" then
+								addrcnt(21) <= x"84";
+							elsif addrcnt(21) = x"99" then
+								addrcnt(21) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "100011" )or (d_c3 = "110000") then --10(red)
+						addrcnt(22) <= addrcnt(22) + '1';
+						rgb_data <= b_data(22) & g_data(22) & r_data(22);
+						if( ((d_c4 = "100011" )or (d_c4 = "110000"))
+						or ((d_c5 = "100011" )or (d_c5 = "110000"))or ((d_c6 = "100011" )or (d_c6 = "110000"))) then
+							if addrcnt(22) = x"0a" then
+								addrcnt(22) <= (others => '0');
+							elsif addrcnt(22) = x"15" then
+								addrcnt(22) <= x"0b";
+							elsif addrcnt(22) = x"20" then
+								addrcnt(22) <= x"16";
+							elsif addrcnt(22) = x"2b" then
+								addrcnt(22) <= x"21";
+							elsif addrcnt(22) = x"36" then
+								addrcnt(22) <= x"2c";
+							elsif addrcnt(22) = x"41" then
+								addrcnt(22) <= x"37";
+							elsif addrcnt(22) = x"4c" then
+								addrcnt(22) <= x"42";
+							elsif addrcnt(22) = x"57" then
+								addrcnt(22) <= x"4d";
+							elsif addrcnt(22) = x"62" then
+								addrcnt(22) <= x"58";
+							elsif addrcnt(22) = x"6d" then
+								addrcnt(22) <= x"63";
+							elsif addrcnt(22) = x"78" then
+								addrcnt(22) <= x"6e";
+							elsif addrcnt(22) = x"83" then
+								addrcnt(22) <= x"79";
+							elsif addrcnt(22) = x"8e" then
+								addrcnt(22) <= x"84";
+							elsif addrcnt(22) = x"99" then
+								addrcnt(22) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "100100" )or (d_c3 = "110001") then --j(red)
+						addrcnt(23) <= addrcnt(23) + '1';
+						rgb_data <= b_data(23) & g_data(23) & r_data(23);
+						if(((d_c4 = "100100" )or (d_c4 = "110001"))
+						or ((d_c5 = "100100" )or (d_c5 = "110001"))or ((d_c6 = "100100" )or (d_c6 = "110001"))) then
+							if addrcnt(23) = x"0a" then
+								addrcnt(23) <= (others => '0');
+							elsif addrcnt(23) = x"15" then
+								addrcnt(23) <= x"0b";
+							elsif addrcnt(23) = x"20" then
+								addrcnt(23) <= x"16";
+							elsif addrcnt(23) = x"2b" then
+								addrcnt(23) <= x"21";
+							elsif addrcnt(23) = x"36" then
+								addrcnt(23) <= x"2c";
+							elsif addrcnt(23) = x"41" then
+								addrcnt(23) <= x"37";
+							elsif addrcnt(23) = x"4c" then
+								addrcnt(23) <= x"42";
+							elsif addrcnt(23) = x"57" then
+								addrcnt(23) <= x"4d";
+							elsif addrcnt(23) = x"62" then
+								addrcnt(23) <= x"58";
+							elsif addrcnt(23) = x"6d" then
+								addrcnt(23) <= x"63";
+							elsif addrcnt(23) = x"78" then
+								addrcnt(23) <= x"6e";
+							elsif addrcnt(23) = x"83" then
+								addrcnt(23) <= x"79";
+							elsif addrcnt(23) = x"8e" then
+								addrcnt(23) <= x"84";
+							elsif addrcnt(23) = x"99" then
+								addrcnt(23) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "100101" )or (d_c3 = "110010") then --q(red)
+						addrcnt(24) <= addrcnt(24) + '1';
+						rgb_data <= b_data(24) & g_data(24) & r_data(24);
+						if(((d_c4 = "100101" )or (d_c4 = "110010"))
+						or ((d_c5 = "100101" )or (d_c5 = "110010"))or ((d_c6 = "100101" )or (d_c6 = "110010"))) then
+							if addrcnt(24) = x"0a" then
+								addrcnt(24) <= (others => '0');
+							elsif addrcnt(24) = x"15" then
+								addrcnt(24) <= x"0b";
+							elsif addrcnt(24) = x"20" then
+								addrcnt(24) <= x"16";
+							elsif addrcnt(24) = x"2b" then
+								addrcnt(24) <= x"21";
+							elsif addrcnt(24) = x"36" then
+								addrcnt(24) <= x"2c";
+							elsif addrcnt(24) = x"41" then
+								addrcnt(24) <= x"37";
+							elsif addrcnt(24) = x"4c" then
+								addrcnt(24) <= x"42";
+							elsif addrcnt(24) = x"57" then
+								addrcnt(24) <= x"4d";
+							elsif addrcnt(24) = x"62" then
+								addrcnt(24) <= x"58";
+							elsif addrcnt(24) = x"6d" then
+								addrcnt(24) <= x"63";
+							elsif addrcnt(24) = x"78" then
+								addrcnt(24) <= x"6e";
+							elsif addrcnt(24) = x"83" then
+								addrcnt(24) <= x"79";
+							elsif addrcnt(24) = x"8e" then
+								addrcnt(24) <= x"84";
+							elsif addrcnt(24) = x"99" then
+								addrcnt(24) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c3 = "100110" )or (d_c3 = "110011") then --k(red)
+						addrcnt(25) <= addrcnt(25) + '1';
+						rgb_data <= b_data(25) & g_data(25) & r_data(25);
+						if(((d_c4 = "100110" )or (d_c4 = "110011"))
+						or ((d_c5 = "100110" )or (d_c5 = "110011"))or ((d_c6 = "100110" )or (d_c6 = "110011"))) then
+							if addrcnt(25) = x"0a" then
+								addrcnt(25) <= (others => '0');
+							elsif addrcnt(25) = x"15" then
+								addrcnt(25) <= x"0b";
+							elsif addrcnt(25) = x"20" then
+								addrcnt(25) <= x"16";
+							elsif addrcnt(25) = x"2b" then
+								addrcnt(25) <= x"21";
+							elsif addrcnt(25) = x"36" then
+								addrcnt(25) <= x"2c";
+							elsif addrcnt(25) = x"41" then
+								addrcnt(25) <= x"37";
+							elsif addrcnt(25) = x"4c" then
+								addrcnt(25) <= x"42";
+							elsif addrcnt(25) = x"57" then
+								addrcnt(25) <= x"4d";
+							elsif addrcnt(25) = x"62" then
+								addrcnt(25) <= x"58";
+							elsif addrcnt(25) = x"6d" then
+								addrcnt(25) <= x"63";
+							elsif addrcnt(25) = x"78" then
+								addrcnt(25) <= x"6e";
+							elsif addrcnt(25) = x"83" then
+								addrcnt(25) <= x"79";
+							elsif addrcnt(25) = x"8e" then
+								addrcnt(25) <= x"84";
+							elsif addrcnt(25) = x"99" then
+								addrcnt(25) <= x"8f";
+							end if;
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +133 ) ) and ( hsync_cnt <= (tHW + tHBP +143)) ) then
+					if (d_c4 = "000000" )or (d_c4 = "001101") then --a
+						addrcnt(0) <= addrcnt(0) + '1';
+						rgb_data <= b_data(0) & g_data(0) & r_data(0);
+						if(((d_c5 = "000000" )or (d_c5 = "001101"))or ((d_c6 = "000000" )or (d_c6 = "001101"))) then
+							if addrcnt(0) = x"0a" then
+								addrcnt(0) <= (others => '0');
+							elsif addrcnt(0) = x"15" then
+								addrcnt(0) <= x"0b";
+							elsif addrcnt(0) = x"20" then
+								addrcnt(0) <= x"16";
+							elsif addrcnt(0) = x"2b" then
+								addrcnt(0) <= x"21";
+							elsif addrcnt(0) = x"36" then
+								addrcnt(0) <= x"2c";
+							elsif addrcnt(0) = x"41" then
+								addrcnt(0) <= x"37";
+							elsif addrcnt(0) = x"4c" then
+								addrcnt(0) <= x"42";
+							elsif addrcnt(0) = x"57" then
+								addrcnt(0) <= x"4d";
+							elsif addrcnt(0) = x"62" then
+								addrcnt(0) <= x"58";
+							elsif addrcnt(0) = x"6d" then
+								addrcnt(0) <= x"63";
+							elsif addrcnt(0) = x"78" then
+								addrcnt(0) <= x"6e";
+							elsif addrcnt(0) = x"83" then
+								addrcnt(0) <= x"79";
+							elsif addrcnt(0) = x"8e" then
+								addrcnt(0) <= x"84";
+							elsif addrcnt(0) = x"99" then
+								addrcnt(0) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "000001" )or (d_c4 = "001110") then --2
+						addrcnt(1) <= addrcnt(1) + '1';
+						rgb_data <= b_data(1) & g_data(1) & r_data(1);
+						if(((d_c5 = "000001" )or (d_c5 = "001110"))or ((d_c6 = "000001" )or (d_c6 = "001110"))) then
+							if addrcnt(1) = x"0a" then
+								addrcnt(1) <= (others => '0');
+							elsif addrcnt(1) = x"15" then
+								addrcnt(1) <= x"0b";
+							elsif addrcnt(1) = x"20" then
+								addrcnt(1) <= x"16";
+							elsif addrcnt(1) = x"2b" then
+								addrcnt(1) <= x"21";
+							elsif addrcnt(1) = x"36" then
+								addrcnt(1) <= x"2c";
+							elsif addrcnt(1) = x"41" then
+								addrcnt(1) <= x"37";
+							elsif addrcnt(1) = x"4c" then
+								addrcnt(1) <= x"42";
+							elsif addrcnt(1) = x"57" then
+								addrcnt(1) <= x"4d";
+							elsif addrcnt(1) = x"62" then
+								addrcnt(1) <= x"58";
+							elsif addrcnt(1) = x"6d" then
+								addrcnt(1) <= x"63";
+							elsif addrcnt(1) = x"78" then
+								addrcnt(1) <= x"6e";
+							elsif addrcnt(1) = x"83" then
+								addrcnt(1) <= x"79";
+							elsif addrcnt(1) = x"8e" then
+								addrcnt(1) <= x"84";
+							elsif addrcnt(1) = x"99" then
+								addrcnt(1) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "000010" )or (d_c4 = "001111") then --3
+						addrcnt(2) <= addrcnt(2) + '1';
+						rgb_data <= b_data(2) & g_data(2) & r_data(2);
+						if( ((d_c5 = "000010" )or (d_c5 = "001111"))or ((d_c6 = "000010" )or (d_c6 = "001111"))) then
+							if addrcnt(2) = x"0a" then
+								addrcnt(2) <= (others => '0');
+							elsif addrcnt(2) = x"15" then
+								addrcnt(2) <= x"0b";
+							elsif addrcnt(2) = x"20" then
+								addrcnt(2) <= x"16";
+							elsif addrcnt(2) = x"2b" then
+								addrcnt(2) <= x"21";
+							elsif addrcnt(2) = x"36" then
+								addrcnt(2) <= x"2c";
+							elsif addrcnt(2) = x"41" then
+								addrcnt(2) <= x"37";
+							elsif addrcnt(2) = x"4c" then
+								addrcnt(2) <= x"42";
+							elsif addrcnt(2) = x"57" then
+								addrcnt(2) <= x"4d";
+							elsif addrcnt(2) = x"62" then
+								addrcnt(2) <= x"58";
+							elsif addrcnt(2) = x"6d" then
+								addrcnt(2) <= x"63";
+							elsif addrcnt(2) = x"78" then
+								addrcnt(2) <= x"6e";
+							elsif addrcnt(2) = x"83" then
+								addrcnt(2) <= x"79";
+							elsif addrcnt(2) = x"8e" then
+								addrcnt(2) <= x"84";
+							elsif addrcnt(2) = x"99" then
+								addrcnt(2) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "000011" )or (d_c4 = "010000") then --4
+						addrcnt(3) <= addrcnt(3) + '1';
+						rgb_data <= b_data(3) & g_data(3) & r_data(3);
+					if(  ((d_c5 = "000011" )or (d_c5 = "010000"))or ((d_c6 = "000011" )or (d_c6 = "010000"))) then
+							if addrcnt(3) = x"0a" then
+								addrcnt(3) <= (others => '0');
+							elsif addrcnt(3) = x"15" then
+								addrcnt(3) <= x"0b";
+							elsif addrcnt(3) = x"20" then
+								addrcnt(3) <= x"16";
+							elsif addrcnt(3) = x"2b" then
+								addrcnt(3) <= x"21";
+							elsif addrcnt(3) = x"36" then
+								addrcnt(3) <= x"2c";
+							elsif addrcnt(3) = x"41" then
+								addrcnt(3) <= x"37";
+							elsif addrcnt(3) = x"4c" then
+								addrcnt(3) <= x"42";
+							elsif addrcnt(3) = x"57" then
+								addrcnt(3) <= x"4d";
+							elsif addrcnt(3) = x"62" then
+								addrcnt(3) <= x"58";
+							elsif addrcnt(3) = x"6d" then
+								addrcnt(3) <= x"63";
+							elsif addrcnt(3) = x"78" then
+								addrcnt(3) <= x"6e";
+							elsif addrcnt(3) = x"83" then
+								addrcnt(3) <= x"79";
+							elsif addrcnt(3) = x"8e" then
+								addrcnt(3) <= x"84";
+							elsif addrcnt(3) = x"99" then
+								addrcnt(3) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "000100" )or (d_c4 = "010001") then --5
+						addrcnt(4) <= addrcnt(4) + '1';
+						rgb_data <= b_data(4) & g_data(4) & r_data(4);
+						if( ((d_c5 = "000100" )or (d_c5 = "010001"))or ((d_c6 = "000100" )or (d_c6 = "010001"))) then
+							if addrcnt(4) = x"0a" then
+								addrcnt(4) <= (others => '0');
+							elsif addrcnt(4) = x"15" then
+								addrcnt(4) <= x"0b";
+							elsif addrcnt(4) = x"20" then
+								addrcnt(4) <= x"16";
+							elsif addrcnt(4) = x"2b" then
+								addrcnt(4) <= x"21";
+							elsif addrcnt(4) = x"36" then
+								addrcnt(4) <= x"2c";
+							elsif addrcnt(4) = x"41" then
+								addrcnt(4) <= x"37";
+							elsif addrcnt(4) = x"4c" then
+								addrcnt(4) <= x"42";
+							elsif addrcnt(4) = x"57" then
+								addrcnt(4) <= x"4d";
+							elsif addrcnt(4) = x"62" then
+								addrcnt(4) <= x"58";
+							elsif addrcnt(4) = x"6d" then
+								addrcnt(4) <= x"63";
+							elsif addrcnt(4) = x"78" then
+								addrcnt(4) <= x"6e";
+							elsif addrcnt(4) = x"83" then
+								addrcnt(4) <= x"79";
+							elsif addrcnt(4) = x"8e" then
+								addrcnt(4) <= x"84";
+							elsif addrcnt(4) = x"99" then
+								addrcnt(4) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "000101" )or (d_c4 = "010010") then --6
+						addrcnt(5) <= addrcnt(5) + '1';
+						rgb_data <= b_data(5) & g_data(5) & r_data(5);
+						if( ((d_c5 = "000101" )or (d_c5 = "010010"))or ((d_c6 = "000101" )or (d_c6 = "010010"))) then
+							if addrcnt(5) = x"0a" then
+								addrcnt(5) <= (others => '0');
+							elsif addrcnt(5) = x"15" then
+								addrcnt(5) <= x"0b";
+							elsif addrcnt(5) = x"20" then
+								addrcnt(5) <= x"16";
+							elsif addrcnt(5) = x"2b" then
+								addrcnt(5) <= x"21";
+							elsif addrcnt(5) = x"36" then
+								addrcnt(5) <= x"2c";
+							elsif addrcnt(5) = x"41" then
+								addrcnt(5) <= x"37";
+							elsif addrcnt(5) = x"4c" then
+								addrcnt(5) <= x"42";
+							elsif addrcnt(5) = x"57" then
+								addrcnt(5) <= x"4d";
+							elsif addrcnt(5) = x"62" then
+								addrcnt(5) <= x"58";
+							elsif addrcnt(5) = x"6d" then
+								addrcnt(5) <= x"63";
+							elsif addrcnt(5) = x"78" then
+								addrcnt(5) <= x"6e";
+							elsif addrcnt(5) = x"83" then
+								addrcnt(5) <= x"79";
+							elsif addrcnt(5) = x"8e" then
+								addrcnt(5) <= x"84";
+							elsif addrcnt(5) = x"99" then
+								addrcnt(5) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "000110" )or (d_c4 = "010011") then --7
+						addrcnt(6) <= addrcnt(6) + '1';
+						rgb_data <= b_data(6) & g_data(6) & r_data(6);
+						if( ((d_c5 = "000110" )or (d_c5 = "010011"))or ((d_c6 = "000110" )or (d_c6 = "010011"))) then
+							if addrcnt(6) = x"0a" then
+								addrcnt(6) <= (others => '0');
+							elsif addrcnt(6) = x"15" then
+								addrcnt(6) <= x"0b";
+							elsif addrcnt(6) = x"20" then
+								addrcnt(6) <= x"16";
+							elsif addrcnt(6) = x"2b" then
+								addrcnt(6) <= x"21";
+							elsif addrcnt(6) = x"36" then
+								addrcnt(6) <= x"2c";
+							elsif addrcnt(6) = x"41" then
+								addrcnt(6) <= x"37";
+							elsif addrcnt(6) = x"4c" then
+								addrcnt(6) <= x"42";
+							elsif addrcnt(6) = x"57" then
+								addrcnt(6) <= x"4d";
+							elsif addrcnt(6) = x"62" then
+								addrcnt(6) <= x"58";
+							elsif addrcnt(6) = x"6d" then
+								addrcnt(6) <= x"63";
+							elsif addrcnt(6) = x"78" then
+								addrcnt(6) <= x"6e";
+							elsif addrcnt(6) = x"83" then
+								addrcnt(6) <= x"79";
+							elsif addrcnt(6) = x"8e" then
+								addrcnt(6) <= x"84";
+							elsif addrcnt(6) = x"99" then
+								addrcnt(6) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "000111" )or (d_c4 = "010100") then --8
+						addrcnt(7) <= addrcnt(7) + '1';
+						rgb_data <= b_data(7) & g_data(7) & r_data(7);
+						if( ((d_c5 = "000111" )or (d_c5 = "010100"))or ((d_c6 = "000111" )or (d_c6 = "010100"))) then
+							if addrcnt(7) = x"0a" then
+								addrcnt(7) <= (others => '0');
+							elsif addrcnt(7) = x"15" then
+								addrcnt(7) <= x"0b";
+							elsif addrcnt(7) = x"20" then
+								addrcnt(7) <= x"16";
+							elsif addrcnt(7) = x"2b" then
+								addrcnt(7) <= x"21";
+							elsif addrcnt(7) = x"36" then
+								addrcnt(7) <= x"2c";
+							elsif addrcnt(7) = x"41" then
+								addrcnt(7) <= x"37";
+							elsif addrcnt(7) = x"4c" then
+								addrcnt(7) <= x"42";
+							elsif addrcnt(7) = x"57" then
+								addrcnt(7) <= x"4d";
+							elsif addrcnt(7) = x"62" then
+								addrcnt(7) <= x"58";
+							elsif addrcnt(7) = x"6d" then
+								addrcnt(7) <= x"63";
+							elsif addrcnt(7) = x"78" then
+								addrcnt(7) <= x"6e";
+							elsif addrcnt(7) = x"83" then
+								addrcnt(7) <= x"79";
+							elsif addrcnt(7) = x"8e" then
+								addrcnt(7) <= x"84";
+							elsif addrcnt(7) = x"99" then
+								addrcnt(7) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "001000" )or (d_c4 = "010101") then --9
+						addrcnt(8) <= addrcnt(8) + '1';
+						rgb_data <= b_data(8) & g_data(8) & r_data(8);
+						if(((d_c5 = "001000" )or (d_c5 = "010101"))or ((d_c6 = "001000" )or (d_c6 = "010101"))) then
+							if addrcnt(8) = x"0a" then
+								addrcnt(8) <= (others => '0');
+							elsif addrcnt(8) = x"15" then
+								addrcnt(8) <= x"0b";
+							elsif addrcnt(8) = x"20" then
+								addrcnt(8) <= x"16";
+							elsif addrcnt(8) = x"2b" then
+								addrcnt(8) <= x"21";
+							elsif addrcnt(8) = x"36" then
+								addrcnt(8) <= x"2c";
+							elsif addrcnt(8) = x"41" then
+								addrcnt(8) <= x"37";
+							elsif addrcnt(8) = x"4c" then
+								addrcnt(8) <= x"42";
+							elsif addrcnt(8) = x"57" then
+								addrcnt(8) <= x"4d";
+							elsif addrcnt(8) = x"62" then
+								addrcnt(8) <= x"58";
+							elsif addrcnt(8) = x"6d" then
+								addrcnt(8) <= x"63";
+							elsif addrcnt(8) = x"78" then
+								addrcnt(8) <= x"6e";
+							elsif addrcnt(8) = x"83" then
+								addrcnt(8) <= x"79";
+							elsif addrcnt(8) = x"8e" then
+								addrcnt(8) <= x"84";
+							elsif addrcnt(8) = x"99" then
+								addrcnt(8) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "001001" )or (d_c4 = "010110") then --10
+						addrcnt(9) <= addrcnt(9) + '1';
+						rgb_data <= b_data(9) & g_data(9) & r_data(9);
+						if(  ((d_c5 = "001001" )or (d_c5 = "010110"))or ((d_c6 = "001001" )or (d_c6 = "010110"))) then
+							if addrcnt(9) = x"0a" then
+								addrcnt(9) <= (others => '0');
+							elsif addrcnt(9) = x"15" then
+								addrcnt(9) <= x"0b";
+							elsif addrcnt(9) = x"20" then
+								addrcnt(9) <= x"16";
+							elsif addrcnt(9) = x"2b" then
+								addrcnt(9) <= x"21";
+							elsif addrcnt(9) = x"36" then
+								addrcnt(9) <= x"2c";
+							elsif addrcnt(9) = x"41" then
+								addrcnt(9) <= x"37";
+							elsif addrcnt(9) = x"4c" then
+								addrcnt(9) <= x"42";
+							elsif addrcnt(9) = x"57" then
+								addrcnt(9) <= x"4d";
+							elsif addrcnt(9) = x"62" then
+								addrcnt(9) <= x"58";
+							elsif addrcnt(9) = x"6d" then
+								addrcnt(9) <= x"63";
+							elsif addrcnt(9) = x"78" then
+								addrcnt(9) <= x"6e";
+							elsif addrcnt(9) = x"83" then
+								addrcnt(9) <= x"79";
+							elsif addrcnt(9) = x"8e" then
+								addrcnt(9) <= x"84";
+							elsif addrcnt(9) = x"99" then
+								addrcnt(9) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "001010" )or (d_c4 = "010111") then --j
+						addrcnt(10) <= addrcnt(10) + '1';
+						rgb_data <= b_data(10) & g_data(10) & r_data(10);
+						if(((d_c5 = "001010" )or (d_c5 = "010111"))or ((d_c6 = "001010" )or (d_c6 = "010111"))) then
+							if addrcnt(10) = x"0a" then
+								addrcnt(10) <= (others => '0');
+							elsif addrcnt(10) = x"15" then
+								addrcnt(10) <= x"0b";
+							elsif addrcnt(10) = x"20" then
+								addrcnt(10) <= x"16";
+							elsif addrcnt(10) = x"2b" then
+								addrcnt(10) <= x"21";
+							elsif addrcnt(10) = x"36" then
+								addrcnt(10) <= x"2c";
+							elsif addrcnt(10) = x"41" then
+								addrcnt(10) <= x"37";
+							elsif addrcnt(10) = x"4c" then
+								addrcnt(10) <= x"42";
+							elsif addrcnt(10) = x"57" then
+								addrcnt(10) <= x"4d";
+							elsif addrcnt(10) = x"62" then
+								addrcnt(10) <= x"58";
+							elsif addrcnt(10) = x"6d" then
+								addrcnt(10) <= x"63";
+							elsif addrcnt(10) = x"78" then
+								addrcnt(10) <= x"6e";
+							elsif addrcnt(10) = x"83" then
+								addrcnt(10) <= x"79";
+							elsif addrcnt(10) = x"8e" then
+								addrcnt(10) <= x"84";
+							elsif addrcnt(10) = x"99" then
+								addrcnt(10) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "001011" )or (d_c4 = "011000") then --q
+						addrcnt(11) <= addrcnt(11) + '1';
+						rgb_data <= b_data(11) & g_data(11) & r_data(11);
+						if( ((d_c5 = "001011" )or (d_c5 = "011000"))or ((d_c6 = "001011" )or (d_c6 = "011000"))) then
+							if addrcnt(11) = x"0a" then
+								addrcnt(11) <= (others => '0');
+							elsif addrcnt(11) = x"15" then
+								addrcnt(11) <= x"0b";
+							elsif addrcnt(11) = x"20" then
+								addrcnt(11) <= x"16";
+							elsif addrcnt(11) = x"2b" then
+								addrcnt(11) <= x"21";
+							elsif addrcnt(11) = x"36" then
+								addrcnt(11) <= x"2c";
+							elsif addrcnt(11) = x"41" then
+								addrcnt(11) <= x"37";
+							elsif addrcnt(11) = x"4c" then
+								addrcnt(11) <= x"42";
+							elsif addrcnt(11) = x"57" then
+								addrcnt(11) <= x"4d";
+							elsif addrcnt(11) = x"62" then
+								addrcnt(11) <= x"58";
+							elsif addrcnt(11) = x"6d" then
+								addrcnt(11) <= x"63";
+							elsif addrcnt(11) = x"78" then
+								addrcnt(11) <= x"6e";
+							elsif addrcnt(11) = x"83" then
+								addrcnt(11) <= x"79";
+							elsif addrcnt(11) = x"8e" then
+								addrcnt(11) <= x"84";
+							elsif addrcnt(11) = x"99" then
+								addrcnt(11) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "001100" )or (d_c4 = "011001") then --k
+						addrcnt(12) <= addrcnt(12) + '1';
+						rgb_data <= b_data(12) & g_data(12) & r_data(12);
+						if(  ((d_c5 = "001100" )or (d_c5 = "011001"))or ((d_c6 = "001100" )or (d_c6 = "011001"))) then
+							if addrcnt(12) = x"0a" then
+								addrcnt(12) <= (others => '0');
+							elsif addrcnt(12) = x"15" then
+								addrcnt(12) <= x"0b";
+							elsif addrcnt(12) = x"20" then
+								addrcnt(12) <= x"16";
+							elsif addrcnt(12) = x"2b" then
+								addrcnt(12) <= x"21";
+							elsif addrcnt(12) = x"36" then
+								addrcnt(12) <= x"2c";
+							elsif addrcnt(12) = x"41" then
+								addrcnt(12) <= x"37";
+							elsif addrcnt(12) = x"4c" then
+								addrcnt(12) <= x"42";
+							elsif addrcnt(12) = x"57" then
+								addrcnt(12) <= x"4d";
+							elsif addrcnt(12) = x"62" then
+								addrcnt(12) <= x"58";
+							elsif addrcnt(12) = x"6d" then
+								addrcnt(12) <= x"63";
+							elsif addrcnt(12) = x"78" then
+								addrcnt(12) <= x"6e";
+							elsif addrcnt(12) = x"83" then
+								addrcnt(12) <= x"79";
+							elsif addrcnt(12) = x"8e" then
+								addrcnt(12) <= x"84";
+							elsif addrcnt(12) = x"99" then
+								addrcnt(12) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "011010" )or (d_c4 = "100111")  then --a(red)
+						addrcnt(13) <= addrcnt(13) + '1';
+						rgb_data <= b_data(13) & g_data(13) & r_data(13);
+						if(((d_c5 = "011010" )or (d_c5 = "100111"))or ((d_c6 = "011010" )or (d_c6 = "100111"))) then
+							if addrcnt(13) = x"0a" then
+								addrcnt(13) <= (others => '0');
+							elsif addrcnt(13) = x"15" then
+								addrcnt(13) <= x"0b";
+							elsif addrcnt(13) = x"20" then
+								addrcnt(13) <= x"16";
+							elsif addrcnt(13) = x"2b" then
+								addrcnt(13) <= x"21";
+							elsif addrcnt(13) = x"36" then
+								addrcnt(13) <= x"2c";
+							elsif addrcnt(13) = x"41" then
+								addrcnt(13) <= x"37";
+							elsif addrcnt(13) = x"4c" then
+								addrcnt(13) <= x"42";
+							elsif addrcnt(13) = x"57" then
+								addrcnt(13) <= x"4d";
+							elsif addrcnt(13) = x"62" then
+								addrcnt(13) <= x"58";
+							elsif addrcnt(13) = x"6d" then
+								addrcnt(13) <= x"63";
+							elsif addrcnt(13) = x"78" then
+								addrcnt(13) <= x"6e";
+							elsif addrcnt(13) = x"83" then
+								addrcnt(13) <= x"79";
+							elsif addrcnt(13) = x"8e" then
+								addrcnt(13) <= x"84";
+							elsif addrcnt(13) = x"99" then
+								addrcnt(13) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "011011" )or (d_c4 = "101000") then --2(red)
+						addrcnt(14) <= addrcnt(14) + '1';
+						rgb_data <= b_data(14) & g_data(14) & r_data(14);
+						if(((d_c5 = "011011" )or (d_c5 = "101000"))or ((d_c6 = "011011" )or (d_c6 = "101000"))) then
+							if addrcnt(14) = x"0a" then
+								addrcnt(14) <= (others => '0');
+							elsif addrcnt(14) = x"15" then
+								addrcnt(14) <= x"0b";
+							elsif addrcnt(14) = x"20" then
+								addrcnt(14) <= x"16";
+							elsif addrcnt(14) = x"2b" then
+								addrcnt(14) <= x"21";
+							elsif addrcnt(14) = x"36" then
+								addrcnt(14) <= x"2c";
+							elsif addrcnt(14) = x"41" then
+								addrcnt(14) <= x"37";
+							elsif addrcnt(14) = x"4c" then
+								addrcnt(14) <= x"42";
+							elsif addrcnt(14) = x"57" then
+								addrcnt(14) <= x"4d";
+							elsif addrcnt(14) = x"62" then
+								addrcnt(14) <= x"58";
+							elsif addrcnt(14) = x"6d" then
+								addrcnt(14) <= x"63";
+							elsif addrcnt(14) = x"78" then
+								addrcnt(14) <= x"6e";
+							elsif addrcnt(14) = x"83" then
+								addrcnt(14) <= x"79";
+							elsif addrcnt(14) = x"8e" then
+								addrcnt(14) <= x"84";
+							elsif addrcnt(14) = x"99" then
+								addrcnt(14) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "011100" )or (d_c4 = "101001") then --3(red)
+						addrcnt(15) <= addrcnt(15) + '1';
+						rgb_data <= b_data(15) & g_data(15) & r_data(15);
+						if( ((d_c5 = "011100" )or (d_c5 = "101001"))or ((d_c6 = "011100" )or (d_c6 = "101001"))) then
+							if addrcnt(15) = x"0a" then
+								addrcnt(15) <= (others => '0');
+							elsif addrcnt(15) = x"15" then
+								addrcnt(15) <= x"0b";
+							elsif addrcnt(15) = x"20" then
+								addrcnt(15) <= x"16";
+							elsif addrcnt(15) = x"2b" then
+								addrcnt(15) <= x"21";
+							elsif addrcnt(15) = x"36" then
+								addrcnt(15) <= x"2c";
+							elsif addrcnt(15) = x"41" then
+								addrcnt(15) <= x"37";
+							elsif addrcnt(15) = x"4c" then
+								addrcnt(15) <= x"42";
+							elsif addrcnt(15) = x"57" then
+								addrcnt(15) <= x"4d";
+							elsif addrcnt(15) = x"62" then
+								addrcnt(15) <= x"58";
+							elsif addrcnt(15) = x"6d" then
+								addrcnt(15) <= x"63";
+							elsif addrcnt(15) = x"78" then
+								addrcnt(15) <= x"6e";
+							elsif addrcnt(15) = x"83" then
+								addrcnt(15) <= x"79";
+							elsif addrcnt(15) = x"8e" then
+								addrcnt(15) <= x"84";
+							elsif addrcnt(15) = x"99" then
+								addrcnt(15) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "011101" )or (d_c4 = "101010") then --4(red)
+						addrcnt(16) <= addrcnt(16) + '1';
+						rgb_data <= b_data(16) & g_data(16) & r_data(16);
+						if( ((d_c5 = "011101" )or (d_c5 = "101010"))or ((d_c6 = "011101" )or (d_c6 = "101010"))) then
+							if addrcnt(16) = x"0a" then
+								addrcnt(16) <= (others => '0');
+							elsif addrcnt(16) = x"15" then
+								addrcnt(16) <= x"0b";
+							elsif addrcnt(16) = x"20" then
+								addrcnt(16) <= x"16";
+							elsif addrcnt(16) = x"2b" then
+								addrcnt(16) <= x"21";
+							elsif addrcnt(16) = x"36" then
+								addrcnt(16) <= x"2c";
+							elsif addrcnt(16) = x"41" then
+								addrcnt(16) <= x"37";
+							elsif addrcnt(16) = x"4c" then
+								addrcnt(16) <= x"42";
+							elsif addrcnt(16) = x"57" then
+								addrcnt(16) <= x"4d";
+							elsif addrcnt(16) = x"62" then
+								addrcnt(16) <= x"58";
+							elsif addrcnt(16) = x"6d" then
+								addrcnt(16) <= x"63";
+							elsif addrcnt(16) = x"78" then
+								addrcnt(16) <= x"6e";
+							elsif addrcnt(16) = x"83" then
+								addrcnt(16) <= x"79";
+							elsif addrcnt(16) = x"8e" then
+								addrcnt(16) <= x"84";
+							elsif addrcnt(16) = x"99" then
+								addrcnt(16) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "011110" )or (d_c4 = "101011") then --5(red)
+						addrcnt(17) <= addrcnt(17) + '1';
+						rgb_data <= b_data(17) & g_data(17) & r_data(17);
+						if(  ((d_c5 = "011110" )or (d_c5 = "101011"))or ((d_c6 = "011110" )or (d_c6 = "101011"))) then
+							if addrcnt(17) = x"0a" then
+								addrcnt(17) <= (others => '0');
+							elsif addrcnt(17) = x"15" then
+								addrcnt(17) <= x"0b";
+							elsif addrcnt(17) = x"20" then
+								addrcnt(17) <= x"16";
+							elsif addrcnt(17) = x"2b" then
+								addrcnt(17) <= x"21";
+							elsif addrcnt(17) = x"36" then
+								addrcnt(17) <= x"2c";
+							elsif addrcnt(17) = x"41" then
+								addrcnt(17) <= x"37";
+							elsif addrcnt(17) = x"4c" then
+								addrcnt(17) <= x"42";
+							elsif addrcnt(17) = x"57" then
+								addrcnt(17) <= x"4d";
+							elsif addrcnt(17) = x"62" then
+								addrcnt(17) <= x"58";
+							elsif addrcnt(17) = x"6d" then
+								addrcnt(17) <= x"63";
+							elsif addrcnt(17) = x"78" then
+								addrcnt(17) <= x"6e";
+							elsif addrcnt(17) = x"83" then
+								addrcnt(17) <= x"79";
+							elsif addrcnt(17) = x"8e" then
+								addrcnt(17) <= x"84";
+							elsif addrcnt(17) = x"99" then
+								addrcnt(17) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "011111" )or (d_c4 = "101100") then --6(red)
+						addrcnt(18) <= addrcnt(18) + '1';
+						rgb_data <= b_data(18) & g_data(18) & r_data(18);
+						if(((d_c5 = "011111" )or (d_c5 = "101100"))or ((d_c6 = "011111" )or (d_c6 = "101100"))) then
+							if addrcnt(18) = x"0a" then
+								addrcnt(18) <= (others => '0');
+							elsif addrcnt(18) = x"15" then
+								addrcnt(18) <= x"0b";
+							elsif addrcnt(18) = x"20" then
+								addrcnt(18) <= x"16";
+							elsif addrcnt(18) = x"2b" then
+								addrcnt(18) <= x"21";
+							elsif addrcnt(18) = x"36" then
+								addrcnt(18) <= x"2c";
+							elsif addrcnt(18) = x"41" then
+								addrcnt(18) <= x"37";
+							elsif addrcnt(18) = x"4c" then
+								addrcnt(18) <= x"42";
+							elsif addrcnt(18) = x"57" then
+								addrcnt(18) <= x"4d";
+							elsif addrcnt(18) = x"62" then
+								addrcnt(18) <= x"58";
+							elsif addrcnt(18) = x"6d" then
+								addrcnt(18) <= x"63";
+							elsif addrcnt(18) = x"78" then
+								addrcnt(18) <= x"6e";
+							elsif addrcnt(18) = x"83" then
+								addrcnt(18) <= x"79";
+							elsif addrcnt(18) = x"8e" then
+								addrcnt(18) <= x"84";
+							elsif addrcnt(18) = x"99" then
+								addrcnt(18) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "100000" )or (d_c4 = "101101") then --7(red)
+						addrcnt(19) <= addrcnt(19) + '1';
+						rgb_data <= b_data(19) & g_data(19) & r_data(19);
+						if( ((d_c5 = "100000" )or (d_c5 = "101101"))or ((d_c6 = "100000" )or (d_c6 = "101101"))) then
+							if addrcnt(19) = x"0a" then
+								addrcnt(19) <= (others => '0');
+							elsif addrcnt(19) = x"15" then
+								addrcnt(19) <= x"0b";
+							elsif addrcnt(19) = x"20" then
+								addrcnt(19) <= x"16";
+							elsif addrcnt(19) = x"2b" then
+								addrcnt(19) <= x"21";
+							elsif addrcnt(19) = x"36" then
+								addrcnt(19) <= x"2c";
+							elsif addrcnt(19) = x"41" then
+								addrcnt(19) <= x"37";
+							elsif addrcnt(19) = x"4c" then
+								addrcnt(19) <= x"42";
+							elsif addrcnt(19) = x"57" then
+								addrcnt(19) <= x"4d";
+							elsif addrcnt(19) = x"62" then
+								addrcnt(19) <= x"58";
+							elsif addrcnt(19) = x"6d" then
+								addrcnt(19) <= x"63";
+							elsif addrcnt(19) = x"78" then
+								addrcnt(19) <= x"6e";
+							elsif addrcnt(19) = x"83" then
+								addrcnt(19) <= x"79";
+							elsif addrcnt(19) = x"8e" then
+								addrcnt(19) <= x"84";
+							elsif addrcnt(19) = x"99" then
+								addrcnt(19) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "100001" )or (d_c4 = "101110") then --8(red)
+						addrcnt(20) <= addrcnt(20) + '1';
+						rgb_data <= b_data(20) & g_data(20) & r_data(20);
+						if(((d_c5 = "100001" )or (d_c5 = "101110"))or ((d_c6 = "100001" )or (d_c6 = "101110"))) then
+							if addrcnt(20) = x"0a" then
+								addrcnt(20) <= (others => '0');
+							elsif addrcnt(20) = x"15" then
+								addrcnt(20) <= x"0b";
+							elsif addrcnt(20) = x"20" then
+								addrcnt(20) <= x"16";
+							elsif addrcnt(20) = x"2b" then
+								addrcnt(20) <= x"21";
+							elsif addrcnt(20) = x"36" then
+								addrcnt(20) <= x"2c";
+							elsif addrcnt(20) = x"41" then
+								addrcnt(20) <= x"37";
+							elsif addrcnt(20) = x"4c" then
+								addrcnt(20) <= x"42";
+							elsif addrcnt(20) = x"57" then
+								addrcnt(20) <= x"4d";
+							elsif addrcnt(20) = x"62" then
+								addrcnt(20) <= x"58";
+							elsif addrcnt(20) = x"6d" then
+								addrcnt(20) <= x"63";
+							elsif addrcnt(20) = x"78" then
+								addrcnt(20) <= x"6e";
+							elsif addrcnt(20) = x"83" then
+								addrcnt(20) <= x"79";
+							elsif addrcnt(20) = x"8e" then
+								addrcnt(20) <= x"84";
+							elsif addrcnt(20) = x"99" then
+								addrcnt(20) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "100010" )or (d_c4 = "101111") then --9(red)
+						addrcnt(21) <= addrcnt(21) + '1';
+						rgb_data <= b_data(21) & g_data(21) & r_data(21);
+						if( ((d_c5 = "100010" )or (d_c5 = "101111"))or ((d_c6 = "100010" )or (d_c6 = "101111"))) then
+							if addrcnt(21) = x"0a" then
+								addrcnt(21) <= (others => '0');
+							elsif addrcnt(21) = x"15" then
+								addrcnt(21) <= x"0b";
+							elsif addrcnt(21) = x"20" then
+								addrcnt(21) <= x"16";
+							elsif addrcnt(21) = x"2b" then
+								addrcnt(21) <= x"21";
+							elsif addrcnt(21) = x"36" then
+								addrcnt(21) <= x"2c";
+							elsif addrcnt(21) = x"41" then
+								addrcnt(21) <= x"37";
+							elsif addrcnt(21) = x"4c" then
+								addrcnt(21) <= x"42";
+							elsif addrcnt(21) = x"57" then
+								addrcnt(21) <= x"4d";
+							elsif addrcnt(21) = x"62" then
+								addrcnt(21) <= x"58";
+							elsif addrcnt(21) = x"6d" then
+								addrcnt(21) <= x"63";
+							elsif addrcnt(21) = x"78" then
+								addrcnt(21) <= x"6e";
+							elsif addrcnt(21) = x"83" then
+								addrcnt(21) <= x"79";
+							elsif addrcnt(21) = x"8e" then
+								addrcnt(21) <= x"84";
+							elsif addrcnt(21) = x"99" then
+								addrcnt(21) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "100011" )or (d_c4 = "110000") then --10(red)
+						addrcnt(22) <= addrcnt(22) + '1';
+						rgb_data <= b_data(22) & g_data(22) & r_data(22);
+						if(((d_c5 = "100011" )or (d_c5 = "110000"))or ((d_c6 = "100011" )or (d_c6 = "110000"))) then
+							if addrcnt(22) = x"0a" then
+								addrcnt(22) <= (others => '0');
+							elsif addrcnt(22) = x"15" then
+								addrcnt(22) <= x"0b";
+							elsif addrcnt(22) = x"20" then
+								addrcnt(22) <= x"16";
+							elsif addrcnt(22) = x"2b" then
+								addrcnt(22) <= x"21";
+							elsif addrcnt(22) = x"36" then
+								addrcnt(22) <= x"2c";
+							elsif addrcnt(22) = x"41" then
+								addrcnt(22) <= x"37";
+							elsif addrcnt(22) = x"4c" then
+								addrcnt(22) <= x"42";
+							elsif addrcnt(22) = x"57" then
+								addrcnt(22) <= x"4d";
+							elsif addrcnt(22) = x"62" then
+								addrcnt(22) <= x"58";
+							elsif addrcnt(22) = x"6d" then
+								addrcnt(22) <= x"63";
+							elsif addrcnt(22) = x"78" then
+								addrcnt(22) <= x"6e";
+							elsif addrcnt(22) = x"83" then
+								addrcnt(22) <= x"79";
+							elsif addrcnt(22) = x"8e" then
+								addrcnt(22) <= x"84";
+							elsif addrcnt(22) = x"99" then
+								addrcnt(22) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "100100" )or (d_c4 = "110001") then --j(red)
+						addrcnt(23) <= addrcnt(23) + '1';
+						rgb_data <= b_data(23) & g_data(23) & r_data(23);
+						if( ((d_c5 = "100100" )or (d_c5 = "110001"))or ((d_c6 = "100100" )or (d_c6 = "110001"))) then
+							if addrcnt(23) = x"0a" then
+								addrcnt(23) <= (others => '0');
+							elsif addrcnt(23) = x"15" then
+								addrcnt(23) <= x"0b";
+							elsif addrcnt(23) = x"20" then
+								addrcnt(23) <= x"16";
+							elsif addrcnt(23) = x"2b" then
+								addrcnt(23) <= x"21";
+							elsif addrcnt(23) = x"36" then
+								addrcnt(23) <= x"2c";
+							elsif addrcnt(23) = x"41" then
+								addrcnt(23) <= x"37";
+							elsif addrcnt(23) = x"4c" then
+								addrcnt(23) <= x"42";
+							elsif addrcnt(23) = x"57" then
+								addrcnt(23) <= x"4d";
+							elsif addrcnt(23) = x"62" then
+								addrcnt(23) <= x"58";
+							elsif addrcnt(23) = x"6d" then
+								addrcnt(23) <= x"63";
+							elsif addrcnt(23) = x"78" then
+								addrcnt(23) <= x"6e";
+							elsif addrcnt(23) = x"83" then
+								addrcnt(23) <= x"79";
+							elsif addrcnt(23) = x"8e" then
+								addrcnt(23) <= x"84";
+							elsif addrcnt(23) = x"99" then
+								addrcnt(23) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "100101" )or (d_c4 = "110010") then --q(red)
+						addrcnt(24) <= addrcnt(24) + '1';
+						rgb_data <= b_data(24) & g_data(24) & r_data(24);
+						if( ((d_c5 = "100101" )or (d_c5 = "110010"))or ((d_c6 = "100101" )or (d_c6 = "110010"))) then
+							if addrcnt(24) = x"0a" then
+								addrcnt(24) <= (others => '0');
+							elsif addrcnt(24) = x"15" then
+								addrcnt(24) <= x"0b";
+							elsif addrcnt(24) = x"20" then
+								addrcnt(24) <= x"16";
+							elsif addrcnt(24) = x"2b" then
+								addrcnt(24) <= x"21";
+							elsif addrcnt(24) = x"36" then
+								addrcnt(24) <= x"2c";
+							elsif addrcnt(24) = x"41" then
+								addrcnt(24) <= x"37";
+							elsif addrcnt(24) = x"4c" then
+								addrcnt(24) <= x"42";
+							elsif addrcnt(24) = x"57" then
+								addrcnt(24) <= x"4d";
+							elsif addrcnt(24) = x"62" then
+								addrcnt(24) <= x"58";
+							elsif addrcnt(24) = x"6d" then
+								addrcnt(24) <= x"63";
+							elsif addrcnt(24) = x"78" then
+								addrcnt(24) <= x"6e";
+							elsif addrcnt(24) = x"83" then
+								addrcnt(24) <= x"79";
+							elsif addrcnt(24) = x"8e" then
+								addrcnt(24) <= x"84";
+							elsif addrcnt(24) = x"99" then
+								addrcnt(24) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c4 = "100110" )or (d_c4 = "110011") then --k(red)
+						addrcnt(25) <= addrcnt(25) + '1';
+						rgb_data <= b_data(25) & g_data(25) & r_data(25);
+						if( ((d_c5 = "100110" )or (d_c5 = "110011"))or ((d_c6 = "100110" )or (d_c6 = "110011"))) then
+							if addrcnt(25) = x"0a" then
+								addrcnt(25) <= (others => '0');
+							elsif addrcnt(25) = x"15" then
+								addrcnt(25) <= x"0b";
+							elsif addrcnt(25) = x"20" then
+								addrcnt(25) <= x"16";
+							elsif addrcnt(25) = x"2b" then
+								addrcnt(25) <= x"21";
+							elsif addrcnt(25) = x"36" then
+								addrcnt(25) <= x"2c";
+							elsif addrcnt(25) = x"41" then
+								addrcnt(25) <= x"37";
+							elsif addrcnt(25) = x"4c" then
+								addrcnt(25) <= x"42";
+							elsif addrcnt(25) = x"57" then
+								addrcnt(25) <= x"4d";
+							elsif addrcnt(25) = x"62" then
+								addrcnt(25) <= x"58";
+							elsif addrcnt(25) = x"6d" then
+								addrcnt(25) <= x"63";
+							elsif addrcnt(25) = x"78" then
+								addrcnt(25) <= x"6e";
+							elsif addrcnt(25) = x"83" then
+								addrcnt(25) <= x"79";
+							elsif addrcnt(25) = x"8e" then
+								addrcnt(25) <= x"84";
+							elsif addrcnt(25) = x"99" then
+								addrcnt(25) <= x"8f";
+							end if;
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +144 ) ) and ( hsync_cnt <= (tHW + tHBP +154)) ) then
+					if (d_c5 = "000000" )or (d_c5 = "001101") then --a
+						addrcnt(0) <= addrcnt(0) + '1';
+						rgb_data <= b_data(0) & g_data(0) & r_data(0);
+						if( ((d_c6 = "000000" )or (d_c6 = "001101"))) then
+							if addrcnt(0) = x"0a" then
+								addrcnt(0) <= (others => '0');
+							elsif addrcnt(0) = x"15" then
+								addrcnt(0) <= x"0b";
+							elsif addrcnt(0) = x"20" then
+								addrcnt(0) <= x"16";
+							elsif addrcnt(0) = x"2b" then
+								addrcnt(0) <= x"21";
+							elsif addrcnt(0) = x"36" then
+								addrcnt(0) <= x"2c";
+							elsif addrcnt(0) = x"41" then
+								addrcnt(0) <= x"37";
+							elsif addrcnt(0) = x"4c" then
+								addrcnt(0) <= x"42";
+							elsif addrcnt(0) = x"57" then
+								addrcnt(0) <= x"4d";
+							elsif addrcnt(0) = x"62" then
+								addrcnt(0) <= x"58";
+							elsif addrcnt(0) = x"6d" then
+								addrcnt(0) <= x"63";
+							elsif addrcnt(0) = x"78" then
+								addrcnt(0) <= x"6e";
+							elsif addrcnt(0) = x"83" then
+								addrcnt(0) <= x"79";
+							elsif addrcnt(0) = x"8e" then
+								addrcnt(0) <= x"84";
+							elsif addrcnt(0) = x"99" then
+								addrcnt(0) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "000001" )or (d_c5 = "001110") then --2
+						addrcnt(1) <= addrcnt(1) + '1';
+						rgb_data <= b_data(1) & g_data(1) & r_data(1);
+						if(((d_c6 = "000001" )or (d_c6 = "001110"))) then
+							if addrcnt(1) = x"0a" then
+								addrcnt(1) <= (others => '0');
+							elsif addrcnt(1) = x"15" then
+								addrcnt(1) <= x"0b";
+							elsif addrcnt(1) = x"20" then
+								addrcnt(1) <= x"16";
+							elsif addrcnt(1) = x"2b" then
+								addrcnt(1) <= x"21";
+							elsif addrcnt(1) = x"36" then
+								addrcnt(1) <= x"2c";
+							elsif addrcnt(1) = x"41" then
+								addrcnt(1) <= x"37";
+							elsif addrcnt(1) = x"4c" then
+								addrcnt(1) <= x"42";
+							elsif addrcnt(1) = x"57" then
+								addrcnt(1) <= x"4d";
+							elsif addrcnt(1) = x"62" then
+								addrcnt(1) <= x"58";
+							elsif addrcnt(1) = x"6d" then
+								addrcnt(1) <= x"63";
+							elsif addrcnt(1) = x"78" then
+								addrcnt(1) <= x"6e";
+							elsif addrcnt(1) = x"83" then
+								addrcnt(1) <= x"79";
+							elsif addrcnt(1) = x"8e" then
+								addrcnt(1) <= x"84";
+							elsif addrcnt(1) = x"99" then
+								addrcnt(1) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "000010" )or (d_c5 = "001111") then --3
+						addrcnt(2) <= addrcnt(2) + '1';
+						rgb_data <= b_data(2) & g_data(2) & r_data(2);
+						if( ((d_c6 = "000010" )or (d_c6 = "001111"))) then
+							if addrcnt(2) = x"0a" then
+								addrcnt(2) <= (others => '0');
+							elsif addrcnt(2) = x"15" then
+								addrcnt(2) <= x"0b";
+							elsif addrcnt(2) = x"20" then
+								addrcnt(2) <= x"16";
+							elsif addrcnt(2) = x"2b" then
+								addrcnt(2) <= x"21";
+							elsif addrcnt(2) = x"36" then
+								addrcnt(2) <= x"2c";
+							elsif addrcnt(2) = x"41" then
+								addrcnt(2) <= x"37";
+							elsif addrcnt(2) = x"4c" then
+								addrcnt(2) <= x"42";
+							elsif addrcnt(2) = x"57" then
+								addrcnt(2) <= x"4d";
+							elsif addrcnt(2) = x"62" then
+								addrcnt(2) <= x"58";
+							elsif addrcnt(2) = x"6d" then
+								addrcnt(2) <= x"63";
+							elsif addrcnt(2) = x"78" then
+								addrcnt(2) <= x"6e";
+							elsif addrcnt(2) = x"83" then
+								addrcnt(2) <= x"79";
+							elsif addrcnt(2) = x"8e" then
+								addrcnt(2) <= x"84";
+							elsif addrcnt(2) = x"99" then
+								addrcnt(2) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "000011" )or (d_c5 = "010000") then --4
+						addrcnt(3) <= addrcnt(3) + '1';
+						rgb_data <= b_data(3) & g_data(3) & r_data(3);
+					if( ((d_c6 = "000011" )or (d_c6 = "010000"))) then
+							if addrcnt(3) = x"0a" then
+								addrcnt(3) <= (others => '0');
+							elsif addrcnt(3) = x"15" then
+								addrcnt(3) <= x"0b";
+							elsif addrcnt(3) = x"20" then
+								addrcnt(3) <= x"16";
+							elsif addrcnt(3) = x"2b" then
+								addrcnt(3) <= x"21";
+							elsif addrcnt(3) = x"36" then
+								addrcnt(3) <= x"2c";
+							elsif addrcnt(3) = x"41" then
+								addrcnt(3) <= x"37";
+							elsif addrcnt(3) = x"4c" then
+								addrcnt(3) <= x"42";
+							elsif addrcnt(3) = x"57" then
+								addrcnt(3) <= x"4d";
+							elsif addrcnt(3) = x"62" then
+								addrcnt(3) <= x"58";
+							elsif addrcnt(3) = x"6d" then
+								addrcnt(3) <= x"63";
+							elsif addrcnt(3) = x"78" then
+								addrcnt(3) <= x"6e";
+							elsif addrcnt(3) = x"83" then
+								addrcnt(3) <= x"79";
+							elsif addrcnt(3) = x"8e" then
+								addrcnt(3) <= x"84";
+							elsif addrcnt(3) = x"99" then
+								addrcnt(3) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "000100" )or (d_c5 = "010001") then --5
+						addrcnt(4) <= addrcnt(4) + '1';
+						rgb_data <= b_data(4) & g_data(4) & r_data(4);
+						if( ((d_c6 = "000100" )or (d_c6 = "010001"))) then
+							if addrcnt(4) = x"0a" then
+								addrcnt(4) <= (others => '0');
+							elsif addrcnt(4) = x"15" then
+								addrcnt(4) <= x"0b";
+							elsif addrcnt(4) = x"20" then
+								addrcnt(4) <= x"16";
+							elsif addrcnt(4) = x"2b" then
+								addrcnt(4) <= x"21";
+							elsif addrcnt(4) = x"36" then
+								addrcnt(4) <= x"2c";
+							elsif addrcnt(4) = x"41" then
+								addrcnt(4) <= x"37";
+							elsif addrcnt(4) = x"4c" then
+								addrcnt(4) <= x"42";
+							elsif addrcnt(4) = x"57" then
+								addrcnt(4) <= x"4d";
+							elsif addrcnt(4) = x"62" then
+								addrcnt(4) <= x"58";
+							elsif addrcnt(4) = x"6d" then
+								addrcnt(4) <= x"63";
+							elsif addrcnt(4) = x"78" then
+								addrcnt(4) <= x"6e";
+							elsif addrcnt(4) = x"83" then
+								addrcnt(4) <= x"79";
+							elsif addrcnt(4) = x"8e" then
+								addrcnt(4) <= x"84";
+							elsif addrcnt(4) = x"99" then
+								addrcnt(4) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "000101" )or (d_c5 = "010010") then --6
+						addrcnt(5) <= addrcnt(5) + '1';
+						rgb_data <= b_data(5) & g_data(5) & r_data(5);
+						if( ((d_c6 = "000101" )or (d_c6 = "010010"))) then
+							if addrcnt(5) = x"0a" then
+								addrcnt(5) <= (others => '0');
+							elsif addrcnt(5) = x"15" then
+								addrcnt(5) <= x"0b";
+							elsif addrcnt(5) = x"20" then
+								addrcnt(5) <= x"16";
+							elsif addrcnt(5) = x"2b" then
+								addrcnt(5) <= x"21";
+							elsif addrcnt(5) = x"36" then
+								addrcnt(5) <= x"2c";
+							elsif addrcnt(5) = x"41" then
+								addrcnt(5) <= x"37";
+							elsif addrcnt(5) = x"4c" then
+								addrcnt(5) <= x"42";
+							elsif addrcnt(5) = x"57" then
+								addrcnt(5) <= x"4d";
+							elsif addrcnt(5) = x"62" then
+								addrcnt(5) <= x"58";
+							elsif addrcnt(5) = x"6d" then
+								addrcnt(5) <= x"63";
+							elsif addrcnt(5) = x"78" then
+								addrcnt(5) <= x"6e";
+							elsif addrcnt(5) = x"83" then
+								addrcnt(5) <= x"79";
+							elsif addrcnt(5) = x"8e" then
+								addrcnt(5) <= x"84";
+							elsif addrcnt(5) = x"99" then
+								addrcnt(5) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "000110" )or (d_c5 = "010011") then --7
+						addrcnt(6) <= addrcnt(6) + '1';
+						rgb_data <= b_data(6) & g_data(6) & r_data(6);
+						if(((d_c6 = "000110" )or (d_c6 = "010011"))) then
+							if addrcnt(6) = x"0a" then
+								addrcnt(6) <= (others => '0');
+							elsif addrcnt(6) = x"15" then
+								addrcnt(6) <= x"0b";
+							elsif addrcnt(6) = x"20" then
+								addrcnt(6) <= x"16";
+							elsif addrcnt(6) = x"2b" then
+								addrcnt(6) <= x"21";
+							elsif addrcnt(6) = x"36" then
+								addrcnt(6) <= x"2c";
+							elsif addrcnt(6) = x"41" then
+								addrcnt(6) <= x"37";
+							elsif addrcnt(6) = x"4c" then
+								addrcnt(6) <= x"42";
+							elsif addrcnt(6) = x"57" then
+								addrcnt(6) <= x"4d";
+							elsif addrcnt(6) = x"62" then
+								addrcnt(6) <= x"58";
+							elsif addrcnt(6) = x"6d" then
+								addrcnt(6) <= x"63";
+							elsif addrcnt(6) = x"78" then
+								addrcnt(6) <= x"6e";
+							elsif addrcnt(6) = x"83" then
+								addrcnt(6) <= x"79";
+							elsif addrcnt(6) = x"8e" then
+								addrcnt(6) <= x"84";
+							elsif addrcnt(6) = x"99" then
+								addrcnt(6) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "000111" )or (d_c5 = "010100") then --8
+						addrcnt(7) <= addrcnt(7) + '1';
+						rgb_data <= b_data(7) & g_data(7) & r_data(7);
+						if(((d_c6 = "000111" )or (d_c6 = "010100"))) then
+							if addrcnt(7) = x"0a" then
+								addrcnt(7) <= (others => '0');
+							elsif addrcnt(7) = x"15" then
+								addrcnt(7) <= x"0b";
+							elsif addrcnt(7) = x"20" then
+								addrcnt(7) <= x"16";
+							elsif addrcnt(7) = x"2b" then
+								addrcnt(7) <= x"21";
+							elsif addrcnt(7) = x"36" then
+								addrcnt(7) <= x"2c";
+							elsif addrcnt(7) = x"41" then
+								addrcnt(7) <= x"37";
+							elsif addrcnt(7) = x"4c" then
+								addrcnt(7) <= x"42";
+							elsif addrcnt(7) = x"57" then
+								addrcnt(7) <= x"4d";
+							elsif addrcnt(7) = x"62" then
+								addrcnt(7) <= x"58";
+							elsif addrcnt(7) = x"6d" then
+								addrcnt(7) <= x"63";
+							elsif addrcnt(7) = x"78" then
+								addrcnt(7) <= x"6e";
+							elsif addrcnt(7) = x"83" then
+								addrcnt(7) <= x"79";
+							elsif addrcnt(7) = x"8e" then
+								addrcnt(7) <= x"84";
+							elsif addrcnt(7) = x"99" then
+								addrcnt(7) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "001000" )or (d_c5 = "010101") then --9
+						addrcnt(8) <= addrcnt(8) + '1';
+						rgb_data <= b_data(8) & g_data(8) & r_data(8);
+						if(((d_c6 = "001000" )or (d_c6 = "010101"))) then
+							if addrcnt(8) = x"0a" then
+								addrcnt(8) <= (others => '0');
+							elsif addrcnt(8) = x"15" then
+								addrcnt(8) <= x"0b";
+							elsif addrcnt(8) = x"20" then
+								addrcnt(8) <= x"16";
+							elsif addrcnt(8) = x"2b" then
+								addrcnt(8) <= x"21";
+							elsif addrcnt(8) = x"36" then
+								addrcnt(8) <= x"2c";
+							elsif addrcnt(8) = x"41" then
+								addrcnt(8) <= x"37";
+							elsif addrcnt(8) = x"4c" then
+								addrcnt(8) <= x"42";
+							elsif addrcnt(8) = x"57" then
+								addrcnt(8) <= x"4d";
+							elsif addrcnt(8) = x"62" then
+								addrcnt(8) <= x"58";
+							elsif addrcnt(8) = x"6d" then
+								addrcnt(8) <= x"63";
+							elsif addrcnt(8) = x"78" then
+								addrcnt(8) <= x"6e";
+							elsif addrcnt(8) = x"83" then
+								addrcnt(8) <= x"79";
+							elsif addrcnt(8) = x"8e" then
+								addrcnt(8) <= x"84";
+							elsif addrcnt(8) = x"99" then
+								addrcnt(8) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "001001" )or (d_c5 = "010110") then --10
+						addrcnt(9) <= addrcnt(9) + '1';
+						rgb_data <= b_data(9) & g_data(9) & r_data(9);
+						if( ((d_c6 = "001001" )or (d_c6 = "010110"))) then
+							if addrcnt(9) = x"0a" then
+								addrcnt(9) <= (others => '0');
+							elsif addrcnt(9) = x"15" then
+								addrcnt(9) <= x"0b";
+							elsif addrcnt(9) = x"20" then
+								addrcnt(9) <= x"16";
+							elsif addrcnt(9) = x"2b" then
+								addrcnt(9) <= x"21";
+							elsif addrcnt(9) = x"36" then
+								addrcnt(9) <= x"2c";
+							elsif addrcnt(9) = x"41" then
+								addrcnt(9) <= x"37";
+							elsif addrcnt(9) = x"4c" then
+								addrcnt(9) <= x"42";
+							elsif addrcnt(9) = x"57" then
+								addrcnt(9) <= x"4d";
+							elsif addrcnt(9) = x"62" then
+								addrcnt(9) <= x"58";
+							elsif addrcnt(9) = x"6d" then
+								addrcnt(9) <= x"63";
+							elsif addrcnt(9) = x"78" then
+								addrcnt(9) <= x"6e";
+							elsif addrcnt(9) = x"83" then
+								addrcnt(9) <= x"79";
+							elsif addrcnt(9) = x"8e" then
+								addrcnt(9) <= x"84";
+							elsif addrcnt(9) = x"99" then
+								addrcnt(9) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "001010" )or (d_c5 = "010111") then --j
+						addrcnt(10) <= addrcnt(10) + '1';
+						rgb_data <= b_data(10) & g_data(10) & r_data(10);
+						if( ((d_c6 = "001010" )or (d_c6 = "010111"))) then
+							if addrcnt(10) = x"0a" then
+								addrcnt(10) <= (others => '0');
+							elsif addrcnt(10) = x"15" then
+								addrcnt(10) <= x"0b";
+							elsif addrcnt(10) = x"20" then
+								addrcnt(10) <= x"16";
+							elsif addrcnt(10) = x"2b" then
+								addrcnt(10) <= x"21";
+							elsif addrcnt(10) = x"36" then
+								addrcnt(10) <= x"2c";
+							elsif addrcnt(10) = x"41" then
+								addrcnt(10) <= x"37";
+							elsif addrcnt(10) = x"4c" then
+								addrcnt(10) <= x"42";
+							elsif addrcnt(10) = x"57" then
+								addrcnt(10) <= x"4d";
+							elsif addrcnt(10) = x"62" then
+								addrcnt(10) <= x"58";
+							elsif addrcnt(10) = x"6d" then
+								addrcnt(10) <= x"63";
+							elsif addrcnt(10) = x"78" then
+								addrcnt(10) <= x"6e";
+							elsif addrcnt(10) = x"83" then
+								addrcnt(10) <= x"79";
+							elsif addrcnt(10) = x"8e" then
+								addrcnt(10) <= x"84";
+							elsif addrcnt(10) = x"99" then
+								addrcnt(10) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "001011" )or (d_c5 = "011000") then --q
+						addrcnt(11) <= addrcnt(11) + '1';
+						rgb_data <= b_data(11) & g_data(11) & r_data(11);
+						if( ((d_c6 = "001011" )or (d_c6 = "011000"))) then
+							if addrcnt(11) = x"0a" then
+								addrcnt(11) <= (others => '0');
+							elsif addrcnt(11) = x"15" then
+								addrcnt(11) <= x"0b";
+							elsif addrcnt(11) = x"20" then
+								addrcnt(11) <= x"16";
+							elsif addrcnt(11) = x"2b" then
+								addrcnt(11) <= x"21";
+							elsif addrcnt(11) = x"36" then
+								addrcnt(11) <= x"2c";
+							elsif addrcnt(11) = x"41" then
+								addrcnt(11) <= x"37";
+							elsif addrcnt(11) = x"4c" then
+								addrcnt(11) <= x"42";
+							elsif addrcnt(11) = x"57" then
+								addrcnt(11) <= x"4d";
+							elsif addrcnt(11) = x"62" then
+								addrcnt(11) <= x"58";
+							elsif addrcnt(11) = x"6d" then
+								addrcnt(11) <= x"63";
+							elsif addrcnt(11) = x"78" then
+								addrcnt(11) <= x"6e";
+							elsif addrcnt(11) = x"83" then
+								addrcnt(11) <= x"79";
+							elsif addrcnt(11) = x"8e" then
+								addrcnt(11) <= x"84";
+							elsif addrcnt(11) = x"99" then
+								addrcnt(11) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "001100" )or (d_c5 = "011001") then --k
+						addrcnt(12) <= addrcnt(12) + '1';
+						rgb_data <= b_data(12) & g_data(12) & r_data(12);
+						if( ((d_c6 = "001100" )or (d_c6 = "011001"))) then
+							if addrcnt(12) = x"0a" then
+								addrcnt(12) <= (others => '0');
+							elsif addrcnt(12) = x"15" then
+								addrcnt(12) <= x"0b";
+							elsif addrcnt(12) = x"20" then
+								addrcnt(12) <= x"16";
+							elsif addrcnt(12) = x"2b" then
+								addrcnt(12) <= x"21";
+							elsif addrcnt(12) = x"36" then
+								addrcnt(12) <= x"2c";
+							elsif addrcnt(12) = x"41" then
+								addrcnt(12) <= x"37";
+							elsif addrcnt(12) = x"4c" then
+								addrcnt(12) <= x"42";
+							elsif addrcnt(12) = x"57" then
+								addrcnt(12) <= x"4d";
+							elsif addrcnt(12) = x"62" then
+								addrcnt(12) <= x"58";
+							elsif addrcnt(12) = x"6d" then
+								addrcnt(12) <= x"63";
+							elsif addrcnt(12) = x"78" then
+								addrcnt(12) <= x"6e";
+							elsif addrcnt(12) = x"83" then
+								addrcnt(12) <= x"79";
+							elsif addrcnt(12) = x"8e" then
+								addrcnt(12) <= x"84";
+							elsif addrcnt(12) = x"99" then
+								addrcnt(12) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "011010" )or (d_c5 = "100111")  then --a(red)
+						addrcnt(13) <= addrcnt(13) + '1';
+						rgb_data <= b_data(13) & g_data(13) & r_data(13);
+						if( ((d_c6 = "011010" )or (d_c6 = "100111"))) then
+							if addrcnt(13) = x"0a" then
+								addrcnt(13) <= (others => '0');
+							elsif addrcnt(13) = x"15" then
+								addrcnt(13) <= x"0b";
+							elsif addrcnt(13) = x"20" then
+								addrcnt(13) <= x"16";
+							elsif addrcnt(13) = x"2b" then
+								addrcnt(13) <= x"21";
+							elsif addrcnt(13) = x"36" then
+								addrcnt(13) <= x"2c";
+							elsif addrcnt(13) = x"41" then
+								addrcnt(13) <= x"37";
+							elsif addrcnt(13) = x"4c" then
+								addrcnt(13) <= x"42";
+							elsif addrcnt(13) = x"57" then
+								addrcnt(13) <= x"4d";
+							elsif addrcnt(13) = x"62" then
+								addrcnt(13) <= x"58";
+							elsif addrcnt(13) = x"6d" then
+								addrcnt(13) <= x"63";
+							elsif addrcnt(13) = x"78" then
+								addrcnt(13) <= x"6e";
+							elsif addrcnt(13) = x"83" then
+								addrcnt(13) <= x"79";
+							elsif addrcnt(13) = x"8e" then
+								addrcnt(13) <= x"84";
+							elsif addrcnt(13) = x"99" then
+								addrcnt(13) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "011011" )or (d_c5 = "101000") then --2(red)
+						addrcnt(14) <= addrcnt(14) + '1';
+						rgb_data <= b_data(14) & g_data(14) & r_data(14);
+						if( ((d_c6 = "011011" )or (d_c6 = "101000"))) then
+							if addrcnt(14) = x"0a" then
+								addrcnt(14) <= (others => '0');
+							elsif addrcnt(14) = x"15" then
+								addrcnt(14) <= x"0b";
+							elsif addrcnt(14) = x"20" then
+								addrcnt(14) <= x"16";
+							elsif addrcnt(14) = x"2b" then
+								addrcnt(14) <= x"21";
+							elsif addrcnt(14) = x"36" then
+								addrcnt(14) <= x"2c";
+							elsif addrcnt(14) = x"41" then
+								addrcnt(14) <= x"37";
+							elsif addrcnt(14) = x"4c" then
+								addrcnt(14) <= x"42";
+							elsif addrcnt(14) = x"57" then
+								addrcnt(14) <= x"4d";
+							elsif addrcnt(14) = x"62" then
+								addrcnt(14) <= x"58";
+							elsif addrcnt(14) = x"6d" then
+								addrcnt(14) <= x"63";
+							elsif addrcnt(14) = x"78" then
+								addrcnt(14) <= x"6e";
+							elsif addrcnt(14) = x"83" then
+								addrcnt(14) <= x"79";
+							elsif addrcnt(14) = x"8e" then
+								addrcnt(14) <= x"84";
+							elsif addrcnt(14) = x"99" then
+								addrcnt(14) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "011100" )or (d_c5 = "101001") then --3(red)
+						addrcnt(15) <= addrcnt(15) + '1';
+						rgb_data <= b_data(15) & g_data(15) & r_data(15);
+						if( ((d_c6 = "011100" )or (d_c6 = "101001"))) then
+							if addrcnt(15) = x"0a" then
+								addrcnt(15) <= (others => '0');
+							elsif addrcnt(15) = x"15" then
+								addrcnt(15) <= x"0b";
+							elsif addrcnt(15) = x"20" then
+								addrcnt(15) <= x"16";
+							elsif addrcnt(15) = x"2b" then
+								addrcnt(15) <= x"21";
+							elsif addrcnt(15) = x"36" then
+								addrcnt(15) <= x"2c";
+							elsif addrcnt(15) = x"41" then
+								addrcnt(15) <= x"37";
+							elsif addrcnt(15) = x"4c" then
+								addrcnt(15) <= x"42";
+							elsif addrcnt(15) = x"57" then
+								addrcnt(15) <= x"4d";
+							elsif addrcnt(15) = x"62" then
+								addrcnt(15) <= x"58";
+							elsif addrcnt(15) = x"6d" then
+								addrcnt(15) <= x"63";
+							elsif addrcnt(15) = x"78" then
+								addrcnt(15) <= x"6e";
+							elsif addrcnt(15) = x"83" then
+								addrcnt(15) <= x"79";
+							elsif addrcnt(15) = x"8e" then
+								addrcnt(15) <= x"84";
+							elsif addrcnt(15) = x"99" then
+								addrcnt(15) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "011101" )or (d_c5 = "101010") then --4(red)
+						addrcnt(16) <= addrcnt(16) + '1';
+						rgb_data <= b_data(16) & g_data(16) & r_data(16);
+						if( ((d_c6 = "011101" )or (d_c6 = "101010"))) then
+							if addrcnt(16) = x"0a" then
+								addrcnt(16) <= (others => '0');
+							elsif addrcnt(16) = x"15" then
+								addrcnt(16) <= x"0b";
+							elsif addrcnt(16) = x"20" then
+								addrcnt(16) <= x"16";
+							elsif addrcnt(16) = x"2b" then
+								addrcnt(16) <= x"21";
+							elsif addrcnt(16) = x"36" then
+								addrcnt(16) <= x"2c";
+							elsif addrcnt(16) = x"41" then
+								addrcnt(16) <= x"37";
+							elsif addrcnt(16) = x"4c" then
+								addrcnt(16) <= x"42";
+							elsif addrcnt(16) = x"57" then
+								addrcnt(16) <= x"4d";
+							elsif addrcnt(16) = x"62" then
+								addrcnt(16) <= x"58";
+							elsif addrcnt(16) = x"6d" then
+								addrcnt(16) <= x"63";
+							elsif addrcnt(16) = x"78" then
+								addrcnt(16) <= x"6e";
+							elsif addrcnt(16) = x"83" then
+								addrcnt(16) <= x"79";
+							elsif addrcnt(16) = x"8e" then
+								addrcnt(16) <= x"84";
+							elsif addrcnt(16) = x"99" then
+								addrcnt(16) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "011110" )or (d_c5 = "101011") then --5(red)
+						addrcnt(17) <= addrcnt(17) + '1';
+						rgb_data <= b_data(17) & g_data(17) & r_data(17);
+						if( ((d_c6 = "011110" )or (d_c6 = "101011"))) then
+							if addrcnt(17) = x"0a" then
+								addrcnt(17) <= (others => '0');
+							elsif addrcnt(17) = x"15" then
+								addrcnt(17) <= x"0b";
+							elsif addrcnt(17) = x"20" then
+								addrcnt(17) <= x"16";
+							elsif addrcnt(17) = x"2b" then
+								addrcnt(17) <= x"21";
+							elsif addrcnt(17) = x"36" then
+								addrcnt(17) <= x"2c";
+							elsif addrcnt(17) = x"41" then
+								addrcnt(17) <= x"37";
+							elsif addrcnt(17) = x"4c" then
+								addrcnt(17) <= x"42";
+							elsif addrcnt(17) = x"57" then
+								addrcnt(17) <= x"4d";
+							elsif addrcnt(17) = x"62" then
+								addrcnt(17) <= x"58";
+							elsif addrcnt(17) = x"6d" then
+								addrcnt(17) <= x"63";
+							elsif addrcnt(17) = x"78" then
+								addrcnt(17) <= x"6e";
+							elsif addrcnt(17) = x"83" then
+								addrcnt(17) <= x"79";
+							elsif addrcnt(17) = x"8e" then
+								addrcnt(17) <= x"84";
+							elsif addrcnt(17) = x"99" then
+								addrcnt(17) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "011111" )or (d_c5 = "101100") then --6(red)
+						addrcnt(18) <= addrcnt(18) + '1';
+						rgb_data <= b_data(18) & g_data(18) & r_data(18);
+						if( ((d_c6 = "011111" )or (d_c6 = "101100"))) then
+							if addrcnt(18) = x"0a" then
+								addrcnt(18) <= (others => '0');
+							elsif addrcnt(18) = x"15" then
+								addrcnt(18) <= x"0b";
+							elsif addrcnt(18) = x"20" then
+								addrcnt(18) <= x"16";
+							elsif addrcnt(18) = x"2b" then
+								addrcnt(18) <= x"21";
+							elsif addrcnt(18) = x"36" then
+								addrcnt(18) <= x"2c";
+							elsif addrcnt(18) = x"41" then
+								addrcnt(18) <= x"37";
+							elsif addrcnt(18) = x"4c" then
+								addrcnt(18) <= x"42";
+							elsif addrcnt(18) = x"57" then
+								addrcnt(18) <= x"4d";
+							elsif addrcnt(18) = x"62" then
+								addrcnt(18) <= x"58";
+							elsif addrcnt(18) = x"6d" then
+								addrcnt(18) <= x"63";
+							elsif addrcnt(18) = x"78" then
+								addrcnt(18) <= x"6e";
+							elsif addrcnt(18) = x"83" then
+								addrcnt(18) <= x"79";
+							elsif addrcnt(18) = x"8e" then
+								addrcnt(18) <= x"84";
+							elsif addrcnt(18) = x"99" then
+								addrcnt(18) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "100000" )or (d_c5 = "101101") then --7(red)
+						addrcnt(19) <= addrcnt(19) + '1';
+						rgb_data <= b_data(19) & g_data(19) & r_data(19);
+						if( ((d_c6 = "100000" )or (d_c6 = "101101"))) then
+							if addrcnt(19) = x"0a" then
+								addrcnt(19) <= (others => '0');
+							elsif addrcnt(19) = x"15" then
+								addrcnt(19) <= x"0b";
+							elsif addrcnt(19) = x"20" then
+								addrcnt(19) <= x"16";
+							elsif addrcnt(19) = x"2b" then
+								addrcnt(19) <= x"21";
+							elsif addrcnt(19) = x"36" then
+								addrcnt(19) <= x"2c";
+							elsif addrcnt(19) = x"41" then
+								addrcnt(19) <= x"37";
+							elsif addrcnt(19) = x"4c" then
+								addrcnt(19) <= x"42";
+							elsif addrcnt(19) = x"57" then
+								addrcnt(19) <= x"4d";
+							elsif addrcnt(19) = x"62" then
+								addrcnt(19) <= x"58";
+							elsif addrcnt(19) = x"6d" then
+								addrcnt(19) <= x"63";
+							elsif addrcnt(19) = x"78" then
+								addrcnt(19) <= x"6e";
+							elsif addrcnt(19) = x"83" then
+								addrcnt(19) <= x"79";
+							elsif addrcnt(19) = x"8e" then
+								addrcnt(19) <= x"84";
+							elsif addrcnt(19) = x"99" then
+								addrcnt(19) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "100001" )or (d_c5 = "101110") then --8(red)
+						addrcnt(20) <= addrcnt(20) + '1';
+						rgb_data <= b_data(20) & g_data(20) & r_data(20);
+						if(((d_c6 = "100001" )or (d_c6 = "101110"))) then
+							if addrcnt(20) = x"0a" then
+								addrcnt(20) <= (others => '0');
+							elsif addrcnt(20) = x"15" then
+								addrcnt(20) <= x"0b";
+							elsif addrcnt(20) = x"20" then
+								addrcnt(20) <= x"16";
+							elsif addrcnt(20) = x"2b" then
+								addrcnt(20) <= x"21";
+							elsif addrcnt(20) = x"36" then
+								addrcnt(20) <= x"2c";
+							elsif addrcnt(20) = x"41" then
+								addrcnt(20) <= x"37";
+							elsif addrcnt(20) = x"4c" then
+								addrcnt(20) <= x"42";
+							elsif addrcnt(20) = x"57" then
+								addrcnt(20) <= x"4d";
+							elsif addrcnt(20) = x"62" then
+								addrcnt(20) <= x"58";
+							elsif addrcnt(20) = x"6d" then
+								addrcnt(20) <= x"63";
+							elsif addrcnt(20) = x"78" then
+								addrcnt(20) <= x"6e";
+							elsif addrcnt(20) = x"83" then
+								addrcnt(20) <= x"79";
+							elsif addrcnt(20) = x"8e" then
+								addrcnt(20) <= x"84";
+							elsif addrcnt(20) = x"99" then
+								addrcnt(20) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "100010" )or (d_c5 = "101111") then --9(red)
+						addrcnt(21) <= addrcnt(21) + '1';
+						rgb_data <= b_data(21) & g_data(21) & r_data(21);
+						if( ((d_c6 = "100010" )or (d_c6 = "101111"))) then
+							if addrcnt(21) = x"0a" then
+								addrcnt(21) <= (others => '0');
+							elsif addrcnt(21) = x"15" then
+								addrcnt(21) <= x"0b";
+							elsif addrcnt(21) = x"20" then
+								addrcnt(21) <= x"16";
+							elsif addrcnt(21) = x"2b" then
+								addrcnt(21) <= x"21";
+							elsif addrcnt(21) = x"36" then
+								addrcnt(21) <= x"2c";
+							elsif addrcnt(21) = x"41" then
+								addrcnt(21) <= x"37";
+							elsif addrcnt(21) = x"4c" then
+								addrcnt(21) <= x"42";
+							elsif addrcnt(21) = x"57" then
+								addrcnt(21) <= x"4d";
+							elsif addrcnt(21) = x"62" then
+								addrcnt(21) <= x"58";
+							elsif addrcnt(21) = x"6d" then
+								addrcnt(21) <= x"63";
+							elsif addrcnt(21) = x"78" then
+								addrcnt(21) <= x"6e";
+							elsif addrcnt(21) = x"83" then
+								addrcnt(21) <= x"79";
+							elsif addrcnt(21) = x"8e" then
+								addrcnt(21) <= x"84";
+							elsif addrcnt(21) = x"99" then
+								addrcnt(21) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "100011" )or (d_c5 = "110000") then --10(red)
+						addrcnt(22) <= addrcnt(22) + '1';
+						rgb_data <= b_data(22) & g_data(22) & r_data(22);
+						if(((d_c6 = "100011" )or (d_c6 = "110000"))) then
+							if addrcnt(22) = x"0a" then
+								addrcnt(22) <= (others => '0');
+							elsif addrcnt(22) = x"15" then
+								addrcnt(22) <= x"0b";
+							elsif addrcnt(22) = x"20" then
+								addrcnt(22) <= x"16";
+							elsif addrcnt(22) = x"2b" then
+								addrcnt(22) <= x"21";
+							elsif addrcnt(22) = x"36" then
+								addrcnt(22) <= x"2c";
+							elsif addrcnt(22) = x"41" then
+								addrcnt(22) <= x"37";
+							elsif addrcnt(22) = x"4c" then
+								addrcnt(22) <= x"42";
+							elsif addrcnt(22) = x"57" then
+								addrcnt(22) <= x"4d";
+							elsif addrcnt(22) = x"62" then
+								addrcnt(22) <= x"58";
+							elsif addrcnt(22) = x"6d" then
+								addrcnt(22) <= x"63";
+							elsif addrcnt(22) = x"78" then
+								addrcnt(22) <= x"6e";
+							elsif addrcnt(22) = x"83" then
+								addrcnt(22) <= x"79";
+							elsif addrcnt(22) = x"8e" then
+								addrcnt(22) <= x"84";
+							elsif addrcnt(22) = x"99" then
+								addrcnt(22) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "100100" )or (d_c5 = "110001") then --j(red)
+						addrcnt(23) <= addrcnt(23) + '1';
+						rgb_data <= b_data(23) & g_data(23) & r_data(23);
+						if( ((d_c6 = "100100" )or (d_c6 = "110001"))) then
+							if addrcnt(23) = x"0a" then
+								addrcnt(23) <= (others => '0');
+							elsif addrcnt(23) = x"15" then
+								addrcnt(23) <= x"0b";
+							elsif addrcnt(23) = x"20" then
+								addrcnt(23) <= x"16";
+							elsif addrcnt(23) = x"2b" then
+								addrcnt(23) <= x"21";
+							elsif addrcnt(23) = x"36" then
+								addrcnt(23) <= x"2c";
+							elsif addrcnt(23) = x"41" then
+								addrcnt(23) <= x"37";
+							elsif addrcnt(23) = x"4c" then
+								addrcnt(23) <= x"42";
+							elsif addrcnt(23) = x"57" then
+								addrcnt(23) <= x"4d";
+							elsif addrcnt(23) = x"62" then
+								addrcnt(23) <= x"58";
+							elsif addrcnt(23) = x"6d" then
+								addrcnt(23) <= x"63";
+							elsif addrcnt(23) = x"78" then
+								addrcnt(23) <= x"6e";
+							elsif addrcnt(23) = x"83" then
+								addrcnt(23) <= x"79";
+							elsif addrcnt(23) = x"8e" then
+								addrcnt(23) <= x"84";
+							elsif addrcnt(23) = x"99" then
+								addrcnt(23) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "100101" )or (d_c5 = "110010") then --q(red)
+						addrcnt(24) <= addrcnt(24) + '1';
+						rgb_data <= b_data(24) & g_data(24) & r_data(24);
+						if( ((d_c6 = "100101" )or (d_c6 = "110010"))) then
+							if addrcnt(24) = x"0a" then
+								addrcnt(24) <= (others => '0');
+							elsif addrcnt(24) = x"15" then
+								addrcnt(24) <= x"0b";
+							elsif addrcnt(24) = x"20" then
+								addrcnt(24) <= x"16";
+							elsif addrcnt(24) = x"2b" then
+								addrcnt(24) <= x"21";
+							elsif addrcnt(24) = x"36" then
+								addrcnt(24) <= x"2c";
+							elsif addrcnt(24) = x"41" then
+								addrcnt(24) <= x"37";
+							elsif addrcnt(24) = x"4c" then
+								addrcnt(24) <= x"42";
+							elsif addrcnt(24) = x"57" then
+								addrcnt(24) <= x"4d";
+							elsif addrcnt(24) = x"62" then
+								addrcnt(24) <= x"58";
+							elsif addrcnt(24) = x"6d" then
+								addrcnt(24) <= x"63";
+							elsif addrcnt(24) = x"78" then
+								addrcnt(24) <= x"6e";
+							elsif addrcnt(24) = x"83" then
+								addrcnt(24) <= x"79";
+							elsif addrcnt(24) = x"8e" then
+								addrcnt(24) <= x"84";
+							elsif addrcnt(24) = x"99" then
+								addrcnt(24) <= x"8f";
+							end if;
+						end if;
+					elsif (d_c5 = "100110" )or (d_c5 = "110011") then --k(red)
+						addrcnt(25) <= addrcnt(25) + '1';
+						rgb_data <= b_data(25) & g_data(25) & r_data(25);
+						if( ((d_c6 = "100110" )or (d_c6 = "110011"))) then
+							if addrcnt(25) = x"0a" then
+								addrcnt(25) <= (others => '0');
+							elsif addrcnt(25) = x"15" then
+								addrcnt(25) <= x"0b";
+							elsif addrcnt(25) = x"20" then
+								addrcnt(25) <= x"16";
+							elsif addrcnt(25) = x"2b" then
+								addrcnt(25) <= x"21";
+							elsif addrcnt(25) = x"36" then
+								addrcnt(25) <= x"2c";
+							elsif addrcnt(25) = x"41" then
+								addrcnt(25) <= x"37";
+							elsif addrcnt(25) = x"4c" then
+								addrcnt(25) <= x"42";
+							elsif addrcnt(25) = x"57" then
+								addrcnt(25) <= x"4d";
+							elsif addrcnt(25) = x"62" then
+								addrcnt(25) <= x"58";
+							elsif addrcnt(25) = x"6d" then
+								addrcnt(25) <= x"63";
+							elsif addrcnt(25) = x"78" then
+								addrcnt(25) <= x"6e";
+							elsif addrcnt(25) = x"83" then
+								addrcnt(25) <= x"79";
+							elsif addrcnt(25) = x"8e" then
+								addrcnt(25) <= x"84";
+							elsif addrcnt(25) = x"99" then
+								addrcnt(25) <= x"8f";
+							end if;
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+				elsif ((hsync_cnt >= (tHW + tHBP +155 ) ) and ( hsync_cnt <= (tHW + tHBP +165)) ) then
+					if (d_c6 = "000000" )or (d_c6 = "001101") then --a
+						addrcnt(0) <= addrcnt(0) + '1';
+						rgb_data <= b_data(0) & g_data(0) & r_data(0);
+					elsif (d_c6 = "000001" )or (d_c6 = "001110") then --2
+						addrcnt(1) <= addrcnt(1) + '1';
+						rgb_data <= b_data(1) & g_data(1) & r_data(1);					
+					elsif (d_c6 = "000010" )or (d_c6 = "001111") then --3
+						addrcnt(2) <= addrcnt(2) + '1';
+						rgb_data <= b_data(2) & g_data(2) & r_data(2);
+					elsif (d_c6 = "000011" )or (d_c6 = "010000") then --4
+						addrcnt(3) <= addrcnt(3) + '1';
+						rgb_data <= b_data(3) & g_data(3) & r_data(3);
+					elsif (d_c6 = "000100" )or (d_c6 = "010001") then --5
+						addrcnt(4) <= addrcnt(4) + '1';
+						rgb_data <= b_data(4) & g_data(4) & r_data(4);
+					elsif (d_c6 = "000101" )or (d_c6 = "010010") then --6
+						addrcnt(5) <= addrcnt(5) + '1';
+						rgb_data <= b_data(5) & g_data(5) & r_data(5);			
+					elsif (d_c6 = "000110" )or (d_c6 = "010011") then --7
+						addrcnt(6) <= addrcnt(6) + '1';
+						rgb_data <= b_data(6) & g_data(6) & r_data(6);					
+					elsif (d_c6 = "000111" )or (d_c6 = "010100") then --8
+						addrcnt(7) <= addrcnt(7) + '1';
+						rgb_data <= b_data(7) & g_data(7) & r_data(7);					
+					elsif (d_c6 = "001000" )or (d_c6 = "010101") then --9
+						addrcnt(8) <= addrcnt(8) + '1';
+						rgb_data <= b_data(8) & g_data(8) & r_data(8);					
+					elsif (d_c6= "001001" )or (d_c6 = "010110") then --10
+						addrcnt(9) <= addrcnt(9) + '1';
+						rgb_data <= b_data(9) & g_data(9) & r_data(9);				
+					elsif (d_c6 = "001010" )or (d_c6 = "010111") then --j
+						addrcnt(10) <= addrcnt(10) + '1';
+						rgb_data <= b_data(10) & g_data(10) & r_data(10);		
+					elsif (d_c6 = "001011" )or (d_c6 = "011000") then --q
+						addrcnt(11) <= addrcnt(11) + '1';
+						rgb_data <= b_data(11) & g_data(11) & r_data(11);					
+					elsif (d_c6 = "001100" )or (d_c6 = "011001") then --k
+						addrcnt(12) <= addrcnt(12) + '1';
+						rgb_data <= b_data(12) & g_data(12) & r_data(12);					
+					elsif (d_c6 = "011010" )or (d_c6 = "100111")  then --a(red)
+						addrcnt(13) <= addrcnt(13) + '1';
+						rgb_data <= b_data(13) & g_data(13) & r_data(13);
+					elsif (d_c6 = "011011" )or (d_c6 = "101000") then --2(red)
+						addrcnt(14) <= addrcnt(14) + '1';
+						rgb_data <= b_data(14) & g_data(14) & r_data(14);
+					elsif (d_c6 = "011100" )or (d_c6 = "101001") then --3(red)
+						addrcnt(15) <= addrcnt(15) + '1';
+						rgb_data <= b_data(15) & g_data(15) & r_data(15);
+					elsif (d_c6 = "011101" )or (d_c6 = "101010") then --4(red)
+						addrcnt(16) <= addrcnt(16) + '1';
+						rgb_data <= b_data(16) & g_data(16) & r_data(16);
+					elsif (d_c6 = "011110" )or (d_c6 = "101011") then --5(red)
+						addrcnt(17) <= addrcnt(17) + '1';
+						rgb_data <= b_data(17) & g_data(17) & r_data(17);
+					elsif (d_c6 = "011111" )or (d_c6 = "101100") then --6(red)
+						addrcnt(18) <= addrcnt(18) + '1';
+						rgb_data <= b_data(18) & g_data(18) & r_data(18);
+					elsif (d_c6 = "100000" )or (d_c6 = "101101") then --7(red)
+						addrcnt(19) <= addrcnt(19) + '1';
+						rgb_data <= b_data(19) & g_data(19) & r_data(19);
+					elsif (d_c6 = "100001" )or (d_c6 = "101110") then --8(red)
+						addrcnt(20) <= addrcnt(20) + '1';
+						rgb_data <= b_data(20) & g_data(20) & r_data(20);
+					elsif (d_c6 = "100010" )or (d_c6 = "101111") then --9(red)
+						addrcnt(21) <= addrcnt(21) + '1';
+						rgb_data <= b_data(21) & g_data(21) & r_data(21);
+					elsif (d_c6 = "100011" )or (d_c6 = "110000") then --10(red)
+						addrcnt(22) <= addrcnt(22) + '1';
+						rgb_data <= b_data(22) & g_data(22) & r_data(22);
+					elsif (d_c6 = "100100" )or (d_c6 = "110001") then --j(red)
+						addrcnt(23) <= addrcnt(23) + '1';
+						rgb_data <= b_data(23) & g_data(23) & r_data(23);
+					elsif (d_c6 = "100101" )or (d_c6 = "110010") then --q(red)
+						addrcnt(24) <= addrcnt(24) + '1';
+						rgb_data <= b_data(24) & g_data(24) & r_data(24);
+					elsif (d_c6 = "100110" )or (d_c6 = "110011") then --k(red)
+						addrcnt(25) <= addrcnt(25) + '1';
+						rgb_data <= b_data(25) & g_data(25) & r_data(25);
+					elsif (d_c3 = "111111") then
+						if ((hsync_cnt >= (tHW + tHBP +155 ) ) and ( hsync_cnt <= (tHW + tHBP +161)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					else
+						rgb_data <= (others => '1');
+					end if;
+					elsif ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
+						if (d_c6 /= "111111") then	
+							if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
+								rgb_data <= (others => '1');
+							else 
+								rgb_data <= "00000" & "001110" & "00000";
+							end if;
+					elsif (d_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (d_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (d_c3 /= "111111") then
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +172)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					else
+						rgb_data <= "00000" & "001110" & "00000";
+					end if;
 				else
 					rgb_data <= "00000" & "001110" & "00000";
 				end if;
@@ -3260,7 +7777,8 @@ end process;
 						rgb_data <= b_data(0) & g_data(0) & r_data(0);
 						if(((p1_c2 = "000000" ) or (p1_c2 = "001101")) or ((p1_c3 = "000000" )or (p1_c3 = "001101")) or ((p1_c4 = "000000" )or (p1_c4 = "001101"))
 						or ((p1_c5 = "000000" )or (p1_c5 = "001101"))or ((p1_c6 = "000000" )or (p1_c6 = "001101"))or ((p2_c1 = "000000" )or (p2_c1 = "001101"))
-						or ((p2_c2 = "000000" )or (p2_c2 = "001101"))) then
+						or ((p2_c2 = "000000" )or (p2_c2 = "001101"))or ((p2_c3 = "000000" )or (p2_c3 = "001101"))or ((p2_c4 = "000000" )or (p2_c4 = "001101"))
+						or ((p2_c5 = "000000" )or (p2_c5 = "001101"))or ((p2_c6 = "000000" )or (p2_c6 = "001101"))) then
 							if addrcnt(0) = x"0a" then
 								addrcnt(0) <= (others => '0');
 							elsif addrcnt(0) = x"15" then
@@ -3296,7 +7814,8 @@ end process;
 						rgb_data <= b_data(1) & g_data(1) & r_data(1);
 						if(((p1_c2 = "000001" ) or (p1_c2 = "001110")) or ((p1_c3 = "000001" )or (p1_c3 = "001110")) or ((p1_c4 = "000001" )or (p1_c4 = "001110"))
 						or ((p1_c5 = "000001" )or (p1_c5 = "001110"))or ((p1_c6 = "000001" )or (p1_c6 = "001110"))or ((p2_c1 = "000001" )or (p2_c1 = "001110"))
-						or ((p2_c2 = "000001" )or (p2_c2 = "001110"))) then
+						or ((p2_c2 = "000001" )or (p2_c2 = "001110"))or ((p2_c3 = "000001" )or (p2_c3 = "001110"))or ((p2_c4 = "000001" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "000001" )or (p2_c5 = "001110"))or ((p2_c6 = "000001" )or (p2_c6 = "001110"))) then
 							if addrcnt(1) = x"0a" then
 								addrcnt(1) <= (others => '0');
 							elsif addrcnt(1) = x"15" then
@@ -3332,7 +7851,8 @@ end process;
 						rgb_data <= b_data(2) & g_data(2) & r_data(2);
 						if(((p1_c2 = "000010" ) or (p1_c2 = "001111")) or ((p1_c3 = "000010" )or (p1_c3 = "001111")) or ((p1_c4 = "000010" )or (p1_c4 = "001111"))
 						or ((p1_c5 = "000010" )or (p1_c5 = "001111"))or ((p1_c6 = "000010" )or (p1_c6 = "001111"))or ((p2_c1 = "000010" )or (p2_c1 = "001111"))
-						or ((p2_c2 = "000010" )or (p2_c2 = "001111"))) then
+						or ((p2_c2 = "000010" )or (p2_c2 = "001111"))or ((p2_c3 = "000010" )or (p2_c3 = "001111"))or ((p2_c4 = "000010" )or (p2_c4 = "001111"))
+						or ((p2_c5 = "000010" )or (p2_c5 = "001111"))or ((p2_c6 = "000010" )or (p2_c6 = "001111"))) then
 							if addrcnt(2) = x"0a" then
 								addrcnt(2) <= (others => '0');
 							elsif addrcnt(2) = x"15" then
@@ -3368,7 +7888,8 @@ end process;
 						rgb_data <= b_data(3) & g_data(3) & r_data(3);
 						if(((p1_c2 = "000011" ) or (p1_c2 = "010000")) or ((p1_c3 = "000011" )or (p1_c3 = "010000")) or ((p1_c4 = "000011" )or (p1_c4 = "010000"))
 						or ((p1_c5 = "000011" )or (p1_c5 = "010000"))or ((p1_c6 = "000011" )or (p1_c6 = "010000"))or ((p2_c1 = "000011" )or (p2_c1 = "010000"))
-						or ((p2_c2 = "000011" )or (p2_c2 = "010000"))) then
+						or ((p2_c2 = "000011" )or (p2_c2 = "010000"))or ((p2_c3 = "000001" )or (p2_c3 = "001110"))or ((p2_c4 = "000001" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "000001" )or (p2_c5 = "001110"))or ((p2_c6 = "000001" )or (p2_c6 = "001110"))) then
 							if addrcnt(3) = x"0a" then
 								addrcnt(3) <= (others => '0');
 							elsif addrcnt(3) = x"15" then
@@ -3404,7 +7925,8 @@ end process;
 						rgb_data <= b_data(4) & g_data(4) & r_data(4);
 						if(((p1_c2 = "000100" ) or (p1_c2 = "010001")) or ((p1_c3 = "000100" )or (p1_c3 = "010001")) or ((p1_c4 = "000100" )or (p1_c4 = "010001"))
 						or ((p1_c5 = "000100" )or (p1_c5 = "010001"))or ((p1_c6 = "000100" )or (p1_c6 = "010001"))or ((p2_c1 = "000100" )or (p2_c1 = "010001"))
-						or ((p2_c2 = "000100" )or (p2_c2 = "010001"))) then
+						or ((p2_c2 = "000100" )or (p2_c2 = "010001"))or ((p2_c3 = "000001" )or (p2_c3 = "001110"))or ((p2_c4 = "000001" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "000001" )or (p2_c5 = "001110"))or ((p2_c6 = "000001" )or (p2_c6 = "001110"))) then
 							if addrcnt(4) = x"0a" then
 								addrcnt(4) <= (others => '0');
 							elsif addrcnt(4) = x"15" then
@@ -3440,7 +7962,8 @@ end process;
 						rgb_data <= b_data(5) & g_data(5) & r_data(5);
 						if(((p1_c2 = "000101" ) or (p1_c2 = "010010")) or ((p1_c3 = "000101" )or (p1_c3 = "010010")) or ((p1_c4 = "000101" )or (p1_c4 = "010010"))
 						or ((p1_c5 = "000101" )or (p1_c5 = "010010"))or ((p1_c6 = "000101" )or (p1_c6 = "010010"))or ((p2_c1 = "000101" )or (p2_c1 = "010010"))
-						or ((p2_c2 = "000101" )or (p2_c2 = "010010"))) then
+						or ((p2_c2 = "000101" )or (p2_c2 = "010010"))or ((p2_c3 = "000001" )or (p2_c3 = "001110"))or ((p2_c4 = "000001" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "000001" )or (p2_c5 = "001110"))or ((p2_c6 = "000001" )or (p2_c6 = "001110"))) then
 							if addrcnt(5) = x"0a" then
 								addrcnt(5) <= (others => '0');
 							elsif addrcnt(5) = x"15" then
@@ -3471,12 +7994,13 @@ end process;
 								addrcnt(5) <= x"8f";
 							end if;
 						end if;
-					elsif (p1_c1 = "000110" )or (p1_c1 = "010011") then --7
+					elsif (p1_c1 = "0000110" )or (p1_c1 = "010011") then --7
 						addrcnt(6) <= addrcnt(6) + '1';
 						rgb_data <= b_data(6) & g_data(6) & r_data(6);
 						if(((p1_c2 = "0000110" ) or (p1_c2 = "010011")) or ((p1_c3 = "0000110" )or (p1_c3 = "010011")) or ((p1_c4 = "0000110" )or (p1_c4 = "010011"))
 						or ((p1_c5 = "0000110" )or (p1_c5 = "010011"))or ((p1_c6 = "0000110" )or (p1_c6 = "010011"))or ((p2_c1 = "0000110" )or (p2_c1 = "010011"))
-						or ((p2_c2 = "0000110" )or (p2_c2 = "010011"))) then
+						or ((p2_c2 = "0000110" )or (p2_c2 = "010011"))or ((p2_c3 = "0000110" )or (p2_c3 = "001110"))or ((p2_c4 = "0000110" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "0000110" )or (p2_c5 = "0001110"))or ((p2_c6 = "0000110" )or (p2_c6 = "001110"))) then
 							if addrcnt(6) = x"0a" then
 								addrcnt(6) <= (others => '0');
 							elsif addrcnt(6) = x"15" then
@@ -3512,7 +8036,8 @@ end process;
 						rgb_data <= b_data(7) & g_data(7) & r_data(7);
 						if(((p1_c2 = "0000111" ) or (p1_c2 = "010100")) or ((p1_c3 = "0000111" )or (p1_c3 = "010100")) or ((p1_c4 = "0000111" )or (p1_c4 = "010100"))
 						or ((p1_c5 = "0000111" )or (p1_c5 = "010100"))or ((p1_c6 = "0000111" )or (p1_c6 = "010100"))or ((p2_c1 = "0000111" )or (p2_c1 = "010100"))
-						or ((p2_c2 = "0000111" )or (p2_c2 = "010100"))) then
+						or ((p2_c2 = "0000111" )or (p2_c2 = "010100"))or ((p2_c3 = "000111" )or (p2_c3 = "001110"))or ((p2_c4 = "000111" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "000111" )or (p2_c5 = "001110"))or ((p2_c6 = "000111" )or (p2_c6 = "001110"))) then
 							if addrcnt(7) = x"0a" then
 								addrcnt(7) <= (others => '0');
 							elsif addrcnt(7) = x"15" then
@@ -3548,7 +8073,8 @@ end process;
 						rgb_data <= b_data(8) & g_data(8) & r_data(8);
 						if(((p1_c2 = "001000" ) or (p1_c2 = "010101")) or ((p1_c3 = "001000" )or (p1_c3 = "010101")) or ((p1_c4 = "001000" )or (p1_c4 = "010101"))
 						or ((p1_c5 = "001000" )or (p1_c5 = "010101"))or ((p1_c6 = "001000" )or (p1_c6 = "010101"))or ((p2_c1 = "001000" )or (p2_c1 = "010101"))
-						or ((p2_c2 = "001000" )or (p2_c2 = "010101"))) then
+						or ((p2_c2 = "001000" )or (p2_c2 = "010101"))or ((p2_c3 = "001000" )or (p2_c3 = "001110"))or ((p2_c4 = "001000" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "001000" )or (p2_c5 = "001110"))or ((p2_c6 = "001000" )or (p2_c6 = "001110"))) then
 							if addrcnt(8) = x"0a" then
 								addrcnt(8) <= (others => '0');
 							elsif addrcnt(8) = x"15" then
@@ -3584,7 +8110,8 @@ end process;
 						rgb_data <= b_data(9) & g_data(9) & r_data(9);
 						if(((p1_c2 = "001001" ) or (p1_c2 = "010110")) or ((p1_c3 = "001001" )or (p1_c3 = "010110")) or ((p1_c4 = "001001" )or (p1_c4 = "010110"))
 						or ((p1_c5 = "001001" )or (p1_c5 = "010110"))or ((p1_c6 = "001001" )or (p1_c6 = "010110"))or ((p2_c1 = "001001" )or (p2_c1 = "010110"))
-						or ((p2_c2 = "001001" )or (p2_c2 = "010110"))) then
+						or ((p2_c2 = "001001" )or (p2_c2 = "010110"))or ((p2_c3 = "001001" )or (p2_c3 = "001110"))or ((p2_c4 = "001001" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "001001" )or (p2_c5 = "001110"))or ((p2_c6 = "001001" )or (p2_c6 = "001110"))) then
 							if addrcnt(9) = x"0a" then
 								addrcnt(9) <= (others => '0');
 							elsif addrcnt(9) = x"15" then
@@ -3620,7 +8147,8 @@ end process;
 						rgb_data <= b_data(10) & g_data(10) & r_data(10);
 						if(((p1_c2 = "001010" ) or (p1_c2 = "010111")) or ((p1_c3 = "001010" )or (p1_c3 = "010111")) or ((p1_c4 = "001010" )or (p1_c4 = "010111"))
 						or ((p1_c5 = "001010" )or (p1_c5 = "010111"))or ((p1_c6 = "001010" )or (p1_c6 = "010111"))or ((p2_c1 = "001010" )or (p2_c1 = "010111"))
-						or ((p2_c2 = "001010" )or (p2_c2 = "010111"))) then
+						or ((p2_c2 = "001010" )or (p2_c2 = "010111"))or ((p2_c3 = "001010" )or (p2_c3 = "001110"))or ((p2_c4 = "001010" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "001010" )or (p2_c5 = "001110"))or ((p2_c6 = "001010" )or (p2_c6 = "001110"))) then
 							if addrcnt(10) = x"0a" then
 								addrcnt(10) <= (others => '0');
 							elsif addrcnt(10) = x"15" then
@@ -3656,7 +8184,8 @@ end process;
 						rgb_data <= b_data(11) & g_data(11) & r_data(11);
 						if(((p1_c2 = "001011" ) or (p1_c2 = "011000")) or ((p1_c3 = "001011" )or (p1_c3 = "011000")) or ((p1_c4 = "001011" )or (p1_c4 = "011000"))
 						or ((p1_c5 = "001011" )or (p1_c5 = "011000"))or ((p1_c6 = "001011" )or (p1_c6 = "011000"))or ((p2_c1 = "001011" )or (p2_c1 = "011000"))
-						or ((p2_c2 = "001011" )or (p2_c2 = "011000"))) then
+						or ((p2_c2 = "001011" )or (p2_c2 = "011000"))or ((p2_c3 = "001011" )or (p2_c3 = "001110"))or ((p2_c4 = "001011" )or (p2_c4 = "001110"))
+						or ((p2_c5 = "001011" )or (p2_c5 = "001110"))or ((p2_c6 = "001011" )or (p2_c6 = "001110"))) then
 							if addrcnt(11) = x"0a" then
 								addrcnt(11) <= (others => '0');
 							elsif addrcnt(11) = x"15" then
@@ -3692,7 +8221,8 @@ end process;
 						rgb_data <= b_data(12) & g_data(12) & r_data(12);
 						if(((p1_c2 = "001100" ) or (p1_c2 = "011001")) or ((p1_c3 = "001100" )or (p1_c3 = "011001")) or ((p1_c4 = "001100" )or (p1_c4 = "011001"))
 						or ((p1_c5 = "001100" )or (p1_c5 = "011001"))or ((p1_c6 = "001100" )or (p1_c6 = "011001"))or ((p2_c1 = "001100" )or (p2_c1 = "011001"))
-						or ((p2_c2 = "001100" )or (p2_c2 = "011001"))) then
+						or ((p2_c2 = "001100" )or (p2_c2 = "011001"))or ((p2_c3 = "001100" )or (p2_c3 = "011001"))or ((p2_c4 = "001100" )or (p2_c4 = "011001"))
+						or ((p2_c5 = "001100" )or (p2_c5 = "011001"))or ((p2_c6 = "001100" )or (p2_c6 = "011001"))) then
 							if addrcnt(12) = x"0a" then
 								addrcnt(12) <= (others => '0');
 							elsif addrcnt(12) = x"15" then
@@ -8822,9 +13352,7 @@ end process;
 					else
 						rgb_data <= "00000" & "001110" & "00000";
 					end if;
-				else
-					rgb_data <= "00000" & "001110" & "00000";
-				end if;
+				
 				elsif( (hsync_cnt >= (tHW + tHBP +399 ) ) and ( hsync_cnt <= (tHW + tHBP +400)) ) then --가운데 세로줄
 					rgb_data <= (others => '1');
 				elsif ((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +419)) ) then -- 2p 카드 숫자
@@ -13513,9 +18041,7 @@ end process;
 				else
 					rgb_data <= "00000" & "001110" & "00000";
 				end if;
-
 			elsif (( vsync_cnt >= (tVW + tVBP + 270) ) and ( vsync_cnt <= (tVW + tVBP + 479) ) ) then 
-			
 				if( (hsync_cnt >= (tHW + tHBP +399 ) ) and ( hsync_cnt <= (tHW + tHBP +400)) ) then --가운데 세로줄
 					rgb_data <= (others => '1');
 				else
