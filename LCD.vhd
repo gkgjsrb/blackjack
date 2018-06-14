@@ -93,7 +93,7 @@ process(CLK, RSTB)         --  sync 계산
                vsync_cnt<=0;
             else
                vsync_cnt<=vsync_cnt + 1;
-            end if;
+				end if;
          end if;
       end if;   
 end process;
@@ -1340,36 +1340,35 @@ end process;
 						rgb_data <= (others => '1');
 					end if;
 				elsif ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
-					if (d_c3 /= "111111") then
+					if (d_c6 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (d_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (d_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (d_c3 /= "111111") then
 						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +172)) ) then
 							rgb_data <= (others => '1');
 						else 
 							rgb_data <= "00000" & "001110" & "00000";
 						end if;
-					end if;
-					if (d_c4 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +173 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (d_c5 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +184 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (d_c6 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +195 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
+					else
+						rgb_data <= "00000" & "001110" & "00000";
 					end if;
 				else 
-					rgb_data <= (others => '1');
+					rgb_data <= "00000" & "001110" & "00000";
 				end if;
 			elsif ( ( vsync_cnt >= (tVW + tVBP +67 ) ) and ( vsync_cnt <= (tVW + tVBP + 68) ) )then 
 				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +110)) ) then
@@ -2453,33 +2452,32 @@ end process;
 						rgb_data <= (others => '1');
 					end if;
 				elsif ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
-					if (p1_c3 /= "111111") then
+					if (p1_c6 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c3 /= "111111") then
 						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +172)) ) then
 							rgb_data <= (others => '1');
 						else 
 							rgb_data <= "00000" & "001110" & "00000";
 						end if;
-					end if;
-					if (p1_c4 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +173 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (p1_c5 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +184 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (p1_c6 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +195 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
+					else
+						rgb_data <= "00000" & "001110" & "00000";
 					end if;
 				elsif( (hsync_cnt >= (tHW + tHBP +399 ) ) and ( hsync_cnt <= (tHW + tHBP +400)) ) then --가운데 세로줄
 					rgb_data <= (others => '1');
@@ -3214,33 +3212,33 @@ end process;
 						rgb_data <= (others => '1');
 					end if;
 				elsif ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
-					if (p2_c3 /= "111111") then
+					if (p2_c6 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p2_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +503)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p2_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +492)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p2_c3 /= "111111") then
+					
 						if ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +481)) ) then
 							rgb_data <= (others => '1');
 						else 
 							rgb_data <= "00000" & "001110" & "00000";
 						end if;
-					end if;
-					if (p2_c4 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +482 ) ) and ( hsync_cnt <= (tHW + tHBP +492)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (p2_c5 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +493 ) ) and ( hsync_cnt <= (tHW + tHBP +503)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (p2_c6 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +504 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
+					else
+						rgb_data <= "00000" & "001110" & "00000";
 					end if;
 				else
 					rgb_data <= "00000" & "001110" & "00000";
@@ -8797,34 +8795,36 @@ end process;
 						rgb_data <= (others => '1');
 					end if;
 				elsif ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
-					if (p1_c3 /= "111111") then
+					if (p1_c6 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c3 /= "111111") then
 						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +172)) ) then
 							rgb_data <= (others => '1');
 						else 
 							rgb_data <= "00000" & "001110" & "00000";
 						end if;
+					else
+						rgb_data <= "00000" & "001110" & "00000";
 					end if;
-					if (p1_c4 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +173 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (p1_c5 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +184 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (p1_c6 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +195 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
+				else
+					rgb_data <= "00000" & "001110" & "00000";
+				end if;
 				elsif( (hsync_cnt >= (tHW + tHBP +399 ) ) and ( hsync_cnt <= (tHW + tHBP +400)) ) then --가운데 세로줄
 					rgb_data <= (others => '1');
 				elsif ((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +419)) ) then -- 2p 카드 숫자
@@ -13412,47 +13412,108 @@ end process;
 						rgb_data <= (others => '1');
 					end if;
 				elsif ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
-					if (p2_c3 /= "111111") then
-						if ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +481)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (p2_c4 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +482 ) ) and ( hsync_cnt <= (tHW + tHBP +492)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
-					if (p2_c5 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +493 ) ) and ( hsync_cnt <= (tHW + tHBP +503)) ) then
-							rgb_data <= (others => '1');
-						else 
-							rgb_data <= "00000" & "001110" & "00000";
-						end if;
-					end if;
 					if (p2_c6 /= "111111") then	
-						if ((hsync_cnt >= (tHW + tHBP +504 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
+						if ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
 							rgb_data <= (others => '1');
 						else 
 							rgb_data <= "00000" & "001110" & "00000";
 						end if;
+					elsif (p2_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +503)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p2_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +475 ) ) and ( hsync_cnt <= (tHW + tHBP +492)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p2_c3 /= "111111") then
+						if ((hsync_cnt >= (tHW + tHBP +166 ) ) and ( hsync_cnt <= (tHW + tHBP +481)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					else
+						rgb_data <= "00000" & "001110" & "00000";
 					end if;
 				else
 					rgb_data <= "00000" & "001110" & "00000";
 				end if;
 			elsif ( ( vsync_cnt >= (tVW + tVBP +322 ) ) and ( vsync_cnt <= (tVW + tVBP + 391) ) )then 
 				if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
-					rgb_data <= (others => '1');
+					if (p1_c6 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +205)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +194)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +183)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p1_c3 /= "111111") then
+						if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +172)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					else
+						if ((hsync_cnt >= (tHW + tHBP +100 ) ) and ( hsync_cnt <= (tHW + tHBP +169)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					end if;
+					
 				elsif( (hsync_cnt >= (tHW + tHBP +399 ) ) and ( hsync_cnt <= (tHW + tHBP +400)) ) then --가운데 세로줄
 					rgb_data <= (others => '1');
 				elsif((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
-					rgb_data <= (others => '1');
+					if (p2_c6 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +514)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p2_c5 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +503)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p2_c4 /= "111111") then	
+						if ((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +492)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					elsif (p2_c3 /= "111111") then
+						if ((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +481)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					else
+						if ((hsync_cnt >= (tHW + tHBP +409 ) ) and ( hsync_cnt <= (tHW + tHBP +470)) ) then
+							rgb_data <= (others => '1');
+						else 
+							rgb_data <= "00000" & "001110" & "00000";
+						end if;
+					end if;
 				else
 					rgb_data <= "00000" & "001110" & "00000";
 				end if;
+
 			elsif (( vsync_cnt >= (tVW + tVBP + 270) ) and ( vsync_cnt <= (tVW + tVBP + 479) ) ) then 
 			
 				if( (hsync_cnt >= (tHW + tHBP +399 ) ) and ( hsync_cnt <= (tHW + tHBP +400)) ) then --가운데 세로줄
